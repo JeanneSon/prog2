@@ -20,6 +20,8 @@ public class Reservierung
         "Bitte die Bemerkung angeben!";
     private static final String MSG_BEMERKUNG_FEHLT =
         "Die Bemerkung existiert noch nicht!";
+    private static final String MSG_MITARBEITER_UNBEKANNT = 
+        "unbekannter Mitarbeiter";
 
     /**
      * Konstruktor
@@ -34,6 +36,7 @@ public class Reservierung
         this.ende = ende;
     }
 
+    
     /**
      * Konstruktor, der alle moeglichen Attribute entgegen nimmt
      *
@@ -93,7 +96,8 @@ public class Reservierung
     @Override
     public String toString()
     {
-        return "reservierung";
+        return mitarbeiter + " von " + beginn + 
+                " bis " + ende + " fuer " + bemerkung;
     }
 
     //get-Methoden
@@ -102,6 +106,21 @@ public class Reservierung
         return bemerkungIsSet() ? bemerkung : MSG_BEMERKUNG_FEHLT;
     }
     
+    public Uhrzeit getBeginn()
+    {
+        return beginn;
+    }
+    
+    public Uhrzeit getEnde()
+    {
+        return ende;
+    }
+    
+    public String getMitarbeiter()
+    {
+        return mitarbeiterIsSet() 
+                ? mitarbeiter.toString() : MSG_MITARBEITER_UNBEKANNT;
+    }
     
     //Allgemeine Methode zur Ueberpruefung
     /**
@@ -113,6 +132,17 @@ public class Reservierung
     private boolean bemerkungIsSet()
     {
         return bemerkung != null;
+    }
+    
+    /**
+     * mitarbeiterIsSet
+     * 
+     * @return  true, falls Mitarbeiter gesetzt ist
+     *          false sonst
+     */
+    private boolean mitarbeiterIsSet()
+    {
+        return mitarbeiter != null;
     }
     
     /**

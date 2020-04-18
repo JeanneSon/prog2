@@ -4,22 +4,38 @@
  */
 public class Raum
 {
+    //Konstanten
+    private static final int TIEFSTER_KELLER = -2;
+    private static final int MAX_ANZ_RESERVIERUNGEN = 20;
+    
     // Attribute
     private int geb;
     private int etage;
     private int raum;
+    private Reservierung[] reservierungen = 
+                new Reservierung[MAX_ANZ_RESERVIERUNGEN];
+    private int anzReservierungen = 0;
     
-    //Konstanten
     
     // Fehlermeldungen
-    
-    
+    private static final String MSG_RAUM_EXISTIERT_NICHT = 
+        "Dieser Raum existiert nicht";
+    private static final String MSG_RESERVIERUNGEN_VOLL = 
+        "Die maximale Anzahl an Reservierungen ist bereits erreicht.";
+    private String MSG_INDEX =
+        "Index liegt nicht zwischen 0 und ";
+        
     /**
      * Konstruktor für Objekte der Klasse Raum
      * @param 
      */
     public Raum(int geb, int etage, int raum)
     {
+        check(
+            geb >= 1 && 
+            etage >= TIEFSTER_KELLER && 
+            raum > 0, 
+            MSG_RAUM_EXISTIERT_NICHT);
         this.geb = geb;
         this.etage = etage;
         this.raum = raum;
@@ -30,16 +46,25 @@ public class Raum
      * Methode toString
      * @return Aufbereitung des Objekts als Zeichenkette
      */
+    @Override
     public String toString()
     {
-        return "Raum " + geb + "-" + etage + "." + raum;
+        StringBuilder sb = 
+            new StringBuilder("Raum " + geb + "-" + etage + "." + raum);
+        for (int i = 0; i < anzReservierungen; i++) {
+            sb.append(
+                "\ngebucht von " + 
+                reservierungen[i].getMitarbeiter() + 
+                reservierungen[i]);
+        } 
+        return sb.toString();
     }
 
     //get-Methoden
     /**
      * Methode getGeb
      *
-     * @return die Geb
+     * @return das Gebaeude
      */
     public int getGeb()
     {
@@ -67,12 +92,14 @@ public class Raum
     }
     
     /**
-     * @param  reservierung
-     * @return 
+     * @param  addReservierung
      */
     public void addReservierung(Reservierung reservierung)
     {
-        
+        check(anzReservierungen < MAX_ANZ_RESERVIERUNGEN,
+                    MSG_RESERVIERUNGEN_VOLL);
+        reservierungen[anzReservierungen] = reservierung;
+        anzReservierungen++;
     }
     
     /**
@@ -81,17 +108,20 @@ public class Raum
      */
     public Reservierung getReservierung(int index)
     {
-        
+        check(0 <= index && index < anzReservierungen, 
+            MSG_INDEX + anzReservierungen);
+        return reservierungen[index];
     }
     
     /**
-     * @param  reservierung
+     * 
      * @return 
      */
     public int getAnzahlReservierung()
     {
-        
+        return anzReservierungen;
     }
+    
 
     /**
      * Methode equals
@@ -113,7 +143,8 @@ public class Raum
      * @param bedingung, die erfuellt werden soll
      * @param msg (Fehlermeldung)
      */
-    public static void check(boolean bedingung, String msg)
+    private static void check(boolean bedingung, String msg) 
+    throws IllegalArgumentException
     {
         if (!bedingung)
             throw new IllegalArgumentException(msg);

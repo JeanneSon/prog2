@@ -86,6 +86,21 @@ public class Uhrzeit
             return false;
     }
 
+    /**
+     * isLater prueft ob die uebergebene Uhrzeit frueher ist
+     * 
+     * @param   true, falls o ein Uhrzeit-Objekt ist und this spaeter ist
+     *          false sonst
+     */
+    public boolean isLater(Object o) {
+        if (o instanceof Uhrzeit) {
+            Uhrzeit u = (Uhrzeit)o;
+            return stunde > u.stunde || 
+                        (stunde == u.stunde && minute > u.minute);
+        } else
+            return false;
+    }
+    
     //Allgemeine Methode zur Ueberpruefung
     /**
      * Methode check wirft eine IllegalArgumentException, falls bedingung nicht erfuellt

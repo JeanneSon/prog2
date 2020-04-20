@@ -80,4 +80,3 @@ public class Mitarbeiter extends Person
             throw new IllegalArgumentException(msg);
     }
 }
-                

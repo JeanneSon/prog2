@@ -122,11 +122,11 @@ public class ReservierungDialog
         int etage;
         int raum;
 
-        System.out.print("Gebaudenumer: ");
+        System.out.println("Gebaudenumer: ");
         geb = input.nextInt();
-        System.out.print("Etagenumer: ");
+        System.out.println("Etagenumer: ");
         etage = input.nextInt();
-        System.out.print("Raumnumer: ");
+        System.out.println("Raumnumer: ");
         raum = input.nextInt();
         return new Raum(geb, etage, raum);
     }
@@ -140,11 +140,12 @@ public class ReservierungDialog
         String nachname;
         String email;
 
-        System.out.print("Mitarbeiter vorname: ");
+        System.out.println("Mitarbeiter vorname: ");
+        input.nextLine();
         vorname = input.nextLine();
-        System.out.print("Mitarbeiter nachname: ");
+        System.out.println("Mitarbeiter nachname: ");
         nachname = input.nextLine();
-        System.out.print("Mitarbeiter email: ");
+        System.out.println("Mitarbeiter email: ");
         email = input.nextLine();
         return new Mitarbeiter(vorname, nachname, email);
     }
@@ -169,11 +170,19 @@ public class ReservierungDialog
     private Reservierung reservierungAnlegen(){
         Uhrzeit beginn;
         Uhrzeit ende;
+        String bemerkung;
         
         System.out.print("Beginn: ");
         beginn = uhrzeitAnlegen();
         System.out.print("Ende: ");
         ende = uhrzeitAnlegen();
+        System.out.println("Bemerkung: ");
+        input.nextLine();
+        bemerkung = input.nextLine();
+        System.out.print("Raum: ");
+        raum = raumAnlegen();
+        mitarbeiter = mitarbeiterAnlegen();
+        mitarbeiter.reserviere(raum, beginn, ende, bemerkung);
         return new Reservierung(beginn, ende);
     } 
     

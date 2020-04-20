@@ -72,7 +72,7 @@ public class Person
     @Override
     public String toString()
     {
-        return "Vorname : " + vorname + "\nNachname : " + nachname;
+        return vorname + " " + nachname;
     }
 
     /**

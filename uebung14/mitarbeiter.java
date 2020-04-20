@@ -58,11 +58,13 @@ public class Mitarbeiter extends Person
     /**
      *
      * @param
-     * @return
      */
     public void reserviere(Raum raum, Uhrzeit beginn, Uhrzeit ende, String bemerkung)
     {
-
+          Reservierung reservierung = new Reservierung(beginn, ende);
+          reservierung.setBemerkung(bemerkung);
+          reservierung.setMitarbeiter(this);
+          raum.addReservierung(reservierung);
     }
 
     //Allgemeine Methode zur Ueberpruefung

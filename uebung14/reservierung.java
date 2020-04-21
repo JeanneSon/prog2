@@ -122,6 +122,23 @@ public class Reservierung
                 ? mitarbeiter.toString() : MSG_MITARBEITER_UNBEKANNT;
     }
     
+    /**
+     * equals prueft, ob ein uebergebenes Objekt zu this gleich ist
+     * @param Objekt o
+     * @return true, falls gleich; sonst false
+     */
+    public boolean equals(Object o)
+    {
+        if (o == null) return false;
+        if (o instanceof Reservierung) {
+            Reservierung r = (Reservierung)o;
+            return this.beginn == r.beginn && this.ende == r.ende
+                && this.bemerkung == r.bemerkung && this.raum == r.raum
+                && this.mitarbeiter == r.mitarbeiter;
+        }
+        return false;
+            
+            
     //Allgemeine Methode zur Ueberpruefung
     /**
      * bemerkungIsSet

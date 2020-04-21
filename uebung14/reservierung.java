@@ -132,9 +132,9 @@ public class Reservierung
         if (o == null) return false;
         if (o instanceof Reservierung) {
             Reservierung r = (Reservierung)o;
-            return this.beginn == r.beginn && this.ende == r.ende
-                && this.bemerkung == r.bemerkung && this.raum == r.raum
-                && this.mitarbeiter == r.mitarbeiter;
+            return this.beginn.equals(r.beginn) && this.ende.equals(r.ende)
+                && this.bemerkung.equals(r.bemerkung) && this.raum.equals(r.raum)
+                && this.mitarbeiter.equals(r.mitarbeiter);
         }
         return false;
             

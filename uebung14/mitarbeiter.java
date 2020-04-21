@@ -51,7 +51,7 @@ public class Mitarbeiter extends Person
         if (o == null) return false;
         if (o instanceof Mitarbeiter) {
             Mitarbeiter p = (Mitarbeiter)o;
-            return (super.equals(o) && email == p.email);
+            return (super.equals(o) && email.equals(p.email));
         } else
             return false;
     }

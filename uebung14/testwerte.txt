@@ -1,0 +1,29 @@
+UHRZEIT
+*******
+Stunde 31 _ Minute 2 --> "java.lang.IllegalArgumentException: Die Stunden muessen zwischen 0 und 23 sein!"
+
+Stunde 12 _ Minute 90 --> "java.lang.IllegalArgumentException: Die Minuten muessen zwischen 0 und 59 sein!"
+
+RAUM
+****
+Geb 3 _ Etage 8 _ Raum -2 --> "java.lang.IllegalArgumentException: Dieser Raum existiert nicht"
+
+Geb 3 _ Etage 1 _ Raum 3 --> Raum 3-1.3
+
+Geb -3 _ Etage 1 _ Raum 9 --> "java.lang.IllegalArgumentException: Dieser Raum existiert nicht"
+
+MITARBEITER
+***********
+Vorname wlk _ Nachname lk _ Email d --> wlk lk (d)
+
+Vorname  _ Nachname e _ Email q --> "java.lang.IllegalArgumentException: Bitte den Vornamen angeben!"
+
+Vorname elkj _ Nachname  _ Email 2 --> "java.lang.IllegalArgumentException: Bitte den Nachnamen angeben!"
+
+Vorname e _ Nachname q _ Email  --> "java.lang.IllegalArgumentException: Bitte die Email angeben!"
+
+RESERVIERUNG ANLEGEN
+********************
+Geb 3 _ Etage 1 _ Raum 3 _ Vorname rut _ Nachname marx _ Email @lkj _ Beginn:Stunde 3 _ Minute 2 _ Ende:Stunde 2 _ Minute 4 _ Bemerkung tei --> "java.lang.IllegalArgumentException: Der Beginn muss vor dem Ende sein!"
+
+Geb 3 _ Etage 1 _ Raum 3 Vorname mara _ Nachname may _ Email @ie _ Beginn:Stunde 7 _ Minute 8 _ Ende:Stunde 9 _ Minute 7 _ Bemerkung Test --> "Raum 3.1.3 \ngebucht von mara may (@ie) von 7:8 Uhr bis 9:7 Uhr fuer Test

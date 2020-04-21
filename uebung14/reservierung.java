@@ -65,7 +65,7 @@ public class Reservierung
     public void setBemerkung(String bemerkung) 
     {
         bemerkung = bemerkung.trim();
-        check(bemerkung != null && bemerkung != "", MSG_BEMERKUNG_ANGEBEN);
+        check(bemerkung != null && !bemerkung.isEmpty(), MSG_BEMERKUNG_ANGEBEN);
         this.bemerkung = bemerkung;
     }
     

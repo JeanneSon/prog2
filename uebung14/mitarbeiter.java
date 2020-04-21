@@ -48,6 +48,7 @@ public class Mitarbeiter extends Person
      */
     @Override
     public boolean equals(Object o) {
+        if (o == null) return false;
         if (o instanceof Mitarbeiter) {
             Mitarbeiter p = (Mitarbeiter)o;
             return (super.equals(o) && email == p.email);

@@ -59,7 +59,7 @@ public class Person
         if (o == null) return false;
         if (o instanceof Person) {
             Person p = (Person)o;
-            return (vorname == p.vorname && nachname == p.nachname);
+            return (vorname.equals(p.vorname) && nachname.equals(p.nachname));
         } else
             return false;
     } 

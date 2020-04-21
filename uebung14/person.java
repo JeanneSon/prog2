@@ -56,6 +56,7 @@ public class Person
     @Override
     public boolean equals(Object o) 
     {
+        if (o == null) return false;
         if (o instanceof Person) {
             Person p = (Person)o;
             return (vorname == p.vorname && nachname == p.nachname);

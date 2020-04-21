@@ -52,10 +52,7 @@ public class Raum
         StringBuilder sb = 
             new StringBuilder("Raum " + geb + "-" + etage + "." + raum);
         for (int i = 0; i < anzReservierungen; i++) {
-            sb.append(
-                "\ngebucht von " + 
-                reservierungen[i].getMitarbeiter() + 
-                reservierungen[i]);
+            sb.append("\ngebucht von " + reservierungen[i]);
         } 
         return sb.toString();
     }

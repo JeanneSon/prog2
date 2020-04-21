@@ -14,7 +14,7 @@ public class Mitarbeiter extends Person
     {
         super(vorname, nachname);
         email = email.trim();
-        check(email != null && email != "", LEERE_EMAIL);
+        check(email != null && !email.isEmpty(), LEERE_EMAIL);
         this.email = email;
     }
 
@@ -56,15 +56,16 @@ public class Mitarbeiter extends Person
     }
 
     /**
-     *
-     * @param
+     * reserviere speichert eine neue Reservierung im Array von @param raum
+     * 
+     * @param beginn
+     * @param ende
+     * @param bemerkung
      */
     public void reserviere(Raum raum, Uhrzeit beginn, Uhrzeit ende, String bemerkung)
     {
-          Reservierung reservierung = new Reservierung(beginn, ende);
-          reservierung.setBemerkung(bemerkung);
-          reservierung.setMitarbeiter(this);
-          raum.addReservierung(reservierung);
+        Reservierung res = new Reservierung(beginn, ende, raum, this, bemerkung);
+        raum.addReservierung(res);
     }
 
     //Allgemeine Methode zur Ueberpruefung
@@ -80,3 +81,4 @@ public class Mitarbeiter extends Person
             throw new IllegalArgumentException(msg);
     }
 }
+                

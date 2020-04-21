@@ -126,6 +126,7 @@ public class Raum
      * @return true wenn die 2 object gleich sind sondern false  
      */
     public boolean equals(Object o) {
+        if (o == null) return false;
         if (o instanceof Raum) {
             Raum p = (Raum)o;
             return (geb == p.geb && etage == p.etage && raum == p.raum);

@@ -26,8 +26,8 @@ public class Person
         vorname = vorname.trim();
         nachname = nachname.trim();
         
-        check(vorname != null && vorname != "", LEERER_VORNAME);
-        check(nachname != null && nachname != "", LEERER_NACHNAME);
+        check(vorname != null && !vorname.isEmpty(), LEERER_VORNAME);
+        check(nachname != null && !nachname.isEmpty(), LEERER_NACHNAME);
         
         this.vorname = vorname;
         this.nachname = nachname;
@@ -65,9 +65,9 @@ public class Person
 
     
     /**
-     * Methode toString bereitet personenbezogene Informationen als String auf
+     * Methode toString
      * 
-     * @return  aufbereiteter String
+     * @return Aufbereitung des Objekts als Zeichenkette
      */
     @Override
     public String toString()
@@ -75,13 +75,15 @@ public class Person
         return vorname + " " + nachname;
     }
 
+    //Allgemeine Methode zur Ueberpruefung
     /**
-     * Methode check wirft eine IllegalArgumentException, falls bedingung nicht stimmt
+     * Methode check wirft eine IllegalArgumentException, falls bedingung nicht erfuellt
      *
      * @param bedingung 
      * @param msg - Fehlermeldung
      */
-    private static void check(boolean bedingung, String msg) throws IllegalArgumentException{
+    private static void check(boolean bedingung, String msg) throws IllegalArgumentException
+    {
         if (!bedingung)
             throw new IllegalArgumentException(msg);
     }

@@ -79,6 +79,7 @@ public class Uhrzeit
      */
     @Override
     public boolean equals(Object o) {
+        if (o == null) return false;
         if (o instanceof Uhrzeit) {
             Uhrzeit p = (Uhrzeit)o;
             return (stunde == p.stunde && minute == p.minute);

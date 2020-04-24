@@ -13,6 +13,16 @@ public class MathFunctions
     public static final int KLEINSTE_ISBN = 100_000_000;
     public static final int GROESSTE_ISBN = 999_999_999;
     private static final double EPSILON = 10e-6;
+    
+    //Fehlermeldungen
+    private static final String POSITIVE_ZAHL = "Der Zahl muss positiv sein";
+    private static final String POSITIVE_ZAHL_N = "Die Zahl n muss positiv sein";
+    
+    //Rueckgaben
+    private static final String UNGUELTIGE_ISBN = "ISBN nicht gueltig.";
+    private static final String KOMPLEXE_NULLSTELLEN = "Komplexe Nullstellen";
+    private static final String DOPPELTE_NULLSTELLEN = "Doppelte Nullstelle: ";
+    private static final String ZWEI_NULLSTELLEN = "Zwei Nullstellen: ";
 
     /**
      * berechneTeilersumme addiert alle Teiler
@@ -21,8 +31,7 @@ public class MathFunctions
      * @return Teilersumme
      */
     public static long berechneTeilersumme (long zahl) {
-        check(zahl > 0,
-        "Der Zahl muss positiv sein");
+        check(zahl > 0,POSITIVE_ZAHL);
         long teilersumme = zahl + 1;
         long j;
         for(int i = 2; i <= sqrt(zahl); i++) {
@@ -43,7 +52,6 @@ public class MathFunctions
      * @return String der Pruefziffer
      */
     public static String berechneChecksummeIsbn(long isbn) {
-        String ergebnis = "ISBN nicht gueltig.";
         long summe = 0L;
         // ueberpruefen, ob isbn 9-stellig ist
         if (isbn >= KLEINSTE_ISBN && isbn <= GROESSTE_ISBN) {
@@ -56,7 +64,7 @@ public class MathFunctions
                 return "X";
             return Long.toString(summe);
         }
-        return "ISBN nicht gueltig.";
+        return UNGUELTIGE_ISBN;
     }
 
 
@@ -71,16 +79,16 @@ public class MathFunctions
         double p2 = p/2.0;
         double diskriminante = (p2) * (p2) - q;
         if (diskriminante < -EPSILON){
-            return "Komplexe Nullstellen";
+            return KOMPLEXE_NULLSTELLEN;
         }
         else if(diskriminante <= EPSILON && diskriminante >= -EPSILON){
             double x1 = -p2;
-            return "Doppelte Nullstelle: " + x1;
+            return DOPPELTE_NULLSTELLEN + x1;
         }
         else {
             double x1 = -p2 + Math.sqrt((p2) * (p2) - q);
             double x2 = -p2 - Math.sqrt((p2) * (p2) - q);
-            return "Zwei Nullstellen: " + x1 + " | " + x2;
+            return ZWEI_NULLSTELLEN + x1 + " | " + x2;
         }
     }
     
@@ -92,7 +100,7 @@ public class MathFunctions
      */
     public static boolean istSummeVonPotenzen(long n){
         // darstellbar als a^4, b^3, c^2
-        check(n > 0, "Die Zahl muss positiv sein");
+        check(n > 0, POSITIVE_ZAHL);
         long summand1, summand2;
         for (long a = 1; a <= Math.sqrt(Math.sqrt(n - 2)); a++){
             summand1 = a*a*a*a;
@@ -118,7 +126,7 @@ public class MathFunctions
      * @return die reihensumme
      */
     public static double berechneReihensumme(int n, double x){
-        check(n > 0, "Die Zahl n muss positiv sein");
+        check(n > 0, POSITIVE_ZAHL_N);
         double reihensumme = 0;
         double zaehler = 1;
         for (int i = 1; i <= n; i++){
@@ -128,6 +136,26 @@ public class MathFunctions
         return reihensumme ;
     }
     
+    /**
+     *  berechneGgt
+     *  Formel  ggT(a,0) = 0
+     *          ggt(a,b) = ggt(b,a mod b)
+     *  
+     *  @param a erste natuerliche Zahl
+     *  @param b zweite natuerliche Zahl
+     *  @return der groesste gemeiname Teiler
+     */
+    public static long berechneGgt(long a, long b) {
+        check(a >= 0, POSITIVE_ZAHL);
+        check(b >= 0, POSITIVE_ZAHL);
+        if (a == 0) {
+            return b;
+        }
+        if (b == 0 ) {
+            return a;
+        }
+        return berechneGgt(b, a % b);
+    }
     
     //Allgemeine Methode zur Ueberpruefung
     /**

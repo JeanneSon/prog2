@@ -17,6 +17,7 @@ public class MathFunctionsDialog
     private static final int NULLSTELLEN = 3;
     private static final int POTENZSUMME = 4;
     private static final int REIHENSUMME = 5;
+    private static final int GGT = 6;
     private static final int ENDE = 0;
 
     /**
@@ -58,6 +59,7 @@ public class MathFunctionsDialog
         NULLSTELLEN          + ": Nullstellen einer quadratischen Gleichung der Parameter p und q bestimmen \n" + 
         POTENZSUMME            + ": Summanden (a, b, c) von n, sodass a^4 + b^3 + c^2 \n" +
         REIHENSUMME         + " : Reihensumme von i=1 bis i=n, Formel  ∑ (x-1)ⁱ / (ixⁱ) \n" +
+        GGT                 + " : groesster gemeinsamer Teiler mit Euklid \n" + 
         ENDE            + ": Programm beenden; \nAuswahl:\t");
 
         auswahl = input.nextInt();
@@ -92,6 +94,11 @@ public class MathFunctionsDialog
                 int n1 = einleseInt("Bitte n eingeben (positive ganze Zahl)");
                 double x = einleseDouble("Bitte x eingeben");
                 System.out.println(mathFunctions.berechneReihensumme(n1, x));
+                break;
+            case GGT:
+                long a = einleseLong("Bitte natuerliche Zahl a eingeben");
+                long b = einleseLong("Bitte natuerliche Zahl b eingeben");
+                System.out.println(mathFunctions.berechneGgt(a, b));
                 break;
             case ENDE:
                 System.out.println("Programmende");

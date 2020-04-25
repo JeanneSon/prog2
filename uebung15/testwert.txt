@@ -5,4 +5,8 @@ a= b=0
 a= b=
 
 PALINDROME
-****
+**********
+wort = "otto" -> true
+wort = "Otto" -> true
+wort = "Ein Neger mit Gazette zagt im Regen nie." -> true
+wort = "hallo" -> false

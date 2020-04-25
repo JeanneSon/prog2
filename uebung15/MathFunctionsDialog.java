@@ -1,4 +1,6 @@
 import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 /**
  * Klasse MathFunctionsDialog zum interaktiven Testen der MathFunctions-Klasse
  * 
@@ -20,8 +22,8 @@ public class MathFunctionsDialog
     private static final int POTENZSUMME = 4;
     private static final int REIHENSUMME = 5;
     private static final int GGT = 6;
-    private static final int PALINDROME_REKURSIV = 7;
-    private static final int PALINDROME_ITERATIV = 8;
+    private static final int PALINDROME_TEXT = 7;
+    private static final int PALINDROME_DATEI = 8;
     private static final int ENDE = 0;
 
     /**
@@ -64,8 +66,8 @@ public class MathFunctionsDialog
         POTENZSUMME            + ": Summanden (a, b, c) von n, sodass a^4 + b^3 + c^2 \n" +
         REIHENSUMME         + " : Reihensumme von i=1 bis i=n, Formel  ∑ (x-1)ⁱ / (ixⁱ) \n" +
         GGT                 + " : groesster gemeinsamer Teiler mit Euklid \n" + 
-        PALINDROME_ITERATIV + " : Palindrome uberprufen mit iterativ function \n" +
-        PALINDROME_REKURSIV + " : Palindrome uberprufen mit rekursiv function \n" +
+        PALINDROME_TEXT + " : Palindrome uberpruefen von einem gegebene Text  \n" +
+        PALINDROME_DATEI + " : Palindrome uberprufen von ein datei \n" +
         ENDE            + ": Programm beenden; \nAuswahl:\t");
 
         auswahl = input.nextInt();
@@ -106,13 +108,15 @@ public class MathFunctionsDialog
                 long b = einleseLong("Bitte natuerliche Zahl b eingeben");
                 System.out.println(mathFunctions.berechneGgt(a, b));
                 break;
-            case PALINDROME_REKURSIV:
-                String wort = einleseWort("Bitte ein Wort oder ein Text eingeben");
-                System.out.println(palindromRekursiv.istPalindrom(wort));
+            case PALINDROME_TEXT:
+                String text = einleseText("Bitte ein Wort oder ein Text eingeben");
+                System.out.println(palindromRekursiv.istPalindrom(text));
+                System.out.println(palindromIterativ.istPalindrom(text));
                 break;
-            case PALINDROME_ITERATIV:
-                String text = einleseWort("Bitte ein Wort oder ein Text eingeben");
-                System.out.println(palindromIterativ.istPalindrom(wort));
+            case PALINDROME_DATEI:
+                String datei = einleseDatei("Bitte ein datei eingeben");
+                System.out.println(palindromRekursiv.istPalindrom(text));
+                System.out.println(palindromIterativ.istPalindrom(datei));
                 break;
             case ENDE:
                 System.out.println("Programmende");
@@ -156,12 +160,12 @@ public class MathFunctionsDialog
     }
     
     /**
-     * einleseWort liest eine Int-Zahl ein
+     * einleseText liest eine String-text ein
      *
      * @param msg ist die Eingabeaufforderung
-     * @return eingelesene String-wort
+     * @return eingelesene String-text
      */
-    private String einleseWort(String msg) {
+    private String einleseText(String msg) {
         System.out.print(msg + " (Typ String) : \t");
         String test = input.nextLine();
         String wort = test.toLowerCase();
@@ -176,7 +180,15 @@ public class MathFunctionsDialog
         wort = temp;
         return wort;
     }
-    
+    /**
+     * einleseDatei liest eine Datei ein
+     *
+     * @param msg ist die Eingabeaufforderung
+     * @return eingelesene Datei
+     */
+    private String einleseDatei(String msg) {
+        
+    }
     /**
      * Main-Methode zum Erzugen des MathFunctionsDialog-Objekts
      * und zum Anstarten der Testschleife

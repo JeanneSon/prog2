@@ -9,6 +9,8 @@ public class MathFunctionsDialog
 {
     //Attribute
     private MathFunctions mathFunctions = new MathFunctions();
+    private Palindrom palindromRekursiv = new PalindromRekursiv();
+    private Palindrom palindromIterativ = new PalindromIterativ();
     private Scanner input = new Scanner(System.in);
 
     //Klassenkonstanten
@@ -18,6 +20,8 @@ public class MathFunctionsDialog
     private static final int POTENZSUMME = 4;
     private static final int REIHENSUMME = 5;
     private static final int GGT = 6;
+    private static final int PALINDROME_REKURSIV = 7;
+    private static final int PALINDROME_ITERATIV = 8;
     private static final int ENDE = 0;
 
     /**
@@ -60,6 +64,8 @@ public class MathFunctionsDialog
         POTENZSUMME            + ": Summanden (a, b, c) von n, sodass a^4 + b^3 + c^2 \n" +
         REIHENSUMME         + " : Reihensumme von i=1 bis i=n, Formel  ∑ (x-1)ⁱ / (ixⁱ) \n" +
         GGT                 + " : groesster gemeinsamer Teiler mit Euklid \n" + 
+        PALINDROME_ITERATIV + " : Palindrome uberprufen mit iterativ function \n" +
+        PALINDROME_REKURSIV + " : Palindrome uberprufen mit rekursiv function \n" +
         ENDE            + ": Programm beenden; \nAuswahl:\t");
 
         auswahl = input.nextInt();
@@ -100,6 +106,14 @@ public class MathFunctionsDialog
                 long b = einleseLong("Bitte natuerliche Zahl b eingeben");
                 System.out.println(mathFunctions.berechneGgt(a, b));
                 break;
+            case PALINDROME_REKURSIV:
+                String wort = einleseWort("Bitte ein Wort oder ein Text eingeben");
+                System.out.println(palindromRekursiv.istPalindrom(wort));
+                break;
+            case PALINDROME_ITERATIV:
+                String text = einleseWort("Bitte ein Wort oder ein Text eingeben");
+                System.out.println(palindromIterativ.istPalindrom(wort));
+                break;
             case ENDE:
                 System.out.println("Programmende");
                 break;
@@ -139,6 +153,28 @@ public class MathFunctionsDialog
     private int einleseInt(String msg) {
         System.out.print(msg + " (Typ Int) : \t");
         return input.nextInt();
+    }
+    
+    /**
+     * einleseWort liest eine Int-Zahl ein
+     *
+     * @param msg ist die Eingabeaufforderung
+     * @return eingelesene String-wort
+     */
+    private String einleseWort(String msg) {
+        System.out.print(msg + " (Typ String) : \t");
+        String test = input.nextLine();
+        String wort = test.toLowerCase();
+        String allowedList = "abcdefghijklmnopqrstuvwxyz";
+        String temp = "";
+        for (int i = 0; i < wort.length(); i++) {
+            char c = wort.charAt(i);
+            if (allowedList.indexOf(c) != -1) {
+                temp += c;
+            }
+        }
+        wort = temp;
+        return wort;
     }
     
     /**

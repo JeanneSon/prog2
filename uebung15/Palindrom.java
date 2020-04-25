@@ -15,8 +15,12 @@ public class PalindromRekursiv implements Palindrom {
         if (wort.charAt(first) != wort.charAt(last))
             return false;
         else {
-            String neuesWort = wort.substring(1,last);
-            return istPalindrom(neuesWort);
+            if (wort.length() == 2)
+                return true;
+                else {
+                    String neuesWort = wort.substring(1,last);
+                    return istPalindrom(neuesWort);
+                }   
         }
     }
 }

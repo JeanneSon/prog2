@@ -5,7 +5,7 @@
  */
 public interface Palindrom
 {
-    boolean istPalindrom();
+    boolean istPalindrom(String wort);
 }
 public class PalindromRekursiv implements Palindrom {
     @Override

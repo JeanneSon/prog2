@@ -8,7 +8,7 @@ PALINDROME TEXT
 ****************
 wort = "otto" -> true
 wort = "Otto" -> true
-wort = "Bahre Bürde drüber hab!" -> true
+wort = "Die Liebe fleht: Helfe bei Leid!" -> true
 wort = "hallo" -> false
 wort = "" -> true
 wort = " " -> true

@@ -10,8 +10,11 @@ wort = "otto" -> true
 wort = "Otto" -> true
 wort = "Ein Neger mit Gazette zagt im Regen nie." -> true
 wort = "hallo" -> false
-wort = "" -> false
+wort = "" -> true
+wort = " " -> true
+wort = "a" -> true
 wort = "11" -> true
+wort = 11 -> Error: incompatible types: int cannot be converted to java.lang.String
 
 
 PALINDROME DATEIN

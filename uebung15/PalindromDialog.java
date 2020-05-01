@@ -140,7 +140,7 @@ public class PalindromDialog
     public String processString(String wort)
     {
         wort = wort.toLowerCase();
-        String allowedList = "abcdefghijklmnopqrstuvwxyz";
+        String allowedList = "abcdefghijklmnopqrstuvwxyz0123456789";
         String temp = "";
         for (int i = 0; i < wort.length(); i++) {
             char c = wort.charAt(i);

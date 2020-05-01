@@ -25,10 +25,12 @@ public class PalindromDialog
     //Konstanten fuer das Unter-Menue
     private static final int REKURSIV = 1;
     private static final int ITERATIV = 2;
+    private static final String SEPARATOR = "------------------------------------------------------------------------";
     /**
     *Hauptschleife des Testprogramms
     */
     public void start() {
+        System.out.println(SEPARATOR);
         System.out.println("HERZLICH WILLKOMMEN IN PALINDROME!");
         System.out.println("Bitte wählen Sie aus.");
 
@@ -58,10 +60,11 @@ public class PalindromDialog
     */
     private int einlesenAuswahl() {
         int auswahl;
+        System.out.println(SEPARATOR);
         System.out.print(
         PALINDROME_TEXT + " : Palindrome uberpruefen von einem gegebene Text  \n" +
         PALINDROME_DATEI + " : Palindrome uberprufen von ein datei \n" +
-        ENDE            + ": Programm beenden; \nAuswahl:\t");
+        ENDE            + " : Programm beenden; \nAuswahl:\t");
 
         auswahl = input.nextInt();
         input.nextLine();

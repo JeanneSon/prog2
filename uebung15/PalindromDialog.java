@@ -76,7 +76,7 @@ public class PalindromDialog
      *
      * @param auswahl
      */
-    private void ausfuehrenAuswahl(int auswahl)throws IOException {
+    private void ausfuehrenAuswahl(int auswahl) throws IOException, IllegalArgumentException {
         switch (auswahl) {
             case PALINDROME_TEXT:
                 String text = einleseText("Bitte ein Wort oder ein Text eingeben");
@@ -137,9 +137,9 @@ public class PalindromDialog
      * @param wort 
      * @return eingelesene String-text nur mit buchstaben von 'a' bis 'z'
      */
-    public String processString(String wort)
+    public String processString(String wort) throws IllegalArgumentException
     {
-        wort = wort.toLowerCase();
+        wort = wort.toLowerCase().trim();
         String allowedList = "abcdefghijklmnopqrstuvwxyz0123456789";
         String temp = "";
         for (int i = 0; i < wort.length(); i++) {
@@ -148,8 +148,9 @@ public class PalindromDialog
                 temp += c;
             }
         }
-        wort = temp;
-        return wort;
+        if (temp.isEmpty())
+            throw IllegalArgumentException("Leerer String");
+        return temp;
     }
 
     /**

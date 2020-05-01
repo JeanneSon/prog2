@@ -8,7 +8,7 @@ PALINDROME TEXT
 ****************
 wort = "otto" -> true
 wort = "Otto" -> true
-wort = "Ein Neger mit Gazette zagt im Regen nie." -> true
+wort = "Bahre Bürde drüber hab!" -> true
 wort = "hallo" -> false
 wort = "" -> true
 wort = " " -> true

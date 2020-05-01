@@ -10,8 +10,12 @@ wort = "otto" -> true
 wort = "Otto" -> true
 wort = "Ein Neger mit Gazette zagt im Regen nie." -> true
 wort = "hallo" -> false
+wort = "" -> false
+wort = "11" -> true
 
 
 PALINDROME DATEIN
 ******************
-datei = 
+datei = testsatzepalindrome.txt -> true
+datei = leerdatei -> false
+datei =

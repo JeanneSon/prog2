@@ -22,3 +22,5 @@ PALINDROME DATEIN
 datei = testsatzepalindrome.txt -> true
 datei = leerdatei.txt -> false
 datei = wortpalindrome.txt -> true
+datei = wort.txt -> false
+datei = satz.txt -> false

@@ -3,8 +3,8 @@ import java.io.IOException;
 /**
  * Beschreiben Sie hier die Klasse Messreihe.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author VENET Aurianne SCHALL Hanna 
+ * @version 1.0
  */
 public class Messreihe
 {
@@ -107,6 +107,13 @@ public class Messreihe
        process(nonPalindromicStrings, "rekursiv_false.txt", "iterativ_false.txt");
     }
     
+    /**
+     * process
+     *
+     * @param testList 
+     * @param rekursivNameFile 
+     * @param iterativNameFile 
+     */
     private static void process(String[][] testList, String rekursivNameFile, String iterativNameFile) {
         StringBuilder it = new StringBuilder();
         StringBuilder rk = new StringBuilder();

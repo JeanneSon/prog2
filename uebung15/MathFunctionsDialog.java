@@ -11,8 +11,6 @@ public class MathFunctionsDialog
 {
     //Attribute
     private MathFunctions mathFunctions = new MathFunctions();
-    private Palindrom palindromRekursiv = new PalindromRekursiv();
-    private Palindrom palindromIterativ = new PalindromIterativ();
     private Scanner input = new Scanner(System.in);
 
     //Klassenkonstanten
@@ -22,14 +20,15 @@ public class MathFunctionsDialog
     private static final int POTENZSUMME = 4;
     private static final int REIHENSUMME = 5;
     private static final int GGT = 6;
-    private static final int PALINDROME_TEXT = 7;
-    private static final int PALINDROME_DATEI = 8;
     private static final int ENDE = 0;
-
+    
+    private static final String SEPARATOR = "------------------------------------------------------------------------";
+    
     /**
     *Hauptschleife des Testprogramms
     */
     public void start() {
+        System.out.println(SEPARATOR);
         System.out.println("HERZLICH WILLKOMMEN IN MATH-FUNCTIONS!");
         System.out.println("Bitte wählen Sie aus.");
 
@@ -59,6 +58,7 @@ public class MathFunctionsDialog
     */
     private int einlesenAuswahl() {
         int auswahl;
+        System.out.println(SEPARATOR);
         System.out.print(
         TEILERSUMME         + ": Teilersumme zu einer übergebenen natürlichen Zahl berechnen und zurückgeben \n" + 
         PRUEFZIFFER          + ": Prüfziffer für eine ISBN-10 berechnen  \n" +
@@ -66,8 +66,6 @@ public class MathFunctionsDialog
         POTENZSUMME            + ": Summanden (a, b, c) von n, sodass a^4 + b^3 + c^2 \n" +
         REIHENSUMME         + " : Reihensumme von i=1 bis i=n, Formel  ∑ (x-1)ⁱ / (ixⁱ) \n" +
         GGT                 + " : groesster gemeinsamer Teiler mit Euklid \n" + 
-        PALINDROME_TEXT + " : Palindrome uberpruefen von einem gegebene Text  \n" +
-        PALINDROME_DATEI + " : Palindrome uberprufen von ein datei \n" +
         ENDE            + ": Programm beenden; \nAuswahl:\t");
 
         auswahl = input.nextInt();
@@ -107,16 +105,6 @@ public class MathFunctionsDialog
                 long a = einleseLong("Bitte natuerliche Zahl a eingeben");
                 long b = einleseLong("Bitte natuerliche Zahl b eingeben");
                 System.out.println(mathFunctions.berechneGgt(a, b));
-                break;
-            case PALINDROME_TEXT:
-                String text = einleseText("Bitte ein Wort oder ein Text eingeben");
-                System.out.println(palindromRekursiv.istPalindrom(text));
-                System.out.println(palindromIterativ.istPalindrom(text));
-                break;
-            case PALINDROME_DATEI:
-                String datei = einleseDatei("Bitte ein datei eingeben");
-                System.out.println(palindromRekursiv.istPalindrom(text));
-                System.out.println(palindromIterativ.istPalindrom(datei));
                 break;
             case ENDE:
                 System.out.println("Programmende");
@@ -160,37 +148,7 @@ public class MathFunctionsDialog
     }
     
     /**
-     * einleseText liest eine String-text ein
-     *
-     * @param msg ist die Eingabeaufforderung
-     * @return eingelesene String-text
-     */
-    private String einleseText(String msg) {
-        System.out.print(msg + " (Typ String) : \t");
-        String test = input.nextLine();
-        String wort = test.toLowerCase();
-        String allowedList = "abcdefghijklmnopqrstuvwxyz";
-        String temp = "";
-        for (int i = 0; i < wort.length(); i++) {
-            char c = wort.charAt(i);
-            if (allowedList.indexOf(c) != -1) {
-                temp += c;
-            }
-        }
-        wort = temp;
-        return wort;
-    }
-    /**
-     * einleseDatei liest eine Datei ein
-     *
-     * @param msg ist die Eingabeaufforderung
-     * @return eingelesene Datei
-     */
-    private String einleseDatei(String msg) {
-        
-    }
-    /**
-     * Main-Methode zum Erzugen des MathFunctionsDialog-Objekts
+     * Main-Methode zum Erzugen des PalindromDialog-Objekts
      * und zum Anstarten der Testschleife
      */
     public static void main(String[] args) {

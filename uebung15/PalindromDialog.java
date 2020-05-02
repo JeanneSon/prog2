@@ -4,8 +4,9 @@ import java.io.FileNotFoundException;
 import java.nio.file.*;
 import java.nio.charset.*;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 /**
- * Klasse PalindromDialog zum interaktiven Testen der MathFunctions-Klasse
+ * Klasse PalindromDialog zum interaktiven Testen der Palindrom-Klasse
  * 
  * @author A. Venet und H. Schall 
  * @version 1.0
@@ -96,7 +97,9 @@ public class PalindromDialog
         }
     }
     /**
+     * wahlEinMethode
      * 
+     * @param text ein String
      */
     private void wahlEinMethode(String text) {
         int methode =    einlesenInt("Methode? (1 = rekursiv; 2 = iterativ) ");
@@ -112,9 +115,15 @@ public class PalindromDialog
         }
     }
     
-    private int einlesenInt(String eingabeaufforderung) {
+    /**
+     * einleseInt liest eine Integer ein
+     *
+     * @param msg ist die Eingabeaufforderung
+     * @return eingelesene Integer
+     */
+    private int einlesenInt(String msg) {
         int zahl;
-        System.out.print(eingabeaufforderung);
+        System.out.print(msg);
         zahl = input.nextInt();
         return zahl;
     }
@@ -132,9 +141,9 @@ public class PalindromDialog
     }
     
     /**
-     * processString 
+     * processString verarbeitet die eingegebene String
      * 
-     * @param wort 
+     * @param wort ein String
      * @return eingelesene String-text nur mit buchstaben von 'a' bis 'z'
      */
     public String processString(String wort) throws IllegalArgumentException
@@ -149,7 +158,7 @@ public class PalindromDialog
             }
         }
         if (temp.isEmpty())
-            throw IllegalArgumentException("Leerer String");
+            throw new IllegalArgumentException("Leerer String");
         return temp;
     }
 

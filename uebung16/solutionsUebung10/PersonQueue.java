@@ -62,5 +62,7 @@ public class PersonQueue
    {
      return (Person)super.get(i);
    }
+   
+   public PersonIteratorKlasse implements PersonIterator {}
 
 }

@@ -60,9 +60,29 @@ public class PersonQueue
    @Override
    public Person get ( int i ) 
    {
-     return (Person)super.get(i);
+       return (Person)super.get(i);
    }
    
-   public PersonIteratorKlasse implements PersonIterator {}
+   interface PersonIterator extends java.util.Iterator<Person> {}
+   
+   public class PersonIterator implements PersonIterator 
+   {
+       private int index;
+       
+       public PersonIterator()
+       {
+              index = 0;
+       }
+       
+       public boolean hasNext()
+       {
+              return super.size() - index > 1;
+       }
+       
+       public Person next()
+       {
+              return get(++index);
+       }
+   }
 
 }

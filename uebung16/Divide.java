@@ -1,6 +1,10 @@
 public class Divide implements CrunchOperation 
 {
-    public static void crunch(float values[]);
+    public static void crunch(float values[])
+    {
+        float[] sortedValues = new float[values.length];
+        System.arraycopy(values, 0, sortedValues, 0, 3);
+    }
     
     
     /**

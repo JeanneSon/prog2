@@ -1,13 +1,17 @@
-/**
+public class Divide implements CrunchOperation 
+{
+    public static void crunch(float values[]);
+    
+    
+    /**
      * Sortiert ein int-Array nach dem InsertionSort-Algorithmus
      *
      * @param tab zu sortierendes Int-Array
      * @return sortiertes Int-Array
      */
-    public static int[] insertionSort(int[] tab)
+    public static float[] insertionSort(float tab[])
     {
-        int l = tab.length;
-        check(l != 0, MSG_ARRAY_LEER); 
+        int l = tab.length; 
         int temp, j;
         for (int i = 1; i < l; i++) {
             temp = tab[i];

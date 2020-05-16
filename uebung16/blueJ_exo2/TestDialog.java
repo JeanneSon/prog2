@@ -65,14 +65,14 @@ public class TestDialog
         return auswahl;
      }
 
-    private void ausfuehrenArrayAuswahl(char auswahl) {
+    private float[] ausfuehrenArrayAuswahl(char auswahl) {
         switch (auswahl) {
             case ZUFALIGES_ARRAY:
                 //int[] zufaligesArray = randomArray();
                 break;
             case EINGEGEBENE_ARRAY:
-                float[] eigegebeneArray = einleseArray();
-                break;
+                float[] eingegebeneArray = einleseArray();
+                return eingegebeneArray;
             default:
                 System.out.println("Falsche Auswahl!");
         }

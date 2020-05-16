@@ -84,7 +84,12 @@ public class ObjectQueue
      return helfer;
    }
 
-
+   //Methode, die nur fuer PersonQueue richtig implementier wurde
+   public String smallest()
+   {
+       return "";
+   }
+   
    /** i'tes Element der Queue zurueckgeben
     *
     *  Vorbedingung: !empty() 

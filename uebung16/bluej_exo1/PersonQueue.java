@@ -98,18 +98,18 @@ public class PersonQueue
    /**
      * 
     */
-   public Person smallest (){
+   public String smallest (){
        if (super.empty()) {
-           throw new IllegalArgumentException(super.QUEUE_IST_LEER);
+           return "";
        }
        PersonIter iterator = new PersonIter();
        Person smallest = iterator.next();
        while (iterator.hasNext()) {
            Person test = iterator.next();
-           int compare = smallest.compareTo(test);
+           int compare = smallest.getVorname().compareTo(test.getVorname());
            if (compare > 0)
                 smallest = test;
        }
-       return smallest;
+       return smallest.toString();
    }
 }

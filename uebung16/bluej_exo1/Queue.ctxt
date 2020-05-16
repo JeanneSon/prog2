@@ -19,4 +19,6 @@ comment5.text=\r\n\ \ \ \ full\ ->\ ist\ Queue\ VOLL\ ???\r\n\r\n\ \ \ \ @return
 comment6.params=
 comment6.target=int\ size()
 comment6.text=\r\n\ \ \ \ size\ ->\ Anzahl\ der\ Elemente\ in\ Queue\r\n\r\n\ \ \ \ @return\ \ \ \ Anzahl\ der\ Elemente\r\n
-numComments=7
+comment7.params=
+comment7.target=java.lang.String\ smallest()
+numComments=8

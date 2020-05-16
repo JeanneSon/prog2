@@ -56,4 +56,7 @@ public interface Queue
    *    @return    Anzahl der Elemente
    */
   public int size();
+  
+  //wird nur in PersonQueue implementier, siehe dortigen Kommenar
+  public String smallest();
 }

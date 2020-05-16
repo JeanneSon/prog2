@@ -19,6 +19,7 @@ public class OueueTest
    private static final int QUEUE_ELEMENT_ANHAENGEN      = 11;
    private static final int QUEUE_ELEMENT_ENTFERNEN      = 12;
    private static final int QUEUE_INDEX_ELEMENT_ANZEIGEN = 13;
+   private static final int PERSON_QUEUE_SMALLEST = 14;
 
    private static final int STRING = 0;
    private static final int PERSON = 2;
@@ -133,6 +134,12 @@ public class OueueTest
                                           eineQueue.size()
                                         );
                       break;
+           case PERSON_QUEUE_SMALLEST :
+                      if (eineQueue instanceof PersonQueue)
+                        System.out.println("\n\t Die Person mit dem lexikalisch kleinsten Vornamen : " + eineQueue.smallest());
+                      else
+                        System.out.println("\n\t Die Warteschlange enthaelt keine Personen");
+                      break;
            default  : 
                       System.out.println(  "\n Wohl vertippt !!!!! :-((  !!!!" );
                       break;
@@ -225,21 +232,23 @@ public class OueueTest
   private int wasTun()
   {
    return ( MyInputFunctions.readlnInt(in, "\n\tWas wollen sie tun ????\n\n" +
-                                           "\n\tanzeigen des aktuellen Queue-Inhalts  -> " +
+                                           "\n\tanzeigen des aktuellen Queue-Inhalts        -> " +
                                            QUEUE_INHALT_ANZEIGEN +
-                                           "\n\tElement an Queue anhaengen            -> " +
+                                           "\n\tElement an Queue anhaengen                  -> " +
                                            QUEUE_ELEMENT_ANHAENGEN +
-                                           "\n\tElement von der Queue entfernen       -> " +
+                                           "\n\tElement von der Queue entfernen             -> " +
                                            QUEUE_ELEMENT_ENTFERNEN +
-                                           "\n\tdas i'te Element der Queue anzeigen   -> " +
+                                           "\n\tdas i'te Element der Queue anzeigen         -> " +
                                            QUEUE_INDEX_ELEMENT_ANZEIGEN +
-                                           "\n\tIst die Queue LEER ?                  -> " +
+                                           "\n\tIst die Queue LEER ?                        -> " +
                                            QUEUE_LEER +
-                                           "\n\tIst die Queue VOLL ?                  -> " +
+                                           "\n\tIst die Queue VOLL ?                        -> " +
                                            QUEUE_VOLL +
-                                           "\n\tanzeigen der aktuellen Element-Anzahl -> " +
+                                           "\n\tanzeigen der aktuellen Element-Anzahl       -> " +
                                            ZEIGE_MOMENTANE_ANZAHL +
-                                           "\n\tBearbeitung B E E N D E N             -> " +
+                                           "\n\tPerson mit lexikalisch kleinstem Vornamen?  -> " +
+                                           PERSON_QUEUE_SMALLEST +
+                                           "\n\tBearbeitung B E E N D E N                   -> " +
                                            ENDE +
                                            "\n\n\tGib Aktion ein :"
                                       )

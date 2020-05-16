@@ -14,7 +14,7 @@ public class TestDialog
     private static final int SUM = 1;
     private static final int SWIRL = 2;
     private static final int DIVIDE = 3;
-    private static final int SUBSTRACT = 4;
+    private static final int SUBTRACT = 4;
     private static final int AVERAGE = 5;
     private static final int ENDE = 0;
 
@@ -50,12 +50,15 @@ public class TestDialog
     private int einlesenAuswahl() {
         int auswahl;
         System.out.print(
-        SUM + ": Summiert die Elemente des Arrays paarweise von links nach rechts D.h.: a[1] = a[0] + a[1]; a[2] =a[1] + a[2] usw. \n" +
-        SWIRL         + ": Führt n zufällige Vertauschungen der Datenfelder durch n ist durch die Länge desfloat-Arrays gegeben. \n" + 
-        DIVIDE       + ": Teilt die n/2 größten Werte im Array durch die n/2 Kleinsten \n" +
-        SUBSTRACT     + ": Analog zu sum nur mit Substruktion \n" +
-        AVERAGE       + ": Bestimmt den Durchschnitt aller Werte im Array und speichert sie mit dem größten Wert.  \n" +
-        ENDE            + ": Programm beenden; \n Auswahl:\t");
+        SUM         + ": Summiert die Elemente des Arrays paarweise von links nach"
+                    +"rechts D.h.: a[1] = a[0] + a[1]; a[2] =a[1] + a[2] usw. \n" +
+        SWIRL       + ": Fuehrt n zufaellige Vertauschungen der Datenfelder durch "
+                    +"n ist durch die Laenge desfloat-Arrays gegeben. \n" + 
+        DIVIDE      + ": Teilt die n/2 groessten Werte im Array durch die n/2 Kleinsten \n" +
+        SUBTRACT   + ": Analog zu sum nur mit Substraktion \n" +
+        AVERAGE     + ": Bestimmt den Durchschnitt aller Werte im Array und " 
+                    + "speichert sie mit dem groessten Wert.  \n" +
+        ENDE        + ": Programm beenden; \n Auswahl:\t");
 
         auswahl = input.nextInt();
         input.nextLine();
@@ -76,7 +79,7 @@ public class TestDialog
                 int[] divideArray = einleseArray();
                 
                 break;
-            case SUBSTRACT:
+            case SUBTRACT:
                 int[] substractArray = einleseArray();
                 
                 break;

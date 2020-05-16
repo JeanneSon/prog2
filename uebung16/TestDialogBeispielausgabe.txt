@@ -1,0 +1,16 @@
+Willkommen!
+
+Möchten Sie auf einem eigenen Float-Array operieren oder soll ein zufälliges erzeugt werden? (e/z)
+-> e
+Geben Sie jetzt ihre Float ein und trennen Sie sie mit Leerzeichen
+-> z
+Ich werde für Sie ein zufälliges Float-Array anlegen!
+------
+Hier ist es: [1.2, 8.981, 1.4]
+Welche Operationen möchten Sie durchführen?
+Diese haben Sie zur Auswahl:
+sum (explication) subtract (ex.) divide (ex.)
+Bitte geben Sie ein oder mehrere Operationen ein: -> average sum
+//crunch({"average", "sum"})
+Nun sieht das Array so aus: [12.3, 9, 8.2]
+

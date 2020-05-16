@@ -6,6 +6,8 @@
  */
 public class NumberCruncherAnonym
 {
+    //Klassenkonstanten
+    private static final String OPERATION_NOT_VALID = "Ungueltige Operation: ";
     //Objektattribute
     private float[] values;
     
@@ -18,7 +20,7 @@ public class NumberCruncherAnonym
         this.values = values;
     }
   
-    public void crunch(String[] operations) 
+    public void crunch(String[] operations) throws IllegalArgumentException
     {
         CrunchOperation swirl = new CrunchOperation() {
             public void crunch(float values[]){
@@ -95,7 +97,7 @@ public class NumberCruncherAnonym
                 }
             }
         };
-        CrunchOperation substract  = new CrunchOperation(){
+        CrunchOperation subtract  = new CrunchOperation(){
             public void crunch(float values[]) {
                 int l = values.length; 
                 for(int i = 1; i < l; i++){
@@ -103,10 +105,33 @@ public class NumberCruncherAnonym
                 }
             }
         };
+        for (String op : operations) {
+            op = op.trim().toLowerCase();
+            switch(op) {
+              case "sum":
+                sum.crunch(values);
+                break;
+              case "swirl":
+                swirl.crunch(values);
+                break;
+              case "divide":
+                divide.crunch(values);
+                break;
+              case "subtract":
+                subtract.crunch(values);
+                break;
+              case "average":
+                average.crunch(values);
+                break;
+              default:
+                throw new IllegalArgumentException(OPERATION_NOT_VALID + op);
+            }
+        }
     }
+    
     
     public float[] getNumbers()
     {
-    return values;
+        return values;
     }
 }

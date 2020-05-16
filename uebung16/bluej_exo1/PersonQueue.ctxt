@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=PersonQueue
+comment0.text=\r\n\ \ \ \ ---->\ PersonQueue\r\n\ \ \ \ \ \ \ \ \ \ -->\ Implementierung\ einer\ PersonQueue\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ mittels\ der\ allgemeinen\ ObjectQueue\r\n\r\n\ @author\ \ \ \ \ \ Wolfgang\ Pauly\r\n\r\n
+comment1.params=laenge
+comment1.target=PersonQueue(int)
+comment1.text=\ der\ Konstruktor\r\n\r\n
+comment2.params=o
+comment2.target=void\ addLast(java.lang.Object)
+comment2.text=\ Ein\ Person-Element\ an\ Queue\ anfuegen\r\n\r\n\ \ Vorbedingung\:\ \!full()\ \r\n
+comment3.params=
+comment3.target=Person\ removeFirst()
+comment3.text=\ Erstes\ Element\ aus\ Queue\ entfernen\r\n\r\n\ \ Vorbedingung\:\ \!empty()\ \r\n\r\n\ \ @return\ das\ Person-Element\ an\ der\ Spitze\ der\ Queue\r\n
+comment4.params=i
+comment4.target=Person\ get(int)
+comment4.text=\ i'tes\ Element\ der\ Queue\ zurueckgeben\r\n\r\n\ \ Vorbedingung\:\ \!empty()\ \r\n\r\n\ \ @return\ das\ i'te\ Element\ der\ Queue\r\n
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ \r\n
+comment6.params=
+comment6.target=Person\ smallest()
+comment6.text=\r\n\ \r\n
+numComments=7

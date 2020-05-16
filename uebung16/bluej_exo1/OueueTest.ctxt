@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=OueueTest
+comment0.text=\r\n\ \ \ \ ---->\ OueueTest.java\ \ \ \ -->\ Realisiert\ ein\ einfaches\ Dialogprogramm\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ um\ die\ StringQueue-\ bze\ PersonenQueue-Klasse\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ zu\ testen.\r\n\r\n\ @version\ \ \ \ \ 1.0\ 2020-01-22\r\n\ @author\ \ \ \ \ \ Wolfgang\ Pauly\r\n\r\n
+comment1.params=wahl
+comment1.target=OueueTest(char)
+comment1.text=\r\n\ \ \ \ Der\ Konstruktor\r\n
+comment2.params=
+comment2.target=void\ start()
+comment2.text=\r\n\ \ \ \ Die\ start-Methode\r\n\ \ \ \ \r\n
+comment3.params=
+comment3.target=int\ leseElementArt()
+comment3.text=\r\n\ leseElementArt\ ->\ Gibt\ Menue\ zur\ Elementart-Wahl\ aus\ und\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ liefert\ dieses\ zurueck.\r\n
+comment4.params=
+comment4.target=java.lang.Object\ leseElement()
+comment4.text=\r\n\ leseObjekt\ ->\ Liest\ nach\ Auswahl\ des\ Benutzers\ entweder\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ einen\ String,\ ein\ Projekt,\ ein\ Produkt\ oder\ eine\ Aufgabe\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ein\ und\ gibt\ eine\ Object-Referenz\ zurueck\r\n
+comment5.params=
+comment5.target=int\ wasTun()
+comment5.text=\r\n\ wasTun\ ->\ Zeigt\ die\ moeglichen\ Funktionen,\ die\ im\ HP\r\n\ \ \ \ \ \ \ \ \ \ \ aufgerufen\ werden\ koennen\ an\ und\ \r\n\ \ \ \ \ \ \ \ \ \ \ liest\ Benutzerwunsch\ ein.\r\n
+comment6.params=args
+comment6.target=void\ main(java.lang.String[])
+comment6.text=\r\n\ \ \ \ Das\ Test-Programm\r\n\r\n\ \ \ \ Erzeugt\ ein\ OueueTest-Objekt\r\n\ \ \ \ und\r\n\ \ \ \ ruft\ dessen\ Start-Methode\ auf\r\n
+numComments=7

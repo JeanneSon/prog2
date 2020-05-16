@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=StringQueue
+comment0.text=\r\n\ \ \ \ ---->\ StringQueue\r\n\ \ \ \ \ \ \ \ \ \ -->\ Implementierung\ einer\ StringQueue\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ mittels\ der\ allgemeinen\ ObjectQueue\r\n\r\n\ @author\ \ \ \ \ \ Wolfgang\ Pauly\r\n\r\n
+comment1.params=laenge
+comment1.target=StringQueue(int)
+comment1.text=\ der\ Konstruktor\r\n\r\n
+comment2.params=o
+comment2.target=void\ addLast(java.lang.Object)
+comment2.text=\ Ein\ String-Element\ an\ Queue\ anfuegen\r\n\r\n\ \ Vorbedingung\:\ \!full()\ \r\n
+comment3.params=
+comment3.target=java.lang.String\ removeFirst()
+comment3.text=\ Erstes\ Element\ aus\ Queue\ entfernen\r\n\r\n\ \ Vorbedingung\:\ \!empty()\ \r\n\r\n\ \ @return\ das\ String-Element\ an\ der\ Spitze\ der\ Queue\r\n
+comment4.params=i
+comment4.target=java.lang.String\ get(int)
+comment4.text=\ i'tes\ Element\ der\ Queue\ zurueckgeben\r\n\r\n\ \ Vorbedingung\:\ \!empty()\ \r\n\r\n\ \ @return\ das\ i'te\ Element\ der\ Queue\r\n
+numComments=5

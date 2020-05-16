@@ -17,6 +17,6 @@ comment5.params=
 comment5.target=java.lang.String\ toString()
 comment5.text=\r\n\ \r\n
 comment6.params=
-comment6.target=Person\ smallest()
+comment6.target=java.lang.String\ smallest()
 comment6.text=\r\n\ \r\n
 numComments=7

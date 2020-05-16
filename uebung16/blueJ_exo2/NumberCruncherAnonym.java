@@ -87,6 +87,24 @@ public class NumberCruncherAnonym
                 values[indexLargestVal] = sum / values.length;
             }
         };
+        CrunchOperation sum  = new CrunchOperation(){
+            public void crunch(float values[]) {
+                int l = values.length;
+                //check(l != 0, MSG_ARRAY_LEER);  
+                for(int i = 1; i < l; i++){
+                    values[i] = values[i-1] + values[i];
+                }
+            }
+        };
+        CrunchOperation substract  = new CrunchOperation(){
+            public void crunch(float values[]) {
+                int l = values.length;
+                //check(l != 0, MSG_ARRAY_LEER);  
+                for(int i = 1; i < l; i++){
+                    values[i] = values[i-1] - values[i];
+                }
+            }
+        };
     }
     
     public float[] getNumbers()

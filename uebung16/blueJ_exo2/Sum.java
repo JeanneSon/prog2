@@ -9,11 +9,11 @@ class Sum implements CrunchOperation {
   private static final String MSG_ARRAY_LEER = "Array darf nicht leer sein!";
   public void crunch (float values[]) 
   {
-    int l = values.length;
-        check(l != 0, MSG_ARRAY_LEER);  
-        for(int i = 1; i < l; i++){
-            values[i] = values[i-1] + values[i];
-        }
+      int l = values.length;
+      check(l != 0, MSG_ARRAY_LEER);  
+      for(int i = 1; i < l; i++){
+          values[i] = values[i-1] + values[i];
+      }
     }  
   public String toString()
   {

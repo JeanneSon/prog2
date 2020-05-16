@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CrunchOperation
+comment0.text=\r\n\ Interface\ CrunchOperation\ gibt\ vor,\ wie\ die\ jeweilige\ Crunch-Methode\ heisst\r\n\ \r\n\ @author\ A.\ Venet\ u.\ H.\ Schall\r\n\ @version\ 1.0\r\n
+comment1.params=values
+comment1.target=void\ crunch(float[])
+numComments=2

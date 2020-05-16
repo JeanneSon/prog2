@@ -26,7 +26,7 @@ public class TestDialog
     public void start() {
         System.out.println("HERZLICH WILLKOMMEN!");
         System.out.print( "Möchten Sie auf eigenen Float-Array operieren"
-        + "oder soll ein zufälliges erzeugt werden?");
+        + "oder soll ein zufälliges erzeugt werden? \n");
         char arrayTyp = typArrayAuswahlen();
         float[] values = ausfuehrenArrayAuswahl(arrayTyp);
         int auswahl = -1;
@@ -54,11 +54,9 @@ public class TestDialog
     * @return eingelesene Auswahl 
     */
     private char typArrayAuswahlen() {
-        System.out.print( "Möchten Sie auf eigenen Float-Array operieren"
-        + "oder soll ein zufälliges erzeugt werden?");
         char auswahl;
         System.out.print(
-        ZUFALIGES_ARRAY + " zufalliges array erzeugen \n" +
+        ZUFALIGES_ARRAY + " :zufalliges array erzeugen \n" +
         EINGEGEBENE_ARRAY + " :array eingeben \n");
         auswahl = input.next().charAt(0);
         input.nextLine();
@@ -66,6 +64,7 @@ public class TestDialog
      }
 
     private float[] ausfuehrenArrayAuswahl(char auswahl) {
+        float[] array = new float[10];
         switch (auswahl) {
             case ZUFALIGES_ARRAY:
                 //int[] zufaligesArray = randomArray();
@@ -76,6 +75,7 @@ public class TestDialog
             default:
                 System.out.println("Falsche Auswahl!");
         }
+        return array;
     }
 
     /**

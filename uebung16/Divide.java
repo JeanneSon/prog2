@@ -1,5 +1,7 @@
 public class Divide implements CrunchOperation 
 {
+    //Klassenkonstanten
+    public static final float EPSILON = 10e-6F;
     /**
      * Konstruktor ist private, damit keine Objekte dieser Klasse angelegt werden koennen
      */

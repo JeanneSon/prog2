@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Substract
+comment0.text=\r\n\ Substract\r\n\ \r\n\ @author\ A.\ Venet\ u.\ H.\ Schall\r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment1.params=values
+comment1.target=void\ crunch(float[])
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=bedingung\ msg
+comment3.target=void\ check(boolean,\ java.lang.String)
+numComments=4

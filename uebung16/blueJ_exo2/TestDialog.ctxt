@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=TestDialog
+comment0.text=\r\n\ Interaktive\ Testklasse\ fuer\ die\ Klasse\ Lager\r\n\ \r\n\ @author\ A.\ Venet\ und\ H.\ Schall\r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=void\ start()
+comment1.text=\r\nHauptschleife\ des\ Testprogramms\r\n
+comment2.params=
+comment2.target=int\ einlesenAuswahl()
+comment2.text=\r\n\ einlesenAuswahl\ Methode\r\n\ Menue\ ausgeben\ und\ Auswahl\ einlesen\r\n\r\n\ @return\ eingelesene\ Auswahl\ als\ ganzzahliger\ Wert\r\n
+comment3.params=auswahl
+comment3.target=void\ ausfuehrenAuswahl(int)
+comment4.params=
+comment4.target=int[]\ einleseArray()
+comment4.text=\r\n\ liest\ eine\ Array\ ein\r\n\ @return\ prozent\ \r\n
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+comment5.text=\r\n\ Main-Methode\ zum\ Erzeugen\ des\ lagerDialog-Objekts\ \r\n\ und\ zum\ Anstarten\ der\ Testschleife\r\n
+numComments=6

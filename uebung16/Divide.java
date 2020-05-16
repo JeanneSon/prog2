@@ -10,6 +10,7 @@ public class Divide implements CrunchOperation
         System.arraycopy(values, 0, sortedValues, 0, 3);
         sortedValues = insertionSort(sortedValues, indexes);
         //here comes for-loop which does the work
+        for (int i = 0, j =
     }
     
     
@@ -31,6 +32,8 @@ public class Divide implements CrunchOperation
                 tab[j] = tab[j-1];
                 ind[j] = ind[j-1];
                 j--;
+                if (Math.abs(tab[j-1]) < EPSILON || Math.abs(temp) < EPSILON)
+                    return []; //or throw exception
             }
             tab[j] = temp;
             ind[j] = temp2;

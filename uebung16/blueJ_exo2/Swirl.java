@@ -2,7 +2,7 @@
  * Swirl
  * 
  * @author A. Venet u. H. Schall
- * @version (eine Versionsnummer oder ein Datum)
+ * @version 1.0
  */
 class Swirl implements CrunchOperation {
   public void crunch (float values[]) 

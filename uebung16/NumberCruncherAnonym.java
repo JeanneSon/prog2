@@ -1,6 +1,8 @@
 //here are the anonymous functions of the operations
 public class NumberCruncherAnonym
 {
+  //Klassenkonstanten
+  public static final float EPSILON = 10e-6;
   //Objektattribute
   private float[] values;
   

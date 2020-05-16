@@ -17,12 +17,18 @@ public class TestDialog
     private static final int SUBTRACT = 4;
     private static final int AVERAGE = 5;
     private static final int ENDE = 0;
+    private static final char ZUFALIGES_ARRAY = 'z';
+    private static final char EINGEGEBENE_ARRAY ='e';    
 
     /**
     *Hauptschleife des Testprogramms
     */
     public void start() {
         System.out.println("HERZLICH WILLKOMMEN!");
+        System.out.print( "Möchten Sie auf eigenen Float-Array operieren"
+        + "oder soll ein zufälliges erzeugt werden?");
+        char arrayTyp = typArrayAuswahlen();
+        float[] values = ausfuehrenArrayAuswahl(arrayTyp);
         int auswahl = -1;
 
         while (auswahl != ENDE) {
@@ -41,6 +47,63 @@ public class TestDialog
         }
     }
 
+    /**
+    * typArrayAuswahlen Methode
+    * Menue ausgeben und Auswahl einlesen
+    *
+    * @return eingelesene Auswahl 
+    */
+    private char typArrayAuswahlen() {
+        System.out.print( "Möchten Sie auf eigenen Float-Array operieren"
+        + "oder soll ein zufälliges erzeugt werden?");
+        char auswahl;
+        System.out.print(
+        ZUFALIGES_ARRAY + " zufalliges array erzeugen \n" +
+        EINGEGEBENE_ARRAY + " :array eingeben \n");
+        auswahl = input.next().charAt(0);
+        input.nextLine();
+        return auswahl;
+     }
+
+    private void ausfuehrenArrayAuswahl(char auswahl) {
+        switch (auswahl) {
+            case ZUFALIGES_ARRAY:
+                //int[] zufaligesArray = randomArray();
+                break;
+            case EINGEGEBENE_ARRAY:
+                float[] eigegebeneArray = einleseArray();
+                break;
+            default:
+                System.out.println("Falsche Auswahl!");
+        }
+    }
+
+    /**
+    * Methode zum Anlegen eines Zufaelliges Array
+    *
+    * @return ein Float-Array
+    */
+    //private float[] randomArray(){
+        
+    //    return [];
+    //}
+    
+    /**
+     * liest eine Array ein
+     * @return ein Float-Array 
+     */
+    private float[] einleseArray() {
+        System.out.print("Array: ");
+        System.out.print("Enter number of elements you want in array:");
+        int length = input.nextInt();
+        float array[] = new float[length];
+        System.out.println("Enter all the elements:");
+        for(int i = 0; i < length; i++){
+            array[i] = input.nextInt();
+        }
+        return array;
+    }
+    
     /**
     * einlesenAuswahl Methode
     * Menue ausgeben und Auswahl einlesen
@@ -64,27 +127,26 @@ public class TestDialog
         input.nextLine();
         return auswahl;
     }
-
     private void ausfuehrenAuswahl(int auswahl) {
         switch (auswahl) {
             case SUM:
-                int[] sumArray = einleseArray();
+                float[] sumArray = einleseArray();
                 
                 break;
             case SWIRL:
-                int[] swirlArray = einleseArray();
+                float[] swirlArray = einleseArray();
                 
                 break;
             case DIVIDE:
-                int[] divideArray = einleseArray();
+                float[] divideArray = einleseArray();
                 
                 break;
             case SUBTRACT:
-                int[] substractArray = einleseArray();
+                float[] substractArray = einleseArray();
                 
                 break;
             case AVERAGE:
-                int[] averageArray = einleseArray();
+                float[] averageArray = einleseArray();
                 
                 break;
             case ENDE:
@@ -94,23 +156,6 @@ public class TestDialog
                 System.out.println("Falsche Auswahl!");
         }
     }
-
-    /**
-     * liest eine Array ein
-     * @return prozent 
-     */
-    private int[] einleseArray() {
-        System.out.print("Array: ");
-        System.out.print("Enter number of elements you want in array:");
-        int length = input.nextInt();
-        int array[] = new int[length];
-        System.out.println("Enter all the elements:");
-        for(int i = 0; i < length; i++){
-            array[i] = input.nextInt();
-        }
-        return array;
-    }
-    
     /**
      * Main-Methode zum Erzeugen des lagerDialog-Objekts 
      * und zum Anstarten der Testschleife

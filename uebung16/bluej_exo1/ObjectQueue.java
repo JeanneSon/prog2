@@ -15,7 +15,7 @@ public class ObjectQueue
    public static final int QUEUE_STANDARD_LAENGE = 10;
 
    private static final String  QUEUE_IST_VOLL = "Die Queue ist vollstaendig belegt !!!";
-   private static final String  QUEUE_IST_LEER = "Die Queue ist vollstaendig leer !!!";
+   public static final String  QUEUE_IST_LEER = "Die Queue ist vollstaendig leer !!!";
    private static final String  INDEX_OUT_OFF_RANGE = "Der angegebene Index ist groesser als die laenge der Queue !";
    private static final String  QUEUE_LAENGE_FEHLERHAFT = "Die Queue-Laenge muss >= 0 sein !!!";
    // das Queue-Array

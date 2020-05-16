@@ -63,7 +63,7 @@ public class PersonQueue
    
    interface PersonIterator extends java.util.Iterator<Person> {}
    
-   public class PersonIter implements PersonIterator 
+   private class PersonIter implements PersonIterator 
    {
        private int index;
        
@@ -74,7 +74,7 @@ public class PersonQueue
        
        public boolean hasNext()
        {
-              return PersonQueue.super.size() - index > 1;
+           return PersonQueue.super.size() - index > 0;
        }
        
        public Person next()
@@ -90,7 +90,7 @@ public class PersonQueue
        PersonIter iterator = new PersonIter();
        while (iterator.hasNext()) {
            sb  .append(iterator.next())
-               .append("\n");
+               .append(" -> ");
        }
        return sb.toString();
    }
@@ -99,6 +99,9 @@ public class PersonQueue
      * 
     */
    public Person smallest (){
+       if (super.empty()) {
+           throw new IllegalArgumentException(super.QUEUE_IST_LEER);
+       }
        PersonIter iterator = new PersonIter();
        Person smallest = iterator.next();
        while (iterator.hasNext()) {
@@ -106,7 +109,7 @@ public class PersonQueue
            int compare = smallest.compareTo(test);
            if (compare > 0)
                 smallest = test;
-            }
+       }
        return smallest;
    }
 }

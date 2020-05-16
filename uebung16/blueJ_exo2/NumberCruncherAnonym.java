@@ -109,8 +109,8 @@ public class NumberCruncherAnonym
             op = op.trim().toLowerCase();
             switch(op) {
               case "sum":
-                sum.crunch(values);
-                break;
+                 sum.crunch(values);
+                 break;
               case "swirl":
                 swirl.crunch(values);
                 break;

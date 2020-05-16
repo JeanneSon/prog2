@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=NumberCruncherTopLevel
+comment0.text=\r\n\ NumberCruncherTopLevel\r\n\ \r\n\ @author\ A.\ Venet\ u.\ H.\ Schall\r\n\ @version\ 1.0\r\n
+comment1.params=values
+comment1.target=NumberCruncherTopLevel(float[])
+comment1.text=\r\n\ Konstruktor\r\n\ @param\ values\ Array,\ auf\ dem\ operiert\ werden\ soll\r\n
+comment2.params=operations
+comment2.target=void\ crunch(java.lang.String[])
+comment3.params=
+comment3.target=float[]\ getNumbers()
+numComments=4

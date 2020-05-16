@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Iterator;
 /**
  *    ----> PersonQueue
  *          --> Implementierung einer PersonQueue
@@ -11,14 +13,12 @@ public class PersonQueue
        extends ObjectQueue
 {
    private static final String  KEIN_PERSON_OBJEKT = "Das einzufuegende Objekt ist KEIN Person-Objekt !!";
-
    /** der Konstruktor
     *
     */
    public PersonQueue(int laenge) {
        super(laenge);
    }
-   
    
    /** Ein Person-Element an Queue anfuegen
     *
@@ -37,7 +37,6 @@ public class PersonQueue
        }
    }
 
-
    /** Erstes Element aus Queue entfernen
     *
     *  Vorbedingung: !empty() 
@@ -49,7 +48,6 @@ public class PersonQueue
    {
      return (Person)super.removeFirst();
    }
-
 
    /** i'tes Element der Queue zurueckgeben
     *
@@ -65,24 +63,50 @@ public class PersonQueue
    
    interface PersonIterator extends java.util.Iterator<Person> {}
    
-   public class PersonIterator implements PersonIterator 
+   public class PersonIter implements PersonIterator 
    {
        private int index;
        
-       public PersonIterator()
+       public PersonIter()
        {
               index = 0;
        }
        
        public boolean hasNext()
        {
-              return super.size() - index > 1;
+              return PersonQueue.super.size() - index > 1;
        }
        
        public Person next()
        {
-              return get(++index);
+              return get(index++);
        }
    }
-
+   /**
+     * 
+    */
+   public String toString(){
+       StringBuffer sb = new StringBuffer("PersonQueue: ");
+       PersonIter iterator = new PersonIter();
+       while (iterator.hasNext()) {
+           sb  .append(iterator.next())
+               .append("\n");
+       }
+       return sb.toString();
+   }
+   
+   /**
+     * 
+    */
+   public Person smallest (){
+       PersonIter iterator = new PersonIter();
+       Person smallest = iterator.next();
+       while (iterator.hasNext()) {
+           Person test = iterator.next();
+           int compare = smallest.compareTo(test);
+           if (compare > 0)
+                smallest = test;
+            }
+       return smallest;
+   }
 }

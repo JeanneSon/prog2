@@ -2,9 +2,8 @@
      * 
     */
    public String toString(){
-       ArrayList person = new ArrayList();
        StringBuffer sb = new StringBuffer("PersonQueue: ");
-       Iterator iterator = person.iterator();
+       PersonIterator iterator = new PersonIter();
        while (iterator.hasNext()) {
            sb  .append(iterator.next())
                .append("\n");
@@ -15,12 +14,11 @@
    /**
      * 
     */
-   public String smallest (){
-       ArrayList person = new ArrayList();
-       Iterator iterator = person.iterator();
-       String smallest = iterator.stream().findFirst().orElse("not found");
+   public Person smallest (){
+       PersonIterator iterator = new PersonIter();
+       Person smallest = iterator.next();
        while (iterator.hasNext()) {
-           String test = iterator.next();
+           Person test = iterator.next();
            int compare = smallest.compareTo(test);
            if (compare > 0)
                 smallest = test;

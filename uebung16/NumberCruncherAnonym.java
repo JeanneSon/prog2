@@ -1,8 +1,6 @@
 //here are the anonymous functions of the operations
 public class NumberCruncherAnonym
 {
-  //Klassenkonstanten
-  public static final float EPSILON = 10e-6;
   //Objektattribute
   private float[] values;
   
@@ -18,24 +16,26 @@ public class NumberCruncherAnonym
   public void crunch(String[] operations) 
   {
     CrunchOperation swirl = new CrunchOperation(){
-			public void crunch(){
-				int n = values.length;
-        int aux, firstPos, secondPos;
-        for (int i = 0; i < n; i++) {
-          firstPos = randomPos(n-1);
-          secondPos = randomPos(n-1);
-          aux = values[firstPos];
-          values[firstPos] = values[secondPos];
-          values[secondPos] = aux;
-			}
-      private int randomPos(int highestIndex) 
-      {
-        return (int) Math.round(highestIndex * Math.random());
-      }
-		};  
+	public void crunch(){
+		int n = values.length;
+		int aux, firstPos, secondPos;
+		for (int i = 0; i < n; i++) {
+		  firstPos = randomPos(n-1);
+		  secondPos = randomPos(n-1);
+		  aux = values[firstPos];
+		  values[firstPos] = values[secondPos];
+		  values[secondPos] = aux;
+		}
+	}
+        private int randomPos(int highestIndex) 
+        {
+	    return (int) Math.round(highestIndex * Math.random());
+        }
+    };  
     CrunchOperation divide   = new CrunchOperation(){
       public void crunch(float values[])
       {
+  	  final float EPSILON = 10e-6;
           int[] indexes = new int[];
           for (int i = 1; i < values.length; i++) {
               indexes[i] = i;

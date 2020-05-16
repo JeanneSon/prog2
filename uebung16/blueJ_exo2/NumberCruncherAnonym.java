@@ -90,7 +90,6 @@ public class NumberCruncherAnonym
         CrunchOperation sum  = new CrunchOperation(){
             public void crunch(float values[]) {
                 int l = values.length;
-                //check(l != 0, MSG_ARRAY_LEER);  
                 for(int i = 1; i < l; i++){
                     values[i] = values[i-1] + values[i];
                 }
@@ -98,8 +97,7 @@ public class NumberCruncherAnonym
         };
         CrunchOperation substract  = new CrunchOperation(){
             public void crunch(float values[]) {
-                int l = values.length;
-                //check(l != 0, MSG_ARRAY_LEER);  
+                int l = values.length; 
                 for(int i = 1; i < l; i++){
                     values[i] = values[i-1] - values[i];
                 }

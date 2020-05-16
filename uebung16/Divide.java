@@ -1,5 +1,19 @@
 public class Divide implements CrunchOperation 
 {
+    /**
+     * Konstruktor ist private, damit keine Objekte dieser Klasse angelegt werden koennen
+     */
+    private Divide ();
+    
+    
+    /**
+     *  Teilt die n/2 größten Werte im Array durch die n/2 Kleinsten und 
+     *  speichert den neuen Wert im Datenfeld des jeweils größeren Wertes. 
+     *  D.h. der größte Wert wird durch den Kleinsten geteilt. 
+     *  Der Zweitgrößte durch den Zweitkleinsten usw. 
+     *
+     *  @param values uebergebendes Array, das veraendert wird (s.o.)
+     */
     public static void crunch(float values[])
     {
         int[] indexes = new int[];
@@ -10,7 +24,11 @@ public class Divide implements CrunchOperation
         System.arraycopy(values, 0, sortedValues, 0, 3);
         sortedValues = insertionSort(sortedValues, indexes);
         //here comes for-loop which does the work
-        for (int i = 0, j =
+        for (int i = 0, j = values.length-1; i < values.length / 2; i++, j--) {
+            if (Math.abs(sortedValues[i]) < EPSILON)
+                continue;
+            values[j] = sortedValues[j] / sortedValues[i];
+        }
     }
     
     
@@ -18,6 +36,7 @@ public class Divide implements CrunchOperation
      * Sortiert ein int-Array nach dem InsertionSort-Algorithmus
      *
      * @param tab zu sortierendes Int-Array
+     * @param ind mit zu sortierendem Array, das die Originalreihenfolge speichert
      * @return sortiertes Int-Array
      */
     public static float[] insertionSort(float tab[], int ind[])
@@ -32,11 +51,19 @@ public class Divide implements CrunchOperation
                 tab[j] = tab[j-1];
                 ind[j] = ind[j-1];
                 j--;
-                if (Math.abs(tab[j-1]) < EPSILON || Math.abs(temp) < EPSILON)
-                    return []; //or throw exception
             }
             tab[j] = temp;
             ind[j] = temp2;
         }
         return tab;
+    }
+
+    /**
+     * Informiert ueber die Aufgabe der Klasse
+     */
+    public static String toString() {
+        return "Teilt die n/2 groessten Werte im Array durch die n/2 Kleinsten und"
+                + "speichert den neuen Wert im Datenfeld des jeweils groesseren Wertes."
+                + "D.h. der größte Wert wird durch den Kleinsten geteilt." 
+                + "Der Zweitgroesste durch den Zweitkleinsten usw.";
     }

@@ -1,10 +1,10 @@
 /**
- * Substract
+ * Subtract
  * 
  * @author A. Venet u. H. Schall
  * @version (eine Versionsnummer oder ein Datum)
  */
-class Substract implements CrunchOperation {
+class Subtract implements CrunchOperation {
   // Fehlermeldungen
   private static final String MSG_ARRAY_LEER = "Array darf nicht leer sein!";
   public void crunch (float values[]) 
@@ -17,7 +17,7 @@ class Substract implements CrunchOperation {
   }  
   public String toString()
   {
-    return "Substract die Elemente des Arrays paarweise von links nach rechts D.h.: a[1] = a[0] - a[1]; a[2] =a[1] - a[2] usw.";
+    return "subtract die Elemente des Arrays paarweise von links nach rechts D.h.: a[1] = a[0] - a[1]; a[2] =a[1] - a[2] usw.";
   }
   private static void check(boolean bedingung, String msg) {
         if (!bedingung)

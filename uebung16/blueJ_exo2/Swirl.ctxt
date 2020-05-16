@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Swirl
-comment0.text=\r\n\ Swirl\r\n\ \r\n\ @author\ A.\ Venet\ u.\ H.\ Schall\r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment0.text=\r\n\ Swirl\r\n\ \r\n\ @author\ A.\ Venet\ u.\ H.\ Schall\r\n\ @version\ 1.0\r\n
 comment1.params=values
 comment1.target=void\ crunch(float[])
 comment2.params=highestIndex

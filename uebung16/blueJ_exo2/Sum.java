@@ -10,11 +10,11 @@ class Sum implements CrunchOperation {
   public void crunch (float values[]) 
   {
     int l = values.length;
-    check(l != 0, MSG_ARRAY_LEER);  
-    for(int i = 1; i < l; i++){
-        values[i] = values[i-1] + values[i];
-    }
-  }  
+        check(l != 0, MSG_ARRAY_LEER);  
+        for(int i = 1; i < l; i++){
+            values[i] = values[i-1] + values[i];
+        }
+    }  
   public String toString()
   {
     return "Summiert die Elemente des Arrays paarweise von links nach rechts D.h.: a[1] = a[0] + a[1]; a[2] =a[1] + a[2] usw.";

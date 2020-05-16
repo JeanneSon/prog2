@@ -23,3 +23,4 @@ class Swirl implements CrunchOperation {
   {
     return "Swirl fuehrt n zufaellige Vertauschungen der Datenfelder durch; n ist durch die Laenge des ﬂoat-Arrays gegeben.";
   }
+}

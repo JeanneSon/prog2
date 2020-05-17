@@ -1,16 +1,6 @@
 import java.util.*;
 import java.lang.StringBuilder;
 
-class AbortException extends Exception 
-{ 
-    public AbortException() 
-    { 
-        super("Benutzer moechte Programm abbrechen."); 
-    } 
-} 
- 
-
-
 /**
 * Interaktive Testklasse fuer die Klasse Lager
 * 
@@ -56,10 +46,6 @@ public class TestDialog
                 values = process(operationen, values, methode, ncal, nctl);
                 System.out.println("Jetzt sieht das Array so aus: " + valuesToString(values));  
             }
-            catch (AbortException e)
-            {
-                System.out.println("Programm abbrechen... Beginne neu.");
-            }
             catch ( RuntimeException re )
             {
                 System.out.println( "\n\nRuntimeException :" +
@@ -96,7 +82,7 @@ public class TestDialog
     *
     * @return eingelesene Auswahl 
     */
-    private char typArrayAuswahlen() throws AbortException{
+    private char typArrayAuswahlen(){
         char auswahl;
         System.out.print(
         ZUFALIGES_ARRAY + " :zufalliges array erzeugen \n" +
@@ -149,9 +135,9 @@ public class TestDialog
     
     /**
     * einlesenAuswahl Methode
-    * Menue ausgeben und Auswahl einlesen
+    * Menue ausgeben und Operationen einlesen
     *
-    * @return eingelesene Auswahl als ganzzahliger Wert
+    * @return eingelesene Auswahl als String
     */
     private String einlesenAuswahl() {
         int auswahl;
@@ -178,9 +164,9 @@ public class TestDialog
     /**
      * wahlEinMethode
      * 
-     * @param text ein String
+     * @param Methode als int
      */
-    private int wahlEinMethode()  throws InputMismatchException{
+    private int wahlEinMethode() throws InputMismatchException{
         int methode = einlesenInt("Methode? (1 = anonymKlasse; 2 = topLevelKlasse; 0 = Abbruch) ");
         //Aufsaugen der letzten Zeile
         input.nextLine();
@@ -227,4 +213,15 @@ public class TestDialog
         sb.append("]");
         return sb.toString();
     }
+    
+    /**
+     * toString informiert
+     * 
+     * @return Beschreibung der Klasse
+     */
+    public String toString()
+    {
+        return "TestDialog zum Testen von NumberCruncherAnonym und NumberCruncherTopLevel";
+    }
+
 }

@@ -1,5 +1,16 @@
 import java.util.*;
 import java.lang.StringBuilder;
+
+class AbortException extends Exception 
+{ 
+    public AbortException() 
+    { 
+        super("Benutzer moechte Programm abbrechen."); 
+    } 
+} 
+ 
+
+
 /**
 * Interaktive Testklasse fuer die Klasse Lager
 * 
@@ -15,6 +26,7 @@ public class TestDialog
     private static final int ENDE = 0;
     private static final char ZUFALIGES_ARRAY = 'z';
     private static final char EINGEGEBENE_ARRAY ='e';
+    private static final char GANZ_BEENDEN = 'g';
     //Untermenu
     private static final int NUMBER_CRUNCHER_ANONYM = 1;
     private static final int NUMBER_CRUNCHER_TOPLEVEL = 2;
@@ -23,22 +35,48 @@ public class TestDialog
     *Hauptschleife des Testprogramms
     */
     public void start() {
-        System.out.println("HERZLICH WILLKOMMEN!");
-        System.out.print( "Möchten Sie auf eigenen Float-Array operieren"
-        + "oder soll ein zufaelliges erzeugt werden? \n");
-        char arrayTyp = typArrayAuswahlen();
-        int laenge = einlesenInt("Welche Groesse soll das Array haben? Bitte Groesse > 0 eingeben");
-        if (laenge <= 0) {
-            System.out.println("Ungueltige Laenge. Ich waehle fuer Sie die Laenge 5.");
-            laenge = 5;
+        while (true) {
+            try {
+                System.out.println("HERZLICH WILLKOMMEN!\n" +
+                                    "Möchten Sie auf eigenem Float-Array operieren" +
+                                    "oder soll ein zufaelliges erzeugt werden? \n"
+                );
+                char arrayTyp = typArrayAuswahlen();
+                int laenge = einlesenInt("Welche Groesse soll das Array haben? Bitte Groesse > 0 eingeben: ");
+                if (laenge <= 0) {
+                    System.out.println("Ungueltige Laenge. Ich waehle fuer Sie die Laenge 5.");
+                    laenge = 5;
+                }
+                float[] values = ausfuehrenArrayAuswahl(arrayTyp, laenge);        
+                NumberCruncherAnonym ncal = new NumberCruncherAnonym(values);
+                NumberCruncherTopLevel nctl = new NumberCruncherTopLevel(values);
+                System.out.println("\nHier ist es: " + valuesToString(values));
+                String operationen = einlesenAuswahl();
+                int methode = wahlEinMethode();
+                values = process(operationen, values, methode, ncal, nctl);
+                System.out.println("Jetzt sieht das Array so aus: " + valuesToString(values));  
+            }
+            catch (AbortException e)
+            {
+                System.out.println("Programm abbrechen... Beginne neu.");
+            }
+            catch ( RuntimeException re )
+            {
+                System.out.println( "\n\nRuntimeException :" +
+                                    "\n\nHier die Fehlermeldung : " + re +
+                                    "\n\nHier der Fehlerort : "
+                );
+                re.printStackTrace();
+            }
+            catch ( Exception e )
+            {
+                System.out.println( "\n\nFataler Fehler :" +
+                                    "\n\nHier die Fehlermeldung : " + e +
+                                    "\n\nHier der Fehlerort : "
+                                  );
+                e.printStackTrace();
+           }
         }
-        float[] values = ausfuehrenArrayAuswahl(arrayTyp, laenge);        
-        NumberCruncherAnonym ncal = new NumberCruncherAnonym(values);
-        NumberCruncherTopLevel nctl = new NumberCruncherTopLevel(values);
-        System.out.println("Hier ist es " + valuesToString(values));
-        String operationen = einlesenAuswahl();
-        int methode = wahlEinMethode();
-        values = process(operationen, values, methode, ncal, nctl);
     }
 
     
@@ -58,13 +96,16 @@ public class TestDialog
     *
     * @return eingelesene Auswahl 
     */
-    private char typArrayAuswahlen() {
+    private char typArrayAuswahlen() throws AbortException{
         char auswahl;
         System.out.print(
         ZUFALIGES_ARRAY + " :zufalliges array erzeugen \n" +
-        EINGEGEBENE_ARRAY + " :array eingeben \n");
+        EINGEGEBENE_ARRAY + " :array eingeben \n" +
+        GANZ_BEENDEN + " :PROGRAMM BEENDEN \n");
         auswahl = input.next().charAt(0);
         input.nextLine();
+        if (auswahl == GANZ_BEENDEN)
+            System.exit(0);
         return auswahl;
      }
 
@@ -115,18 +156,22 @@ public class TestDialog
     private String einlesenAuswahl() {
         int auswahl;
         System.out.print(
-                    "sum (Summiert die Elemente des Arrays paarweise von links nach" +
+                    "\nDiese Operationen stehen zur Verfuegung: \n" +
+                    "\tsum (Summiert die Elemente des Arrays paarweise von links nach" +
                             "rechts D.h.: a[1] = a[0] + a[1]; a[2] =a[1] + a[2] usw.) \n" +
-                    "swirl (Fuehrt n zufaellige Vertauschungen der Datenfelder durch " +
+                    "\tswirl (Fuehrt n zufaellige Vertauschungen der Datenfelder durch " +
                             "n ist durch die Laenge desfloat-Arrays gegeben.) \n" + 
-                    "divide (Teilt die n/2 groessten Werte im Array durch die n/2 Kleinsten) \n" +
-                    "subtract (Analog zu sum nur mit Substraktion) \n" +
-                    "average (Bestimmt den Durchschnitt aller Werte im Array und " +
+                    "\tdivide (Teilt die n/2 groessten Werte im Array durch die n/2 Kleinsten) \n" +
+                    "\tsubtract (Analog zu sum nur mit Substraktion) \n" +
+                    "\taverage (Bestimmt den Durchschnitt aller Werte im Array und " +
                             "speichert sie mit dem groessten Wert.  \n\n" +
                     "Geben Sie jetzt alle Operationen ein, die nacheinander " + 
-                            "ausgefuehrt werden sollen. Trennen Sie die Operationen mit einem Leerzeichen. : "
+                            "ausgefuehrt werden sollen. \nTrennen Sie die Operationen mit einem Leerzeichen. : "
         );
-        String operationen = input.nextLine();
+        input.nextLine(); //Aufsaugen der vorigen Zeile
+        String operationen = input.nextLine().trim();
+        if (operationen.isEmpty())
+            throw new InputMismatchException("Falsche Auswahl!");
         return operationen;
     }
     
@@ -136,7 +181,7 @@ public class TestDialog
      * @param text ein String
      */
     private int wahlEinMethode()  throws InputMismatchException{
-        int methode = einlesenInt("Methode? (1 = anonymKlasse; 2 = topLevelKlasse) ");
+        int methode = einlesenInt("Methode? (1 = anonymKlasse; 2 = topLevelKlasse; 0 = Abbruch) ");
         //Aufsaugen der letzten Zeile
         input.nextLine();
         if (methode == NUMBER_CRUNCHER_ANONYM || methode == NUMBER_CRUNCHER_TOPLEVEL) {

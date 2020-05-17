@@ -103,10 +103,10 @@ public class TestDialog
      */
     private float[] einleseArray() {
         System.out.print("Array: ");
-        System.out.print("Enter number of elements you want in array:");
+        System.out.print("Geben Sie die Anzahl der Elemente in die Array ein:");
         int length = input.nextInt();
         float array[] = new float[length];
-        System.out.println("Enter all the elements:");
+        System.out.println("Geben Sie die Elemente ein:");
         for(int i = 0; i < length; i++){
             array[i] = input.nextInt();
         }

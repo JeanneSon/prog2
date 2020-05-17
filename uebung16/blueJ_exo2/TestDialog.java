@@ -9,18 +9,25 @@ public class TestDialog
 {
     //Attribute
     private Scanner input = new Scanner(System.in);
-
+    
+    private Sum sum = new Sum();
+    private Subtract subtract = new Subtract();
+    private Swirl swirl = new Swirl();
+    private Divide divide = new Divide();
+    private Average average = new Average();
+    
     //Klassenkonstanten
     private static final int SUM = 1;
     private static final int SWIRL = 2;
     private static final int DIVIDE = 3;
     private static final int SUBTRACT = 4;
     private static final int AVERAGE = 5;
-    private static final int NUMBER_CRUNCHER_ANONYM = 1;
-    private static final int NUMBER_CRUNCHER_TOPLEVEL = 2;
     private static final int ENDE = 0;
     private static final char ZUFALIGES_ARRAY = 'z';
-    private static final char EINGEGEBENE_ARRAY ='e';    
+    private static final char EINGEGEBENE_ARRAY ='e';
+    //Untermenu
+    private static final int NUMBER_CRUNCHER_ANONYM = 1;
+    private static final int NUMBER_CRUNCHER_TOPLEVEL = 2;
 
     /**
     *Hauptschleife des Testprogramms

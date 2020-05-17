@@ -16,6 +16,8 @@ public class TestDialog
     private static final int DIVIDE = 3;
     private static final int SUBTRACT = 4;
     private static final int AVERAGE = 5;
+    private static final int NUMBER_CRUNCHER_ANONYM = 1;
+    private static final int NUMBER_CRUNCHER_TOPLEVEL = 2;
     private static final int ENDE = 0;
     private static final char ZUFALIGES_ARRAY = 'z';
     private static final char EINGEGEBENE_ARRAY ='e';    
@@ -34,7 +36,7 @@ public class TestDialog
         while (auswahl != ENDE) {
             try {
                 auswahl = einlesenAuswahl();
-                ausfuehrenAuswahl(auswahl);
+                ausfuehrenAuswahl(auswahl, values);
             } catch (IllegalArgumentException e) {
                 System.out.println(e);
             } catch (InputMismatchException e) {
@@ -67,7 +69,7 @@ public class TestDialog
         float[] array = new float[10];
         switch (auswahl) {
             case ZUFALIGES_ARRAY:
-                //int[] zufaligesArray = randomArray();
+                float[] zufaligesArray = randomArray();
                 break;
             case EINGEGEBENE_ARRAY:
                 float[] eingegebeneArray = einleseArray();
@@ -83,10 +85,10 @@ public class TestDialog
     *
     * @return ein Float-Array
     */
-    //private float[] randomArray(){
+    private float[] randomArray(){
         
-    //    return [];
-    //}
+        return new float[10];
+    }
     
     /**
      * liest eine Array ein
@@ -127,26 +129,26 @@ public class TestDialog
         input.nextLine();
         return auswahl;
     }
-    private void ausfuehrenAuswahl(int auswahl) {
+    private void ausfuehrenAuswahl(int auswahl, float[] values) {
         switch (auswahl) {
             case SUM:
-                float[] sumArray = einleseArray();
+                wahlEinMethode(values);
                 
                 break;
             case SWIRL:
-                float[] swirlArray = einleseArray();
+                wahlEinMethode(values);
                 
                 break;
             case DIVIDE:
-                float[] divideArray = einleseArray();
+                wahlEinMethode(values);
                 
                 break;
             case SUBTRACT:
-                float[] substractArray = einleseArray();
+                wahlEinMethode(values);
                 
                 break;
             case AVERAGE:
-                float[] averageArray = einleseArray();
+                wahlEinMethode(values);
                 
                 break;
             case ENDE:
@@ -155,6 +157,36 @@ public class TestDialog
             default:
                 System.out.println("Falsche Auswahl!");
         }
+    }
+    /**
+     * wahlEinMethode
+     * 
+     * @param text ein String
+     */
+    private void wahlEinMethode(float[] values) {
+        int methode =    einlesenInt("Methode? (1 = anonymKlasse; 2 = topLevelKlasse) ");
+        //Aufsaugen der letzten Zeile
+        input.nextLine();
+        if (methode == NUMBER_CRUNCHER_ANONYM) {
+            System.out.println();
+        } else if (methode == NUMBER_CRUNCHER_TOPLEVEL) {
+            System.out.println();
+        }
+        else {
+            System.out.println("Falsche Methode eingegeben");
+        }
+    }
+    /**
+     * einleseInt liest eine Integer ein
+     *
+     * @param msg ist die Eingabeaufforderung
+     * @return eingelesene Integer
+     */
+    private int einlesenInt(String msg) {
+        int zahl;
+        System.out.print(msg);
+        zahl = input.nextInt();
+        return zahl;
     }
     /**
      * Main-Methode zum Erzeugen des lagerDialog-Objekts 

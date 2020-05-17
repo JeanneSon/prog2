@@ -77,7 +77,7 @@ public class TestDialog
     private float[] ausfuehrenArrayAuswahl(char auswahl) throws InputMismatchException{
         switch (auswahl) {
             case ZUFALIGES_ARRAY:
-                float[] zufaligesArray = randomArray();
+                float[] zufaligesArray = randomArray(5);
                 return zufaligesArray;
             case EINGEGEBENE_ARRAY:
                 float[] eingegebeneArray = einleseArray();
@@ -92,9 +92,13 @@ public class TestDialog
     *
     * @return ein Float-Array
     */
-    private float[] randomArray(){
-        
-        return new float[10];
+    private float[] randomArray(int laenge){
+        float randArr[] = new float[laenge];
+        Random rand = new Random();
+        for (int i = 0; i < laenge; i++) {
+            randArr[i] = rand.nextFloat();
+        }
+        return randArr;
     }
     
     /**

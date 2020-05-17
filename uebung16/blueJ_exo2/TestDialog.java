@@ -1,4 +1,5 @@
 import java.util.*;
+import java.lang.StringBuilder;
 /**
 * Interaktive Testklasse fuer die Klasse Lager
 * 
@@ -9,19 +10,8 @@ public class TestDialog
 {
     //Attribute
     private Scanner input = new Scanner(System.in);
-    
-    private Sum sum = new Sum();
-    private Subtract subtract = new Subtract();
-    private Swirl swirl = new Swirl();
-    private Divide divide = new Divide();
-    private Average average = new Average();
-    
+        
     //Klassenkonstanten
-    private static final int SUM = 1;
-    private static final int SWIRL = 2;
-    private static final int DIVIDE = 3;
-    private static final int SUBTRACT = 4;
-    private static final int AVERAGE = 5;
     private static final int ENDE = 0;
     private static final char ZUFALIGES_ARRAY = 'z';
     private static final char EINGEGEBENE_ARRAY ='e';
@@ -35,29 +25,33 @@ public class TestDialog
     public void start() {
         System.out.println("HERZLICH WILLKOMMEN!");
         System.out.print( "Möchten Sie auf eigenen Float-Array operieren"
-        + "oder soll ein zufälliges erzeugt werden? \n");
+        + "oder soll ein zufaelliges erzeugt werden? \n");
         char arrayTyp = typArrayAuswahlen();
-        float[] values = ausfuehrenArrayAuswahl(arrayTyp);
-        System.out.println("Hier ist es" +
-        values);
-        int auswahl = -1;
-
-        while (auswahl != ENDE) {
-            try {
-                auswahl = einlesenAuswahl();
-                ausfuehrenAuswahl(auswahl, values);
-            } catch (IllegalArgumentException e) {
-                System.out.println(e);
-            } catch (InputMismatchException e) {
-                System.out.println(e);
-                input.nextLine();       //Absorption des "falschen" Tokens
-            } catch (Exception e) {
-                System.out.println("Achtung, gefangen Ausnahem: " + e);
-                e.printStackTrace(System.out);
-            }
+        int laenge = einlesenInt("Welche Groesse soll das Array haben? Bitte Groesse > 0 eingeben");
+        if (laenge <= 0) {
+            System.out.println("Ungueltige Laenge. Ich waehle fuer Sie die Laenge 5.");
+            laenge = 5;
         }
+        float[] values = ausfuehrenArrayAuswahl(arrayTyp, laenge);        
+        NumberCruncherAnonym ncal = new NumberCruncherAnonym(values);
+        NumberCruncherTopLevel nctl = new NumberCruncherTopLevel(values);
+        System.out.println("Hier ist es " + valuesToString(values));
+        String operationen = einlesenAuswahl();
+        int methode = wahlEinMethode();
+        values = process(operationen, values, methode, ncal, nctl);
     }
 
+    
+    private float[] process(String operationen, float[] values, int methode, NumberCruncherAnonym ncal, NumberCruncherTopLevel nctl) {
+        String[] operations = operationen.split(" ");
+        if (methode == NUMBER_CRUNCHER_ANONYM)
+            ncal.crunch(operations);
+        else
+            if (methode == NUMBER_CRUNCHER_TOPLEVEL)
+                nctl.crunch(operations);
+        return values;
+    }
+    
     /**
     * typArrayAuswahlen Methode
     * Menue ausgeben und Auswahl einlesen
@@ -74,14 +68,12 @@ public class TestDialog
         return auswahl;
      }
 
-    private float[] ausfuehrenArrayAuswahl(char auswahl) throws InputMismatchException{
+    private float[] ausfuehrenArrayAuswahl(char auswahl, int laenge) throws InputMismatchException{
         switch (auswahl) {
             case ZUFALIGES_ARRAY:
-                float[] zufaligesArray = randomArray(5);
-                return zufaligesArray;
+                return randomArray(laenge);
             case EINGEGEBENE_ARRAY:
-                float[] eingegebeneArray = einleseArray();
-                return eingegebeneArray;
+                return einleseArray(laenge);
             default:
                 throw new InputMismatchException("Falsche Auswahl!");                
         }
@@ -105,14 +97,11 @@ public class TestDialog
      * liest eine Array ein
      * @return ein Float-Array 
      */
-    private float[] einleseArray() {
-        System.out.print("Array: ");
-        System.out.print("Geben Sie die Anzahl der Elemente in die Array ein:");
-        int length = input.nextInt();
+    private float[] einleseArray(int length) {
         float array[] = new float[length];
         System.out.println("Geben Sie die Elemente ein:");
         for(int i = 0; i < length; i++){
-            array[i] = input.nextInt();
+            array[i] = input.nextFloat();
         }
         return array;
     }
@@ -123,70 +112,41 @@ public class TestDialog
     *
     * @return eingelesene Auswahl als ganzzahliger Wert
     */
-    private int einlesenAuswahl() {
+    private String einlesenAuswahl() {
         int auswahl;
         System.out.print(
-        SUM         + ": Summiert die Elemente des Arrays paarweise von links nach"
-                    +"rechts D.h.: a[1] = a[0] + a[1]; a[2] =a[1] + a[2] usw. \n" +
-        SWIRL       + ": Fuehrt n zufaellige Vertauschungen der Datenfelder durch "
-                    +"n ist durch die Laenge desfloat-Arrays gegeben. \n" + 
-        DIVIDE      + ": Teilt die n/2 groessten Werte im Array durch die n/2 Kleinsten \n" +
-        SUBTRACT   + ": Analog zu sum nur mit Substraktion \n" +
-        AVERAGE     + ": Bestimmt den Durchschnitt aller Werte im Array und " 
-                    + "speichert sie mit dem groessten Wert.  \n" +
-        ENDE        + ": Programm beenden; \n Auswahl:\t");
-
-        auswahl = input.nextInt();
-        input.nextLine();
-        return auswahl;
+                    "sum (Summiert die Elemente des Arrays paarweise von links nach" +
+                            "rechts D.h.: a[1] = a[0] + a[1]; a[2] =a[1] + a[2] usw.) \n" +
+                    "swirl (Fuehrt n zufaellige Vertauschungen der Datenfelder durch " +
+                            "n ist durch die Laenge desfloat-Arrays gegeben.) \n" + 
+                    "divide (Teilt die n/2 groessten Werte im Array durch die n/2 Kleinsten) \n" +
+                    "subtract (Analog zu sum nur mit Substraktion) \n" +
+                    "average (Bestimmt den Durchschnitt aller Werte im Array und " +
+                            "speichert sie mit dem groessten Wert.  \n\n" +
+                    "Geben Sie jetzt alle Operationen ein, die nacheinander " + 
+                            "ausgefuehrt werden sollen. Trennen Sie die Operationen mit einem Leerzeichen. : "
+        );
+        String operationen = input.nextLine();
+        return operationen;
     }
-    private void ausfuehrenAuswahl(int auswahl, float[] values) {
-        switch (auswahl) {
-            case SUM:
-                wahlEinMethode(values);
-                
-                break;
-            case SWIRL:
-                wahlEinMethode(values);
-                
-                break;
-            case DIVIDE:
-                wahlEinMethode(values);
-                
-                break;
-            case SUBTRACT:
-                wahlEinMethode(values);
-                
-                break;
-            case AVERAGE:
-                wahlEinMethode(values);
-                
-                break;
-            case ENDE:
-                System.out.println("Programmende");
-                break;
-            default:
-                System.out.println("Falsche Auswahl!");
-        }
-    }
+    
     /**
      * wahlEinMethode
      * 
      * @param text ein String
      */
-    private void wahlEinMethode(float[] values) {
-        int methode =    einlesenInt("Methode? (1 = anonymKlasse; 2 = topLevelKlasse) ");
+    private int wahlEinMethode()  throws InputMismatchException{
+        int methode = einlesenInt("Methode? (1 = anonymKlasse; 2 = topLevelKlasse) ");
         //Aufsaugen der letzten Zeile
         input.nextLine();
-        if (methode == NUMBER_CRUNCHER_ANONYM) {
-            System.out.println();
-        } else if (methode == NUMBER_CRUNCHER_TOPLEVEL) {
-            System.out.println();
-        }
+        if (methode == NUMBER_CRUNCHER_ANONYM || methode == NUMBER_CRUNCHER_TOPLEVEL) {
+            return methode;
+        } 
         else {
-            System.out.println("Falsche Methode eingegeben");
+            throw new InputMismatchException("Falsche Auswahl!");
         }
     }
+    
     /**
      * einleseInt liest eine Integer ein
      *
@@ -199,6 +159,7 @@ public class TestDialog
         zahl = input.nextInt();
         return zahl;
     }
+    
     /**
      * Main-Methode zum Erzeugen des lagerDialog-Objekts 
      * und zum Anstarten der Testschleife
@@ -207,4 +168,18 @@ public class TestDialog
         new TestDialog().start();
     }
 
+    /**
+     * valuesToString
+     *
+     * @param values Array
+     * @return String
+     */
+    private String valuesToString(float[] values) {
+        StringBuilder sb = new StringBuilder("[ ");
+        for (float elem : values) {
+            sb.append(elem + " ");
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 }

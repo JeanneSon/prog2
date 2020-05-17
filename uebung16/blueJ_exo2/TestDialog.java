@@ -38,6 +38,8 @@ public class TestDialog
         + "oder soll ein zufälliges erzeugt werden? \n");
         char arrayTyp = typArrayAuswahlen();
         float[] values = ausfuehrenArrayAuswahl(arrayTyp);
+        System.out.println("Hier ist es" +
+        values);
         int auswahl = -1;
 
         while (auswahl != ENDE) {
@@ -72,19 +74,17 @@ public class TestDialog
         return auswahl;
      }
 
-    private float[] ausfuehrenArrayAuswahl(char auswahl) {
-        float[] array = new float[10];
+    private float[] ausfuehrenArrayAuswahl(char auswahl) throws InputMismatchException{
         switch (auswahl) {
             case ZUFALIGES_ARRAY:
                 float[] zufaligesArray = randomArray();
-                break;
+                return zufaligesArray;
             case EINGEGEBENE_ARRAY:
                 float[] eingegebeneArray = einleseArray();
                 return eingegebeneArray;
             default:
-                System.out.println("Falsche Auswahl!");
+                throw new InputMismatchException("Falsche Auswahl!");                
         }
-        return array;
     }
 
     /**

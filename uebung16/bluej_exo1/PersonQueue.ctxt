@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=PersonQueue
-comment0.text=\r\n\ \ \ \ ---->\ PersonQueue\r\n\ \ \ \ \ \ \ \ \ \ -->\ Implementierung\ einer\ PersonQueue\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ mittels\ der\ allgemeinen\ ObjectQueue\r\n\r\n\ @author\ \ \ \ \ \ Wolfgang\ Pauly\r\n\r\n
+comment0.text=\r\n\ \ \ \ ---->\ PersonQueue\r\n\ \ \ \ \ \ \ \ \ \ -->\ Implementierung\ einer\ PersonQueue\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ mittels\ der\ allgemeinen\ ObjectQueue\r\n\r\n\ @author\ \ \ \ \ \ Wolfgang\ Pauly\ erweitert\ von\ A.\ Venet\ &\ H.\ Schall\r\n\r\n
 comment1.params=laenge
 comment1.target=PersonQueue(int)
 comment1.text=\ der\ Konstruktor\r\n\r\n
@@ -15,8 +15,8 @@ comment4.target=Person\ get(int)
 comment4.text=\ i'tes\ Element\ der\ Queue\ zurueckgeben\r\n\r\n\ \ Vorbedingung\:\ \!empty()\ \r\n\r\n\ \ @return\ das\ i'te\ Element\ der\ Queue\r\n
 comment5.params=
 comment5.target=java.lang.String\ toString()
-comment5.text=\r\n\ \r\n
+comment5.text=\r\n\ Methode\ toString\r\n\ @return\ Aufbereitung\ des\ Objekts\ als\ Zeichenkette\r\n
 comment6.params=
 comment6.target=java.lang.String\ smallest()
-comment6.text=\r\n\ \r\n
+comment6.text=\r\n\ smallest\r\n\ @return\ gibt\ die\ Person,\ die\ von\ allen\ Wartenden\ den\ lexikalisch\ kleinsten\ Vornamen\ hat,\ als\ String\ zurueck\r\n
 numComments=7

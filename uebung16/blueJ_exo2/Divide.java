@@ -8,16 +8,20 @@ public class Divide implements CrunchOperation
 {
     //Klassenkonstanten
     public static final float EPSILON = 10e-6F;
+    // Fehlermeldungen
+    private static final String MSG_ARRAY_LEER = "Array darf nicht leer sein!";
+    
     /**
-     *  Teilt die n/2 größten Werte im Array durch die n/2 Kleinsten und 
-     *  speichert den neuen Wert im Datenfeld des jeweils größeren Wertes. 
+     *  Teilt die n/2 groessten Werte im Array durch die n/2 Kleinsten und 
+     *  speichert den neuen Wert im Datenfeld des jeweils groesseren Wertes. 
      *  D.h. der größte Wert wird durch den Kleinsten geteilt. 
-     *  Der Zweitgrößte durch den Zweitkleinsten usw. 
+     *  Der Zweitgroesste durch den Zweitkleinsten usw. 
      *
      *  @param values uebergebendes Array, das veraendert wird (s.o.)
      */
     public void crunch(float values[])
     {
+        check(values.length != 0, MSG_ARRAY_LEER); 
         int[] indexes = new int[values.length];
         for (int i = 1; i < values.length; i++) {
             indexes[i] = i;
@@ -62,6 +66,7 @@ public class Divide implements CrunchOperation
 
     /**
      * Informiert ueber die Aufgabe der Klasse
+     * @return String
      */
     @Override
     public String toString() {
@@ -69,5 +74,16 @@ public class Divide implements CrunchOperation
                 + "speichert den neuen Wert im Datenfeld des jeweils groesseren Wertes."
                 + "D.h. der größte Wert wird durch den Kleinsten geteilt." 
                 + "Der Zweitgroesste durch den Zweitkleinsten usw.";
+    }
+    
+    /**
+    * check
+    * 
+    * @param bedingung, die erfuellt werden soll
+    * @param msg Fehlermeldung, die ausgeben wird falls Bedingung nicht erfuellt
+    */
+    private static void check(boolean bedingung, String msg) {
+        if (!bedingung)
+            throw new IllegalArgumentException(msg);
     }
 }

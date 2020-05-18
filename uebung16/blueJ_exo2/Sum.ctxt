@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=Sum
-comment0.text=\r\n\ Sum\r\n\ \r\n\ @author\ A.\ Venet\ u.\ H.\ Schall\r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment0.text=\r\n\ Sum\r\n\ \r\n\ @author\ A.\ Venet\ u.\ H.\ Schall\r\n\ @version\ 1.0\r\n
 comment1.params=values
 comment1.target=void\ crunch(float[])
+comment1.text=\r\n\ Methode\ crunch\r\n\ Summiert\ die\ Elemente\ des\ Arrays\ paarweise\ von\r\n\ links\ nach\ rechts\ D.h.\:\ a[1]\ \=\ a[0]\ +\ a[1];\ a[2]\ \=a[1]\ +\ a[2]\ usw.\r\n\ \r\n\ @param\ values\ uebergebendes\ Array,\ das\ veraendert\ wird\ (s.o.)\r\n
 comment2.params=
 comment2.target=java.lang.String\ toString()
+comment2.text=\r\n\ Methode\ toString\r\n\ @return\ informiert\ ueber\ die\ Klasse\ Sum\r\n
 comment3.params=bedingung\ msg
 comment3.target=void\ check(boolean,\ java.lang.String)
+comment3.text=\r\n\ check\r\n\ \r\n\ @param\ bedingung,\ die\ erfuellt\ werden\ soll\r\n\ @param\ msg\ Fehlermeldung,\ die\ ausgeben\ wird\ falls\ Bedingung\ nicht\ erfuellt\r\n
 numComments=4

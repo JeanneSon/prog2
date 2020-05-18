@@ -24,6 +24,15 @@ public class NumberCruncherTopLevel
     {
         this.values = values;
     }
+    
+    
+    /**
+     * Methode crunch
+     * fuehrt die Operationen aus
+     *
+     * @param operations String-Array, in dem alle Operationen, 
+     *      die nacheinander ausgefuehrt werden sollen, stehen
+     */
     public void crunch(String[] operations) throws IllegalArgumentException
     {
         for (String op : operations) {
@@ -49,8 +58,23 @@ public class NumberCruncherTopLevel
             }
         }
     } 
+    
+    
+    /**
+     * Methode getNumbers
+     *
+     * @return gibt das float-Array zurueck
+     */
     public float[] getNumbers()
     {
         return values;
+    }
+    
+    /**
+    * Methode toString
+    * @return informiert ueber die Klasse NumberCruncherTopLevel
+    */ 
+    public String toString() {
+        return "TopLevel kann Operationen ausfuehren.";
     }
 }

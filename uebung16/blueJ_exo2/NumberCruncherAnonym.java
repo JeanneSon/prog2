@@ -20,6 +20,13 @@ public class NumberCruncherAnonym
         this.values = values;
     }
   
+    /**
+     * Methode crunch
+     * fuehrt die Operationen aus
+     *
+     * @param operations String-Array, in dem alle Operationen, 
+     *      die nacheinander ausgefuehrt werden sollen, stehen
+     */
     public void crunch(String[] operations) throws IllegalArgumentException
     {
         CrunchOperation swirl = new CrunchOperation() {
@@ -130,8 +137,21 @@ public class NumberCruncherAnonym
     }
     
     
+    /**
+     * Methode getNumbers
+     *
+     * @return gibt das float-Array zurueck
+     */
     public float[] getNumbers()
     {
         return values;
+    }
+    
+    /**
+    * Methode toString
+    * @return informiert ueber die Klasse NumberCruncherAnonym
+    */ 
+    public String toString() {
+        return "NumberCruncherAnonym kann Operationen ausfuehren.";
     }
 }

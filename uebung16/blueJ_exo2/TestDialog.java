@@ -66,7 +66,19 @@ public class TestDialog
     }
 
     
-    private float[] process(String operationen, float[] values, int methode, NumberCruncherAnonym ncal, NumberCruncherTopLevel nctl) {
+    /**
+     * Methode process
+     *
+     * @param operationen String, in dem alle Operationen, 
+     *      die nacheinander ausgefuehrt werden sollen, stehen
+     * @param values float-Array, auf dem die Operationen durchgefuert werden
+     * @param methode ob Anonym oder TopLevel verwendet wird
+     * @param ncal Anonym-Objekt
+     * @param nctl TopLevel-Objekt
+     * @return das bearbeitete float-Array
+     */
+    private float[] process(String operationen, float[] values, int methode, 
+                        NumberCruncherAnonym ncal, NumberCruncherTopLevel nctl) {
         String[] operations = operationen.split(" ");
         if (methode == NUMBER_CRUNCHER_ANONYM)
             ncal.crunch(operations);
@@ -95,6 +107,14 @@ public class TestDialog
         return auswahl;
      }
 
+    /**
+     * Methode ausfuehrenArrayAuswahl
+     * Hilfsmethode, mit die dafuer sorgt, dass das float-Array erstellt wird
+     * 
+     * @param auswahl Character, der bestimmt, wie das float-Array erstellt wird
+     * @param laenge Laenge des float-Arrays
+     * @return das erstelle float-Array
+     */
     private float[] ausfuehrenArrayAuswahl(char auswahl, int laenge) throws InputMismatchException{
         switch (auswahl) {
             case ZUFALIGES_ARRAY:
@@ -107,7 +127,7 @@ public class TestDialog
     }
 
     /**
-    * Methode zum Anlegen eines Zufaelliges Array
+    * Methode zum Anlegen eines zufaelligen Arrays
     *
     * @return ein Float-Array
     */
@@ -121,7 +141,7 @@ public class TestDialog
     }
     
     /**
-     * liest eine Array ein
+     * liest ein Array ein
      * @return ein Float-Array 
      */
     private float[] einleseArray(int length) {

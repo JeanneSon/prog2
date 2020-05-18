@@ -5,7 +5,7 @@ import java.util.Iterator;
  *          --> Implementierung einer PersonQueue
  *              mittels der allgemeinen ObjectQueue
  *
- * @author      Wolfgang Pauly
+ * @author      Wolfgang Pauly erweitert von A. Venet & H. Schall
  *
  */
 
@@ -61,30 +61,53 @@ public class PersonQueue
        return (Person)super.get(i);
    }
    
+  
    interface PersonIterator extends java.util.Iterator<Person> {}
    
+   /**
+     * PersonIter
+     * iteriert ueber PersonQueue
+     * 
+     * @author A. Venet u. H. Schall
+     * @version 1.0
+     */
    private class PersonIter implements PersonIterator 
    {
        private int index;
        
+       /**
+        * PersonIter Konstruktor
+        * setzt den Index auf 0
+        */
        public PersonIter()
        {
-              index = 0;
+             index = 0;
        }
        
+       /**
+        * Methode hasNext
+        *
+        * @return ob PersonQueue ein weiteres Element besitzt
+        */
        public boolean hasNext()
        {
            return PersonQueue.super.size() - index > 0;
        }
        
+       /**
+        * Methode next
+        *
+        * @return das naechste Element
+        */
        public Person next()
        {
               return get(index++);
        }
    }
    /**
-     * 
-    */
+     * Methode toString
+     * @return Aufbereitung des Objekts als Zeichenkette
+     */
    public String toString(){
        StringBuffer sb = new StringBuffer("PersonQueue: ");
        PersonIter iterator = new PersonIter();
@@ -96,7 +119,8 @@ public class PersonQueue
    }
    
    /**
-     * 
+     * smallest
+     * @return gibt die Person, die von allen Wartenden den lexikalisch kleinsten Vornamen hat, als String zurueck
     */
    public String smallest (){
        if (super.empty()) {

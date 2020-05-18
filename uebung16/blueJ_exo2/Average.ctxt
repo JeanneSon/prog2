@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=Average
-comment0.text=\r\n\ Averag.\r\n\ \r\n\ @author\ A.\ Venet\ u.\ H.\ Schall\r\n\ @version\ 1.0\r\n
+comment0.text=\r\n\ Average\r\n\ \r\n\ @author\ A.\ Venet\ u.\ H.\ Schall\r\n\ @version\ 1.0\r\n
 comment1.params=values
 comment1.target=void\ crunch(float[])
 comment1.text=\r\n\ Bestimmt\ den\ Durchschnitt\ aller\ Werte\ im\ Array\ und\ \r\n\ speichert\ den\ Durchschnittswert\ im\ Datenfeld\ mit\ dem\ groessten\ Wert.\ \r\n\r\n\ @param\ values\ das\ Array,\ das\ veraendert\ wird\ (s.o.)\r\n
 comment2.params=
 comment2.target=java.lang.String\ toString()
 comment2.text=\r\n\ gibt\ die\ Aufgabe\ der\ Klasse\ als\ String\ zurueck\r\n\r\n\ @return\ String\r\n
-numComments=3
+comment3.params=bedingung\ msg
+comment3.target=void\ check(boolean,\ java.lang.String)
+comment3.text=\r\n\ check\r\n\ \r\n\ @param\ bedingung,\ die\ erfuellt\ werden\ soll\r\n\ @param\ msg\ Fehlermeldung,\ die\ ausgeben\ wird\ falls\ Bedingung\ nicht\ erfuellt\r\n
+numComments=4

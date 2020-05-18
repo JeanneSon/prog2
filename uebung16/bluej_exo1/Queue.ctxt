@@ -21,4 +21,5 @@ comment6.target=int\ size()
 comment6.text=\r\n\ \ \ \ size\ ->\ Anzahl\ der\ Elemente\ in\ Queue\r\n\r\n\ \ \ \ @return\ \ \ \ Anzahl\ der\ Elemente\r\n
 comment7.params=
 comment7.target=java.lang.String\ smallest()
+comment7.text=\r\n\ \ \ \ smallest\ ->\ Person\ mit\ lexikalisch\ kleinstem\ Vornamen\ (nur\ in\ Person\ implementiert)\r\n\r\n\ \ \ \ @return\ \ \ \ String\ der\ \r\n
 numComments=8

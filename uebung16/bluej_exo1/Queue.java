@@ -57,6 +57,10 @@ public interface Queue
    */
   public int size();
   
-  //wird nur in PersonQueue implementier, siehe dortigen Kommenar
+  /**
+   *    smallest -> Person mit lexikalisch kleinstem Vornamen (nur in Person implementiert)
+   *
+   *    @return    String der 
+   */
   public String smallest();
 }

@@ -196,31 +196,31 @@ public class OueueTest
    */
   private Object leseElement()
   {
-    int was;
+       int was;
+        
+       // das neue Objekt
+       Object neuesObjekt = null;
+        
+       String name, vorname;
+        
+       was = leseElementArt();
     
-    // das neue Objekt
-    Object neuesObjekt = null;
-
-    String name, vorname;
-    
-   was = leseElementArt();
-
-   if ( was == STRING )
-     {
-      neuesObjekt =  new String(  MyInputFunctions.readlnString(in, "\n\tGeben Sie " +
-                                                                    "einen String " +
-                                                                    " ein : "
-                                                               )
-                               );
-     }
-   else
-     {    
-      name = MyInputFunctions.readlnString(in, "\n\tGeben Sie den Personen-Namen ein : ");
-      vorname = MyInputFunctions.readlnString(in, "\n\tGeben Sie den Personen-Vornamen ein : ");
-   
-      neuesObjekt =  new Person( name, vorname );
-     }    
-   return neuesObjekt;
+       if ( was == STRING )
+         {
+          neuesObjekt =  new String(  MyInputFunctions.readlnString(in, "\n\tGeben Sie " +
+                                                                        "einen String " +
+                                                                        " ein : "
+                                                                   )
+                                   );
+         }
+       else
+         {    
+          name = MyInputFunctions.readlnString(in, "\n\tGeben Sie den Personen-Namen ein : ");
+          vorname = MyInputFunctions.readlnString(in, "\n\tGeben Sie den Personen-Vornamen ein : ");
+       
+          neuesObjekt =  new Person( name, vorname );
+         }    
+       return neuesObjekt;
   }
 
 

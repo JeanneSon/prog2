@@ -8,7 +8,8 @@ import java.lang.Math;
 public class Anonym
 {
     //Klassenkonstanten
-    private static final String OPERATION_NOT_VALID = "Ungueltige Operation: ";
+    
+    
     //Objektattribute
    
     

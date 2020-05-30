@@ -7,26 +7,39 @@
  */
 public class Klasseueb17
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    private int x;
-
+    
     /**
      * Constructeur d'objets de classe Klasseueb17
      */
     public Klasseueb17()
     {
-        // initialisation des variables d'instance
-        x = 0;
+        
     }
 
+    
     /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
+     * Méthode applyAndPrint
      *
-     * @param  y   le paramètre de la méthode
-     * @return     la somme de x et de y
+     * @param i 
+     * @param j 
+     * @param predicate
+     * @return ein liste von number zwischen i und j die dem Predicate ???
      */
-    public int applyAndPrint(int i, int j)
+    public int[] applyAndPrint(int i, int j)
     {
-        return i;
+        int[] result;
+        for(int x = i+1; x<j; x++){
+            result.add(apply(x));
+        }
+        return result;
+    }
+    
+    public static class Fakultaet{
+        public int fakultaet(int n){
+            if (n <= 0)
+            return 1;
+            else
+            return n * fakultaet(n-1);
+        }
     }
 }

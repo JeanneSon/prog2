@@ -1,11 +1,11 @@
-
+import java.lang.Math;
 /**
  * Décrivez votre classe Lambda ici.
  *
  * @author (votre nom)
  * @version (un numéro de version ou une date)
  */
-public class Lambda
+public class Lambda implements Myfunction
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private int x;
@@ -18,16 +18,8 @@ public class Lambda
         // initialisation des variables d'instance
         x = 0;
     }
-
-    /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
-     *
-     * @param  y   le paramètre de la méthode
-     * @return     la somme de x et de y
-     */
-    public int sampleMethod(int y)
-    {
-        // Insérez votre code ici
-        return x + y;
-    }
+    MyFunction quadrat = (int n) -> (int) Math.pow(n, 2);
+    MyFunction fakultaet = (int n) -> (n<=0) ? 1 : n*fakultaet(n-1);
+    MyFunction fibonacci = (int n) -> ((n == 0) || (n == 1)) ? n : fibonacci(n-1) + fibonacci(n-2);
+    MyFunction exponent = (int n) -> (int) Math.pow(n, n+1);
 }

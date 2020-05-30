@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Anonym
+comment0.text=\r\n\ NumberCruncherAnonym\r\n\ \r\n\ @author\ A.\ Venet\ u.\ H.\ Schall\r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=Anonym()
+comment1.text=\r\n\ Konstruktor\r\n\ @param\ \r\n
+comment2.params=n
+comment2.target=int\ fibonacci(int)
+comment3.params=n
+comment3.target=int\ fakultaet(int)
+comment4.params=n
+comment4.target=int\ quadrat(int)
+comment5.params=n
+comment5.target=int\ exponent(int)
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment6.text=\r\n\ Methode\ toString\r\n\ @return\ informiert\ ueber\ die\ Klasse\ NumberCruncherAnonym\r\n
+numComments=7

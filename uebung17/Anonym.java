@@ -1,3 +1,4 @@
+import java.lang.Math;
 /**
  * NumberCruncherAnonym
  * 
@@ -35,18 +36,11 @@ public class Anonym
     }
     
     public static int quadrat(int n){
-        return n^2;
+        return (int) Math.pow(n, 2);
     }
     
-    public static int exp(int b) {
-        int n = b+1;
-        if (n == 0)
-            return 1;
-        else if (n % 2 == 0) {
-            int l = exp(b, n / 2);
-            return l * l;
-        }else
-            return b * exp(b, n - 1);
+    public static int exponent(int n) {
+        return (int) Math.pow(n, n+1);
     }
     
     /**
@@ -54,6 +48,6 @@ public class Anonym
     * @return informiert ueber die Klasse NumberCruncherAnonym
     */ 
     public String toString() {
-        return "NumberCruncherAnonym kann Operationen ausfuehren.";
+        return " ";
     }
 }

@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Conditionate
-comment0.text=\r\n\ D\u00E9crivez\ votre\ interface\ Conditionate\ ici.\r\n\r\n\ @author\ \ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
-comment1.params=pradikat
-comment1.target=int\ conditionateInput(java.lang.String)
+comment0.text=\r\n\ D\u00E9crivez\ votre\ interface\ Conditionate\ ici.\r\n\r\n\ @author\ \ VENET\ Aurianne\ SCHALL\ Hanna\r\n\ @version\ 1.0\r\n
+comment1.params=predic
+comment1.target=int\ conditionateInput(java.util.function.Predicate)
 comment1.text=\r\n\ M\u00E9thode\ conditionateInput\r\n\r\n\ @return\ La\ valeur\ de\ retour\r\n
-comment2.params=pradikat
-comment2.target=int\ conditionateOutput(java.lang.String)
+comment2.params=predic
+comment2.target=int\ conditionateOutput(java.util.function.Predicate)
 comment2.text=\r\n\ M\u00E9thode\ conditionateOutput\r\n\r\n\ @return\ La\ valeur\ de\ retour\r\n
 numComments=3

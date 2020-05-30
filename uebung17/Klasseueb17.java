@@ -2,8 +2,8 @@
 /**
  * Décrivez votre classe Klasseueb17 ici.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author  VENET Aurianne SCHALL Hanna
+ * @version 1.0
  */
 public class Klasseueb17
 {

@@ -2,8 +2,8 @@ import java.lang.Math;
 /**
  * Décrivez votre classe Lambda ici.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author  VENET Aurianne SCHALL Hanna
+ * @version 1.0
  */
 public class Lambda
 {
@@ -11,12 +11,10 @@ public class Lambda
     private int x;
 
     /**
-     * Constructeur d'objets de classe Lambda
+     * konstrctor
      */
     public Lambda()
     {
-        // initialisation des variables d'instance
-        x = 0;
     }
     static MyFunction quadrat = (int n) -> (int) Math.pow(n, 2);
     static MyFunction fakultaet = (int n) -> n <= 0 ? 1 : n * Lambda.fakultaet.apply(n - 1);

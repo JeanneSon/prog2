@@ -1,4 +1,4 @@
-
+import java.util.function.Predicate; 
 /**
  * Décrivez votre interface Conditionate ici.
  *
@@ -14,12 +14,15 @@ public interface Conditionate extends MyFunction
      *
      * @return La valeur de retour
      */
-    int conditionateInput(String pradikat);
+    int conditionateInput(Predicate predic);
     
     /**
      * Méthode conditionateOutput
      *
      * @return La valeur de retour
      */
-    int conditionateOutput(String pradikat);
+    int conditionateOutput(Predicate predic);
+    
+    Predicate<Integer> even = i -> ((i % 2) == 0);
+    Predicate<Integer> odd = i -> ((i % 2) /= 0);
 }

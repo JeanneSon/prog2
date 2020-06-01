@@ -23,11 +23,15 @@ public interface Conditionate extends MyFunction
      */
     int conditionateOutput(Predicate predic);
     
-    Predicate<Integer> even = i -> ((i % 2) == 0);
+    Predicate<Integer> even = i -> i % 2 == 0;
+    //System.out.println(even.test(33)) -> False
     //Predicate<Integer> odd = i -> ((i % 2) /= 0);
-    Predicate<Integer> odd = new Predicate(){
-        public boolean test(int n) {        
-            return ((n % 2) != 0);    
+    public interface OddInterface{
+        public boolean oddTest(int i);
+    }
+    OddInterface odd =  new OddInterface(){
+            public boolean oddTest(int i){
+                return i % 2 != 0;
             }
-    };
+        };
 }

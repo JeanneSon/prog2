@@ -7,4 +7,6 @@ comment1.text=\r\n\ M\u00E9thode\ conditionateInput\r\n\r\n\ @return\ La\ valeur
 comment2.params=predic
 comment2.target=int\ conditionateOutput(java.util.function.Predicate)
 comment2.text=\r\n\ M\u00E9thode\ conditionateOutput\r\n\r\n\ @return\ La\ valeur\ de\ retour\r\n
-numComments=3
+comment3.params=i
+comment3.target=boolean\ oddTest(int)
+numComments=4

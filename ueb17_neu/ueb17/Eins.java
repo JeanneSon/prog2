@@ -99,8 +99,23 @@ public class Eins
     private static final MyFunction FIBONACCI_LAMBDA = 
           n -> (n == 0 || n == 1)
              ? n : Eins.FIBONACCI_LAMBDA.apply(n-1) + Eins.FIBONACCI_LAMBDA.apply(n-2);
+    //Predicate<Integer> even = i -> i % 2 == 0;
+     // public interface OddInterface{
+        // public boolean oddTest(int i);
+    // }
+    // OddInterface odd =  new OddInterface(){
+           // public boolean oddTest(int i){
+               // return i % 2 != 0;
+          // }
+    // };
     
-     //Anonyme function
+    //frage e
+    //private static final MyFunction GERADE_QUADRAT = n -> (n % 2 == 0) ? QUADRAT_LAMBDA : 0;
+    
+    //frage f
+    //private static final MyFunction UNGERADE_FAKULTAET = n -> (FAKULTAET_LAMBDA % 2) != 0 ? FAKULTAET_LAMBDA : 0;
+    
+    //Anonyme function
     private static final MyFunction QUADRAT_A_CL = new MyFunction() {
         public int apply(int i) {
             return i*i;

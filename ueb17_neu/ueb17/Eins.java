@@ -91,7 +91,7 @@ public class Eins
         executeFakultaetTopLevel(i, j);
         executeFakultaetStaticNestedCl(i, j);
     }
-    //Klassenkonstanten
+    //Lambda Ausdruck
     private static final MyFunction QUADRAT_LAMBDA = n -> n*n;
     private static final MyFunction FAKULTAET_LAMBDA = 
         n -> n <= 0 ? 1 : n * Eins.FAKULTAET_LAMBDA.apply(n - 1);

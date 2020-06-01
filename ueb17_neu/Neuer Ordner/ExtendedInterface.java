@@ -1,27 +1,33 @@
 import java.util.function.IntPredicate;
 import java.util.function.IntUnaryOperator;
+
+//+++++++++++++++++++++++++++++++++Aufgabe 1c+++++++++++++++++++++++++++++++++++++++++
 /**
- * Tragen Sie hier eine Beschreibung des Interface ExtendedInterface ein.
+ * Das Interface ExtendedInterface erweitert das Interface MyFunction.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author VENET Aurianne & SCHALL Hanna
+ * @version 1.0
  */
 
 public interface ExtendedInterface extends MyFunction
 {
     /**
-     * Méthode conditionateInput
+     * Default-Methode conditionateInput nimmt ein Praedikat als Argument entgegen und gibt einen Lambda-Ausdruck zurueck. 
+     * Der Lambda-Ausdruck prueft für einen gegebenen Integer-Wert, ob dieser das Praedikat erfuellt. 
+     * Ist das Praedikat erfuellt, wird das Ergebnis der apply-Methode des Interfaces zurueckgegeben, ansonsten wird 0 zurückgegeben. 
      *
-     * @return La valeur de retour
+     * @return Lambda-Ausdruck
      */
     default MyFunction conditionateInput(IntPredicate p) {
         return x -> (p.test(x)) ? apply(x) : 0; 
     }
     
     /**
-     * Méthode conditionateOutput
+     * Default-Methode conditionateOutput nimmt ebenfalls ein Praedikat als Argument entgegen und gibt einen Lambda-Ausdruck zurueck. 
+     * Der Lambda-Ausdruck prueft, ob das Ergebnis der apply-Methode das Prädikat erfuellt. 
+     * Ist das Prädikat erfuellt, wird das Ergebnis zurückgegeben, ansonsten 0.
      *
-     * @return La valeur de retour
+     * @return Lambda-Ausdruck
      */
     default MyFunction conditionateOutput(IntPredicate p){
         return x -> {

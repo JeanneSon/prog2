@@ -81,7 +81,7 @@ public class Eins
         executeFakultaetTopLevel(i, j);
         executeFakultaetStaticNestedCl(i, j);
     }
-    //Klassenkonstanten
+    //Lambda Ausdruck
     private static final MyFunction QUADRAT_LAMBDA = n -> n*n;
     private static final MyFunction FAKULTAET_LAMBDA = 
         n -> n <= 0 ? 1 : n * Eins.FAKULTAET_LAMBDA.apply(n - 1);
@@ -89,8 +89,24 @@ public class Eins
     private static final MyFunction FIBONACCI_LAMBDA = 
           n -> (n == 0 || n == 1)
              ? n : Eins.FIBONACCI_LAMBDA.apply(n-1) + Eins.FIBONACCI_LAMBDA.apply(n-2);
+             
+    //Predicate<Integer> even = i -> i % 2 == 0;
+     // public interface OddInterface{
+        // public boolean oddTest(int i);
+    // }
+    // OddInterface odd =  new OddInterface(){
+           // public boolean oddTest(int i){
+               // return i % 2 != 0;
+          // }
+    // };
     
-     //Anonyme function
+    //frage e
+    //private static final MyFunction GERADE_QUADRAT = n -> (n % 2 == 0) ? QUADRAT_LAMBDA : 0;
+    
+    //frage f
+    //private static final MyFunction UNGERADE_FAKULTAET = n -> (FAKULTAET_LAMBDA % 2) != 0 ? FAKULTAET_LAMBDA : 0;
+    
+    //Anonyme function
     private static final MyFunction QUADRAT_A_CL = new MyFunction() {
         public int apply(int i) {
             return i*i;
@@ -230,7 +246,6 @@ public class Eins
         return input.nextInt();
     }
     
-    
     IntPredicate even = i -> i % 2 == 0;
     
     IntPredicate odd = new IntPredicate() {
@@ -244,11 +259,10 @@ public class Eins
         applyAndPrint(i, j, eI.conditionateInput(even));
     }
     
-    private void execute(int i, int j) {
+    private void executeF(int i, int j) {
         ExtendedInterface eI = n -> n*n;
         applyAndPrint(i, j, eI.conditionateInput(even));
     }
-    
     
     //source for lambda-recursion:
     // https://community.oracle.com/thread/3965169?start=0&tstart=0

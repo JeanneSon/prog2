@@ -1,5 +1,5 @@
 /**
- * Décrivez votre interface MyFunction ici.
+ * Das MyFunction Interface ist funktional und wird von anomyen Klassen und Lambda-Ausdruecken implementiert.
  *
  * @author  VENET Aurianne SCHALL Hanna
  * @version 1.0

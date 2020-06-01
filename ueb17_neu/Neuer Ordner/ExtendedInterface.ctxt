@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=ExtendedInterface
-comment0.text=\r\n\ Tragen\ Sie\ hier\ eine\ Beschreibung\ des\ Interface\ ExtendedInterface\ ein.\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment0.text=\r\n\ Das\ Interface\ ExtendedInterface\ erweitert\ das\ Interface\ MyFunction.\r\n\ \r\n\ @author\ VENET\ Aurianne\ &\ SCHALL\ Hanna\r\n\ @version\ 1.0\r\n
 comment1.params=p
 comment1.target=MyFunction\ conditionateInput(java.util.function.IntPredicate)
-comment1.text=\r\n\ M\u00E9thode\ conditionateInput\r\n\r\n\ @return\ La\ valeur\ de\ retour\r\n
+comment1.text=\r\n\ Default-Methode\ conditionateInput\ nimmt\ ein\ Praedikat\ als\ Argument\ entgegen\ und\ gibt\ einen\ Lambda-Ausdruck\ zurueck.\ \r\n\ Der\ Lambda-Ausdruck\ prueft\ f\u00FCr\ einen\ gegebenen\ Integer-Wert,\ ob\ dieser\ das\ Praedikat\ erfuellt.\ \r\n\ Ist\ das\ Praedikat\ erfuellt,\ wird\ das\ Ergebnis\ der\ apply-Methode\ des\ Interfaces\ zurueckgegeben,\ ansonsten\ wird\ 0\ zur\u00FCckgegeben.\ \r\n\r\n\ @return\ Lambda-Ausdruck\r\n
 comment2.params=p
 comment2.target=MyFunction\ conditionateOutput(java.util.function.IntPredicate)
-comment2.text=\r\n\ M\u00E9thode\ conditionateOutput\r\n\r\n\ @return\ La\ valeur\ de\ retour\r\n
+comment2.text=\r\n\ Default-Methode\ conditionateOutput\ nimmt\ ebenfalls\ ein\ Praedikat\ als\ Argument\ entgegen\ und\ gibt\ einen\ Lambda-Ausdruck\ zurueck.\ \r\n\ Der\ Lambda-Ausdruck\ prueft,\ ob\ das\ Ergebnis\ der\ apply-Methode\ das\ Pr\u00E4dikat\ erfuellt.\ \r\n\ Ist\ das\ Pr\u00E4dikat\ erfuellt,\ wird\ das\ Ergebnis\ zur\u00FCckgegeben,\ ansonsten\ 0.\r\n\r\n\ @return\ Lambda-Ausdruck\r\n
 numComments=3

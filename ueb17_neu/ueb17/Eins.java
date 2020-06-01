@@ -65,9 +65,9 @@ public class Eins
     
     public void partB() {
         //static MyFunction quadrat = (int n) -> (int) Math.pow(n, 2);
-    //static MyFunction fakultaet = (int n) -> n <= 0 ? 1 : n * Lambda.fakultaet.apply(n - 1);
-    //static MyFunction fibonacci = (int n) -> ((n == 0) || (n == 1)) ? n : Lambda.fibonacci.apply(n-1) + Lambda.fibonacci.apply(n-2);
-    //static MyFunction exponent = (int n) -> (int) Math.pow(n, n+1);
+        //static MyFunction fakultaet = (int n) -> n <= 0 ? 1 : n * Lambda.fakultaet.apply(n - 1);
+        //static MyFunction fibonacci = (int n) -> ((n == 0) || (n == 1)) ? n : Lambda.fibonacci.apply(n-1) + Lambda.fibonacci.apply(n-2);
+        //static MyFunction exponent = (int n) -> (int) Math.pow(n, n+1);
     }
     
     public static void main(String[] args) {
@@ -99,7 +99,8 @@ public class Eins
     private static final MyFunction FIBONACCI_LAMBDA = 
           n -> (n == 0 || n == 1)
              ? n : Eins.FIBONACCI_LAMBDA.apply(n-1) + Eins.FIBONACCI_LAMBDA.apply(n-2);
-             
+    
+     //Anonyme function
     private static final MyFunction QUADRAT_A_CL = new MyFunction() {
         public int apply(int i) {
             return i*i;
@@ -130,6 +131,13 @@ public class Eins
         }
     };
     
+    /**
+     * executeLambda Methode
+     *      methode die die Lambda Ausdruck als funktion benutzt
+     * @param i ein Integer
+     * @param j ein Integer
+     * @param fkt funktion die auf die Zahlen angewendet wird
+     */
     private void executeLambda(int i, int j, int fkt) {
         System.out.println("Ergebnisliste, Berechnung mit Lambda-Ausdruecken:");
         switch (fkt) {
@@ -150,6 +158,13 @@ public class Eins
         }
     }
     
+    /**
+     * executeACl Methode
+     *      methode die die AnonymenKlasse als funktion benutzt
+     * @param i ein Integer
+     * @param j ein Integer
+     * @param fkt funktion die auf die Zahlen angewendet wird
+     */
     private void executeACl(int i, int j, int fkt) {
         System.out.println("Ergebnisliste, Berechnung mit Anonymen Klassen:");
         switch (fkt) {
@@ -170,6 +185,12 @@ public class Eins
         }
     }
     
+    /**
+     * executeFakultaetTopLevel Methode
+     *
+     * @param i ein Integer
+     * @param j ein Integer
+     */
     private void executeFakultaetTopLevel(int i, int j) {
         System.out.println(
             "Nun die Ergebnisliste von der Berechnung f(x)=x! mit TopLevelKlasse-Implementierung"
@@ -181,8 +202,17 @@ public class Eins
         }
         System.out.println(result); 
     }
-    
+    /**
+     * FakultaetStaticNestedCl
+     *      NestedKlasse fuer Fakultaet
+     */
     private static class FakultaetStaticNestedCl {
+        /**
+         * fakultaet Methode
+         *
+         * @param n gegebene Integer
+         * @return fakultaet von n (n!)
+         */
         public int fakultaet(int n)
         {
             if (n <= 0)
@@ -191,7 +221,6 @@ public class Eins
                 return n * fakultaet(n-1);
         }
     }
-    
     private void executeFakultaetStaticNestedCl(int i, int j) {
         System.out.println(
             "Nun die Ergebnisliste von der Berechnung f(x)=x! mit StaticNestedClass-Implementierung"

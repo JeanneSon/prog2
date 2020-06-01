@@ -25,14 +25,7 @@ public class Klasseueb17
      * @param predicate
      * @return ein liste von number zwischen i und j die dem Predicate ???
      */
-    public void applyAndPrint(int i, int j)
-    {
-        int[] result;
-        for(int x = i+1; x<j; x++){
-            result.add(apply(x));
-        }
-        System.out.println(result);
-    }
+    
     
     public static class Fakultaet{
         public int fakultaet(int n){

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Eins
-comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ eins.\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment0.text=\r\n\ TestDialog\ Klasse\ fuer\ ueb\ 17\ \r\n\ \r\n\ @author\ VENET\ Aurianne\ &\ SCHALL\ Hanna\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=Eins()
 comment10.params=i\ j\ fkt
@@ -15,12 +15,14 @@ comment14.params=msg
 comment14.target=int\ inputInt(java.lang.String)
 comment2.params=i\ j\ f
 comment2.target=void\ applyAndPrint(int,\ int,\ Eins.MyFunction)
+comment2.text=\r\n\ applyAndPrint\ Methode\r\n\r\n\ @param\ i\ ein\ uebergebenen\ Integer\r\n\ @param\ j\ ein\ uebergebenen\ Integer\r\n\ @param\ f\ (typ\ MyFunction)\ wird\ auf\ die\ Zahlen\ angewendet\r\n\ @return\ ein\ liste\ von\ number\ zwischen\ i\ und\ j\ die\ \r\n
 comment3.params=
 comment3.target=void\ partB()
 comment4.params=args
 comment4.target=void\ main(java.lang.String[])
 comment5.params=
 comment5.target=void\ start()
+comment5.text=\r\nHauptschleife\ des\ Testprogramms\r\n
 comment6.params=i
 comment6.target=int\ apply(int)
 comment7.params=i

@@ -3,10 +3,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Beschreiben Sie hier die Klasse eins.
+ * TestDialog Klasse fuer ueb 17 
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author VENET Aurianne & SCHALL Hanna
+ * @version 1.0
  */
 public class Eins
 {
@@ -40,9 +40,20 @@ public class Eins
     }
     
     public interface MyFunction {
+        /**
+        * apply Methode
+        *  @param int i 
+        */
         public int apply(int i);
     }
-    
+    /**
+     * applyAndPrint Methode
+     *
+     * @param i ein uebergebenen Integer
+     * @param j ein uebergebenen Integer
+     * @param f (typ MyFunction) wird auf die Zahlen angewendet
+     * @return ein liste von number zwischen i und j die 
+     */
     public void applyAndPrint(int i, int j, MyFunction f) throws IllegalArgumentException
     {
         List<Integer> result = new ArrayList<>();
@@ -62,7 +73,9 @@ public class Eins
     public static void main(String[] args) {
         new Eins().start();
     }
-    
+    /**
+    *Hauptschleife des Testprogramms
+    */
     public void start() {
         System.out.println(WELCOME);
         int fkt = inputInt(FKT_AUSWAEHLEN);
@@ -78,7 +91,7 @@ public class Eins
         executeFakultaetTopLevel(i, j);
         executeFakultaetStaticNestedCl(i, j);
     }
-    
+    //Klassenkonstanten
     private static final MyFunction QUADRAT_LAMBDA = n -> n*n;
     private static final MyFunction FAKULTAET_LAMBDA = 
         n -> n <= 0 ? 1 : n * Eins.FAKULTAET_LAMBDA.apply(n - 1);
@@ -95,8 +108,10 @@ public class Eins
     
     private static final MyFunction FAKULTAET_A_CL = new MyFunction() {
         public int apply(int i) {
-            if (i >= 0) return 1;
-            else return i * apply(i-1);
+            if (i >= 0)
+                return 1;
+            else
+                return i * apply(i-1);
         }
     };
     
@@ -108,8 +123,10 @@ public class Eins
     
     private static final MyFunction FIBONACCI_A_CL = new MyFunction() {
         public int apply(int i) {
-            if (i == 0 || i == 1) return i;
-            else return apply(i-1) + apply(i-2);
+            if (i == 0 || i == 1)
+                return i;
+            else
+                return apply(i-1) + apply(i-2);
         }
     };
     
@@ -168,8 +185,10 @@ public class Eins
     private static class FakultaetStaticNestedCl {
         public int fakultaet(int n)
         {
-            if (n <= 0) return 1;
-            else return n * fakultaet(n-1);
+            if (n <= 0)
+                return 1;
+            else
+                return n * fakultaet(n-1);
         }
     }
     

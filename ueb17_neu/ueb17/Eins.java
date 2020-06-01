@@ -99,6 +99,7 @@ public class Eins
     private static final MyFunction FIBONACCI_LAMBDA = 
           n -> (n == 0 || n == 1)
              ? n : Eins.FIBONACCI_LAMBDA.apply(n-1) + Eins.FIBONACCI_LAMBDA.apply(n-2);
+             
     //Predicate<Integer> even = i -> i % 2 == 0;
      // public interface OddInterface{
         // public boolean oddTest(int i);
@@ -252,6 +253,7 @@ public class Eins
         System.out.println(msg);
         return input.nextInt();
     }
+    
     
     //source for lambda-recursion:
     // https://community.oracle.com/thread/3965169?start=0&tstart=0

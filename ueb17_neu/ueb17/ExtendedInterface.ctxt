@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ExtendedInterface
+comment0.text=\r\n\ Tragen\ Sie\ hier\ eine\ Beschreibung\ des\ Interface\ ExtendedInterface\ ein.\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment1.params=p
+comment1.target=MyFunction\ conditionateInput(java.util.function.IntPredicate)
+comment1.text=\r\n\ M\u00E9thode\ conditionateInput\r\n\r\n\ @return\ La\ valeur\ de\ retour\r\n
+comment2.params=p
+comment2.target=MyFunction\ conditionateOutput(java.util.function.IntPredicate)
+comment2.text=\r\n\ M\u00E9thode\ conditionateOutput\r\n\r\n\ @return\ La\ valeur\ de\ retour\r\n
+numComments=3

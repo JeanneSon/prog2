@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=FakultaetTopLevel
-comment0.text=\r\n\ TopLevel\ Klasse\ f\u00FCr\ Fakult\u00E4t.\r\n\ \r\n\ @author\ VENET\ Aurianne\ &\ SCHALL\ Hanna\ \r\n\ @version\ 1.0\r\n
-comment1.params=n
-comment1.target=int\ fakultaet(int)
-comment1.text=\r\n\ Methode,\ die\ die\ Fakult\u00E4t\ eines\ \u00FCbergebenen\ ins\ berechnet\r\n\ \r\n\ @param\ \ n\ \ \ \ \u00FCbergebenes\ int\r\n\ @return\ \ \ \ \ \ \ \ Fakult\u00E4t\ von\ n\r\n
-numComments=2

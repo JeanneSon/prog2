@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
+import java.util.function.BiPredicate;
 //import java.util.stream.Collectors;
 
 /**
@@ -105,23 +106,22 @@ public class Lager
     }
 
     //------------------ Erweiterungen durch Uebung 18 -----------------
-    public Artikel[] getSorted(Consumer<Artikel> c){
+    public Artikel[] getSorted(BiPredicate<Lager, Artikel> p){
         List<Artikel> artList = Arrays.asList(this.lager);
-        artList.sort(c);
+        artList.sort(p);
         Artikel[] result = new Artikel[artList.size()];
         return artList.toArray(result);
     }
     
-    public Artikel[] filter(Predicate<Artikel> ... criteria) {
+    public Artikel[] filter(Predicate<Artikel> p) {
         List<Artikel> artList = new ArrayList<>();
         for (Artikel a : this.lager)
-            for (Predicate<Artikel> p : criteria)
-                if (a.filter(p))
-                    artList.add(a);
+            if (a.filter(p))
+                artList.add(a);
         return artList.toArray(Artikel[]::new);
     }
     
-    public void applyToArticles(Predicate<Artikel> p, Consumer<Artikel> c) {
+    public void applyToArticles(Consumer<Artikel> c) {
         for(int i = 0; i < this.lager.length ; i++)
             c.accept(lager[i]);
     }

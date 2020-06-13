@@ -1,0 +1,64 @@
+#BlueJ class context
+comment0.target=Lager
+comment0.text=\r\n\ \ \ \ Die\ Klasse\:\ \ Lager.java\r\n\ \ \ \ Realisiert\ eine\ allgemeine\ Lager-Klasse\ fuer\r\n\ \ \ \ Artikel.\r\n\r\n\ @version\ 2.01\ Beta\ 09.01.2020\r\n\ @author\ \ Wolfgang\ Pauly\r\n\r\n
+comment1.params=
+comment1.target=Lager()
+comment1.text=\r\n\ \ \ \ Der\ Konstruktor\ zur\ Standard-Initialisierung\ \r\n\ \ \ \ des\ Lagers\r\n\ \ \ \ \ \ \ \ \r\n
+comment10.params=einArtikel
+comment10.target=void\ legeAnArtikel(Artikel)
+comment10.text=\r\n\ \ \ \ anlegen\ eines\ neuen\ Artikels\ und\ ins\ Lager\ einordnen\r\n\ \ \ \ \r\n\ \ \ \ @param\ einArtikel\ \ der\ anzulegende\ Artikel\r\n
+comment11.params=loeschArtikelNr
+comment11.target=void\ entferneArtikel(int)
+comment11.text=\r\n\ \ \ \ entfernt\ den\ Artikel\ anhand\ seiner\ Artikel-Nummer\ aus\ dem\ Lager\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ \ loeschArtikelNr\ Nummer\ des\ zu\ loeschenden\ Artikels\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \r\n
+comment12.params=artikelNummer\ zugang
+comment12.target=void\ bucheZugang(int,\ int)
+comment12.text=\r\n\ \ \ \ bucht\ einen\ Zugang\ von\ Artikeln\ zu\ dem\ durch\ die\ Artikel-Nummer\ \r\n\ \ \ \ identifizierten\ Artikel.\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ \ artikelNummer\ Artikel-Nummer,\ des\ zu\ buchenden\ Artikels\r\n\ \ \ \ @param\ zugang\ hinzukommende\ Artikel-Anzahl\r\n
+comment13.params=artikelNummer\ abgang
+comment13.target=void\ bucheAbgang(int,\ int)
+comment13.text=\r\n\ \ \ \ bucht\ einen\ Abgang\ von\ Artikeln\ von\ dem\ durch\ die\ Artikel-Nummer\ \r\n\ \ \ \ identifizierten\ Artikel.\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ \ artikelNummer\ Artikel-Nummer,\ des\ zu\ buchenden\ Artikels\r\n\ \ \ \ @param\ abgang\ weggehende\ Artikel-Anzahl\r\n
+comment14.params=prozent
+comment14.target=void\ aenderePreisAllerArtikel(double)
+comment14.text=\r\n\ \ \ \ aenderePreisAllerArtikel\ -\ erhoeht,\ vermindert\ die\ Preise\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aller\ Lagerartikel\r\n\r\n\ \ \ \ @param\ \ prozent\ -\ positive\ Prozentzahl\ \=\=\ Preiserhoehung,\ negative\ \=\ Preisverminderung\ \r\n
+comment15.params=suchArtikelNr
+comment15.target=int\ sucheArtikel(int)
+comment15.text=\r\n\ \ \ \ sucheArtikel\ -\ sucht\ im\ Lager\ Array\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nach\ dem\ Vorkommen\ eines\ Artikels\ anhand\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ der\ Artikel-Nummer\r\n\r\n\ \ \ \ @param\ suchArtikelNr\ -\ die\ zu\ suchende\ Artikelnummer\r\n\ \ \ \ @return\ Index\ des\ gefundenen\ Artikels\ oder\ -1,\ falls\ der\ Artikel\ nicht\r\n\ \ \ \ \ \ \ \ \ \ \ \ im\ Lager\ enthalten\ ist.\r\n
+comment16.params=
+comment16.target=int\ getLagerGroesse()
+comment16.text=\r\n\ \ \ \ getLagerGroesse\ -\ liefert\ die\ Groesse\ des\ Lager\ Array\r\n\ \ \ \ Hilfsmethode\ fuer\ die\ Testklasse\ LagerTest\r\n\ \ \ \ @author\ \ Iris\ Ebner\r\n\r\n\ \ \ \ @return\ lager.length\ \=\=\ Anzahl\ der\ maximal\ im\ Lager\ fuehrbaren\ Artikel\r\n
+comment17.params=
+comment17.target=int\ getArtikelAnzahl()
+comment17.text=\r\n\ \ \ \ getArtikelAnzahl\ -\ liefert\ die\ Anzahl\ der\ Artikel\ im\ Lager\ Array\r\n\ \ \ \ \r\n\r\n\ \ \ \ @return\ etzterBesetzterIndex\ \=\=\ Anzahl\ der\ Artikel\ im\ Lager\r\n
+comment18.params=index
+comment18.target=Artikel\ getArtikel(int)
+comment18.text=\r\n\ \ \ \ getArtikel\ -\ liefert\ den\ Artikel\ aus\ dem\ Lager,\ der\ an\ der\ Stelle\ \r\n\ \ \ \ Index\ gefuert\ wird\r\n\ \ \ \ Hilfsmethode\ fuer\ die\ Testklasse\ LagerTest\r\n\ \ \ \ @author\ \ Iris\ Ebner\r\n\r\n\ \ \ \ @param\ index\ -\ der\ Index\ des\ zurueckzugebenden\ Artikels\r\n\ \ \ \ @return\ der\ Artikel,\ der\ an\ der\ Stelle\ Index\ im\ Lager\ gefuehrt\ wird\ \r\n
+comment19.params=
+comment19.target=java.lang.String\ ausgebenBestandsListe()
+comment19.text=\r\n\ \ \ \ erzeugt\ einen\ String,\ der\ eine\ Bestandsliste\ repraesentiert\r\n\r\n\ \ \ \ @return\ die\ String-Repraesentation\ der\ Lager-Bestandsliste\r\n
+comment2.params=dimension
+comment2.target=Lager(int)
+comment2.text=\r\n\ \ \ \ Der\ Konstruktor\ zur\ Initialisierung\ \r\n\ \ \ \ eines\ Lagers\ mit\ einer\ maximalen\ Anzahl\ von\ Artikel-Lagerplaetzen\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ @param\ dimension\ \ \=\=\ Anzahl\ der\ maximal\ im\ Lager\ fuehrbaren\ Artikel\r\n
+comment20.params=
+comment20.target=java.lang.String\ toString()
+comment20.text=\r\n\ \ \ \ erzeugt\ einen\ String,\ der\ alle,\ fuer\ den\ Klassenbenutzer\r\n\ \ \ \ wichtigen,\ Lager-Merkmale\ enthaelt\r\n\ \ \ \r\n\ \ \ \ @return\ die\ String-Repraesentation\ des\ Lagers\r\n
+comment21.params=fehler\ meldung
+comment21.target=void\ checkArgument(boolean,\ java.lang.String)
+comment21.text=\r\n\ \ \ \ wirft\ bei\ Fehlersituation\ eine\ IllegalArgumentException\r\n\ \ \ \ \r\n\ \ \ \ \r\n\ \ \ \ @param\ \ fehler\ \ ->\ true\ \ \=\=\ Fehlersituation\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ->\ false\ \=\=\ KEINE\ Fehlersituation\r\n\ \ \ \ @param\ \ meldung\ ->\ Fehlermeldungstext\ zur\ Fehlersituation\r\n
+comment3.params=lagerOrt
+comment3.target=Lager(java.lang.String)
+comment3.text=\r\n\ \ \ \ Der\ Konstruktor\ zur\ Initialisierung\ \r\n\ \ \ \ eines\ Lagers\ mit\ einem\ Lagerort\ und\ Standard-Artikel--Lagerplaetzen\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ @param\ lagerOrt\ \=\=\ Ort\ an\ dem\ das\ Lager\ existiert\r\n
+comment4.params=dimension\ lagerOrt
+comment4.target=Lager(int,\ java.lang.String)
+comment4.text=\r\n\ \ \ \ Der\ Konstruktor\ zur\ Initialisierung\ \r\n\ \ \ \ eines\ Lagers\ mit\ einer\ maximalen\ Anzahl\ von\ Artikel-Lagerplaetzen\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ @param\ dimension\ \ \=\=\ Anzahl\ der\ maximal\ im\ Lager\ fuehrbaren\ Artikel\r\n\ \ \ \ @param\ lagerOrt\ \=\=\ Ort\ an\ dem\ das\ Lager\ existiert\r\n
+comment5.params=p\ c
+comment5.target=void\ applyToSomeArticles(java.util.function.Predicate,\ java.util.function.Consumer)
+comment6.params=p\ c
+comment6.target=Artikel[]\ getArticles(java.util.function.Predicate,\ java.util.Comparator)
+comment7.params=criteria
+comment7.target=Artikel[]\ filterAll(java.util.function.Predicate[])
+comment8.params=
+comment8.target=java.lang.String\ getLagerOrt()
+comment8.text=\r\n\ \ \ \ gibt\ Lager-Attribut\ \:\ lagerOrt\ zurueck\r\n\r\n\ \ \ \ @return\ \ \ \ lagerOrt\r\n
+comment9.params=lagerOrt
+comment9.target=void\ setLagerOrt(java.lang.String)
+comment9.text=\r\n\ \ \ \ setzt\ Lager-Attribut\ \:\ \ lagerOrt\r\n\ \ \ \r\n\ \ \ \ @param\ lagerOrt\ \ \ \ \ neuer\ Lager-Ort\r\n
+numComments=22

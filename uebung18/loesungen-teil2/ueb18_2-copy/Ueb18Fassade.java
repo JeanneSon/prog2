@@ -24,7 +24,10 @@ public class Ueb18Fassade {
      * @return Die sortierte Artikelliste.
      */
     public Artikel[] aufgabe_d_i(Lager lager) {
-        return null;
+        lager.getSorted();
+        lager.getSorted();
+        lager.getSorted();
+        return lager;
     }
 
     /**
@@ -34,6 +37,7 @@ public class Ueb18Fassade {
      * @param lager Das Lager mit den Artikeln, deren Preise geaendert werden sollen.
      */
     public void aufgabe_d_ii(Lager lager) {
+        lager.applyToArticles(a -> a.aenderePreis(10));
     }
 
     /**
@@ -43,7 +47,8 @@ public class Ueb18Fassade {
      * @param lager Das Lager mit den Artikeln, deren Bezeichnungen geaendert werden sollen.
      */ 
     public void aufgabe_d_iii(Lager lager) {
-        lager.applyToArticles(a -> a.aenderePreis(10));
+        String bezeichnung = a.getBezeichnung();
+        lager.applyToArticles(a -> a.setBezeichnung(bezeichnung + " Sonderangebote");
     }
 
     /**
@@ -54,6 +59,8 @@ public class Ueb18Fassade {
      * @param lager Das Lager mit den Artikeln, deren Preise und Bezeichnungen geaendert werden sollen.
      */
     public void aufgabe_d_iv(Lager lager) {
+        String bezeichnung = a.getBezeichnung();
+        lager.applyToArticles(a -> a.aenderePreis(10), a.setBezeichnung(bezeichnung + " Sonderangebot");
     }
 
     /**

@@ -105,6 +105,27 @@ public class Lager
     }
 
     //------------------ Erweiterungen durch Uebung 18 -----------------
+    public Artikel[] getSorted(Consumer<Artikel> c){
+        List<Artikel> artList = Arrays.asList(this.lager);
+        artList.sort(c);
+        Artikel[] result = new Artikel[artList.size()];
+        return artList.toArray(result);
+    }
+    
+    public Artikel[] filter(Predicate<Artikel> ... criteria) {
+        List<Artikel> artList = new ArrayList<>();
+        for (Artikel a : this.lager)
+            for (Predicate<Artikel> p : criteria)
+                if (a.filter(p))
+                    artList.add(a);
+        return artList.toArray(Artikel[]::new);
+    }
+    
+    public void applyToArticles(Predicate<Artikel> p, Consumer<Artikel> c) {
+        for(int i = 0; i < this.lager.length ; i++)
+            c.accept(lager[i]);
+    }
+    
     public void applyToSomeArticles(Predicate<Artikel> p, Consumer<Artikel> c) {
         for(int i = 0; i < this.lager.length ; i++)
             if (p.test(lager[i]))

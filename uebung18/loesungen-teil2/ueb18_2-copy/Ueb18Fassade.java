@@ -1,29 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import java.util.Comparator;
 
 /**
@@ -69,6 +43,7 @@ public class Ueb18Fassade {
      * @param lager Das Lager mit den Artikeln, deren Bezeichnungen geaendert werden sollen.
      */ 
     public void aufgabe_d_iii(Lager lager) {
+        lager.applyToArticles(a -> a.aenderePreis(10));
     }
 
     /**

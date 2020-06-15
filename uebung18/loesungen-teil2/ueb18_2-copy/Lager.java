@@ -108,9 +108,35 @@ public class Lager
     //------------------ Erweiterungen durch Uebung 18 -----------------
     public Artikel[] getSorted(BiPredicate<Lager, Artikel> p){
         List<Artikel> artList = Arrays.asList(this.lager);
-        artList.sort(p);
+        int[] indexes = new int[artList.size()];
+        artList.insertionSort(artList,indexes);
         Artikel[] result = new Artikel[artList.size()];
         return artList.toArray(result);
+    }
+    /**
+     * Sortiert ein int-Array nach dem InsertionSort-Algorithmus
+     *
+     * @param tab zu sortierendes Int-Array
+     * @param ind mit zu sortierendem Array, das die Originalreihenfolge speichert
+     * @return sortiertes Int-Array
+     */
+    public static float[] insertionSort(float tab[], int ind[])
+    {
+        int l = tab.length, j, temp2; 
+        float temp;
+        for (int i = 1; i < l; i++) {
+            temp = tab[i];
+            temp2 = ind[i];
+            j = i;
+            while (j > 0 && tab[j-1] > temp) {
+                tab[j] = tab[j-1];
+                ind[j] = ind[j-1];
+                j--;
+            }
+            tab[j] = temp;
+            ind[j] = temp2;
+        }
+        return tab;
     }
     
     public Artikel[] filter(Predicate<Artikel> p) {

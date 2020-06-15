@@ -116,7 +116,7 @@ public class Lager
     public Artikel[] filter(Predicate<Artikel> p) {
         List<Artikel> artList = new ArrayList<>();
         for (Artikel a : this.lager)
-            if (a.filter(p))
+            if (p.test(a))
                 artList.add(a);
         return artList.toArray(Artikel[]::new);
     }

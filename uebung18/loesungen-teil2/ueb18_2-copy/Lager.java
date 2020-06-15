@@ -106,39 +106,47 @@ public class Lager
     }
 
     //------------------ Erweiterungen durch Uebung 18 -----------------
-    public Artikel[] getSorted(BiPredicate<Lager, Artikel> p){
-        List<Artikel> artList = Arrays.asList(this.lager);
-        int[] indexes = new int[artList.size()];
-        artList.insertionSort(artList,indexes);
-        Artikel[] result = new Artikel[artList.size()];
-        return artList.toArray(result);
-    }
     /**
-     * Sortiert ein int-Array nach dem InsertionSort-Algorithmus
+     * getSorted sortiert das Lager
      *
-     * @param tab zu sortierendes Int-Array
-     * @param ind mit zu sortierendem Array, das die Originalreihenfolge speichert
+     * @param p Sortierkriterium
+     * @return das sortierte Lager
+     */
+    public Artikel[] getSorted(BiPredicate<Artikel, Artikel> p){
+        List<Artikel> artList = Arrays.asList(this.lager);
+        return insertionSort(this.lager,p);
+    }
+    
+    
+    /**
+     * Sortiert ein Artikel-Array nach dem InsertionSort-Algorithmus
+     *
+     * @param tab zu sortierendes Artikel-Array
+     * @param p Sortierkriterium
      * @return sortiertes Int-Array
      */
-    public static float[] insertionSort(float tab[], int ind[])
+    public static Artikel[] insertionSort(Artikel tab[], BiPredicate<Artikel, Artikel> p)
     {
-        int l = tab.length, j, temp2; 
-        float temp;
+        int l = tab.length, j; 
+        Artikel temp;
         for (int i = 1; i < l; i++) {
             temp = tab[i];
-            temp2 = ind[i];
             j = i;
-            while (j > 0 && tab[j-1] > temp) {
+            while (j > 0 && p.test(tab[j-1], temp)) {
                 tab[j] = tab[j-1];
-                ind[j] = ind[j-1];
                 j--;
             }
             tab[j] = temp;
-            ind[j] = temp2;
         }
         return tab;
     }
     
+    /**
+     * filter filtert das Lager
+     *
+     * @param p Filterkriterium
+     * @return die herausgefilterten Werte
+     */
     public Artikel[] filter(Predicate<Artikel> p) {
         List<Artikel> artList = new ArrayList<>();
         for (Artikel a : this.lager)
@@ -147,17 +155,35 @@ public class Lager
         return artList.toArray(Artikel[]::new);
     }
     
+    /**
+     * applyToArticles wendet eine Methode auf alle Artikel des Lagers an
+     *
+     * @param c die Methode
+     */
     public void applyToArticles(Consumer<Artikel> c) {
         for(int i = 0; i < this.lager.length ; i++)
             c.accept(lager[i]);
     }
     
+    /**
+     * applyToSomeArticles wendet eine Methode auf ausgewaehlte Artikel des Lagers an
+     *
+     * @param p Auswahlkriterium
+     * @param c die Methode
+     */
     public void applyToSomeArticles(Predicate<Artikel> p, Consumer<Artikel> c) {
         for(int i = 0; i < this.lager.length ; i++)
             if (p.test(lager[i]))
                 c.accept(lager[i]);
     }
     
+    /**
+     * getArticles sortiert einen Teil des Lagers
+     *
+     * @param p Suchkriterium, nach dem das Lager gefiltert wird und den zu sortierenden Teil bestimmt
+     * @param c Sortierkriterium
+     * @return das sortierte Teillager
+     */
     public Artikel[] getArticles(Predicate<Artikel> p, Comparator<? super Artikel> c) {
         List<Artikel> artList = new ArrayList<>();
         for (Artikel a : this.lager)
@@ -168,6 +194,12 @@ public class Lager
         return artList.toArray(result);
     }
     
+    /**
+     * filterAll gibt ein Artikel-Array zurueck, dass alle Filterkriterien erfuellt
+     *
+     * @param criteria die Filterkriterien als variable Parameterliste
+     * @return das Array (siehe oben)
+     */
     public Artikel[] filterAll(Predicate<Artikel> ... criteria) {
         List<Artikel> artList = Arrays.asList(this.lager);
         Stream<Artikel> s = artList.stream();

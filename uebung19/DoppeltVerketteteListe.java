@@ -5,7 +5,7 @@ import java.util.ListIterator;
 
 public class DoppeltVerketteteListe<E> implements List<E> {
 
-	@Override
+        @Override
 	public boolean add(E arg0) {
 		return false;
 	}
@@ -42,13 +42,11 @@ public class DoppeltVerketteteListe<E> implements List<E> {
 
 	@Override
 	public int indexOf(Object arg0) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -74,7 +72,6 @@ public class DoppeltVerketteteListe<E> implements List<E> {
 
 	@Override
 	public boolean remove(Object arg0) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -108,21 +105,18 @@ public class DoppeltVerketteteListe<E> implements List<E> {
 		return null;
 	}
 
-	@Override
+	  @Override
 	public E get(int index) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public E remove(int index) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public E set(int index, E element) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
-* Interaktive Testklasse fuer die Klasse Artikel
+* Interaktive Testklasse fuer die Klasse DoppeltVerkettete
 * 
 * @author A. Venet und H. Schall
 * @version 1.0

@@ -87,7 +87,13 @@ public class DoppeltVerketteteListe<E> implements List<E> {
 
 	@Override
 	public int size() {
-		return 0;
+		int size = 0;
+		ListElement e = first;
+		while(e != null) {
+		    e = e.getNext();
+		    size++;
+		}
+		return size;
 	}
 
 	@Override

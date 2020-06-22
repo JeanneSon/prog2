@@ -2,6 +2,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.ArrayList;
 /**
  * Beschreiben Sie hier die Klasse DoppeltVerketteteListe.
  * 
@@ -9,50 +10,92 @@ import java.util.ListIterator;
  * @version (eine Versionsnummer oder ein Datum)
  */
 
-public class DoppeltVerketteteListe<T> implements List<T> {
+public class DoppeltVerketteteListe<E> implements List<E> {
 
-    private ListNode<T> front;
+    private ListNode<E> head;
+    private ListNode<E> tail;
 
     private int size;
 
     public DoppeltVerketteteListe() {
-        front = null;
+        head = new ListNode(null);
+        tail = new ListNode(null);
         size = 0;
     }
 
     @Override
     public int size() {
-        return size;
+        return this.size;
     }
 
     @Override
     public boolean isEmpty() {
-        return size == 0;
+        return this.size == 0;
     }
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        try {
+            E item = (E) o;
+            return containsRecurs(item, this.head);
+        }
+        catch (ClassCastException e) {
+            return false;
+        }
     }
 
+    private boolean containsRecurs(E item, ListNode<E> currentNode) {
+        if (currentNode == null)
+            return false;
+        if (item.equals(currentNode.getData()))
+            return true;
+        return containsRecurs(item, currentNode.getPrev());
+    }
+    
     @Override
     public <T> T[] toArray(T[] a) {
-        return null;
+        if (this.isEmpty())
+            if (a.length == 0)
+                return a;   //(E[])new Object[0];
+            else {
+                a[0] = null;
+                return a;
+            }
+        if (a.length == this.size) {
+            return makeArray(a);
+        }    
+        E[] result;
+        
+        ListNode<E> currentNode = this.head;
+        if (a.length > this.size) {}
     }
 
-    @Override
-    public boolean add(T e) {
-        if (this.isEmpty())
-            front = new ListNode<T>(e);
-        else {
-            ListNode<T> temp = front;
-            // Traverse till end of list
-            while (temp.next != null) {
-                temp = temp.next;
-            }
-            temp.next = new ListNode<T>(temp, e, null);
+    
+    private <T> T[] makeArray(T[] a) {
+        ListNode<E> currentNode = this.head;
+        int index = 0;
+        while (currentNode != null) {
+                a[index] = currentNode.getData();
+                currentNode = currentNode.getNext();
+                index++;
         }
-        size++;
+        return a;   
+    }
+    
+    @Override
+    public boolean add(E e) {
+        ListNode<E> newNode = new ListNode<E>(e);
+        if (this.isEmpty())
+            this.head = newNode;
+        else {
+            ListNode<E> currentNode = this.head;
+            while (currentNode.getNext() != null) {
+                currentNode = currentNode.getNext();
+            }
+            newNode.setPrev(currentNode);
+            currentNode.setNext(newNode);
+        }
+        this.size++;
     }
 
     @Override
@@ -70,7 +113,7 @@ public class DoppeltVerketteteListe<T> implements List<T> {
 
     }
 
-      @Override
+    @Override
     public T get(int index) {
         return null;
     }

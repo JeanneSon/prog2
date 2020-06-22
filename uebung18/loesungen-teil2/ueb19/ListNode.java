@@ -15,7 +15,7 @@ class ListNode<E> {
     /**
      * Konstruktor.
      * set to null => Anfang
-     *
+     * 
      * @param data node data
      */
     ListNode(E data) {
@@ -39,7 +39,7 @@ class ListNode<E> {
     /**
      * setPrev
      *
-     * @param prev der Node, der von nun an der Vorgänger ist
+     * @param prev der Node, der von nun an der Vorgaenger ist
      */
     public void setPrev(ListNode<E> prev) {
         this.prev = prev;
@@ -56,7 +56,6 @@ class ListNode<E> {
     
     // get-Methoden
     
-    
     /**
      * getData gibt den Wert, der in diesem Knoten gespeichert ist, zurueck
      *
@@ -65,4 +64,23 @@ class ListNode<E> {
     public E getData() {
         return this.data;
     }
+    
+    /**
+     * getPrev gibt den Vorgaenger-Node zurueck
+     *
+     * @return Vorgaenger
+     */
+    public ListNode<E> getPrev() {
+        return this.prev;
+    }
+    
+    /**
+     * getNext gibt den Nachfolger-Node zurueck
+     *
+     * @return Nachfolger
+     */
+    public ListNode<E> getNext() {
+        return this.next;
+    }
+    
 }

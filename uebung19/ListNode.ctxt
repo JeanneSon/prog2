@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ListNode
+comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Node.\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment1.params=data
+comment1.target=ListNode(java.lang.Object)
+comment1.text=\r\n\ Konstruktor.\r\n\ set\ to\ null\ \=>\ Anfang\r\n\r\n\ @param\ data\ node\ data\r\n
+comment2.params=prev\ data\ next
+comment2.target=ListNode(ListNode,\ java.lang.Object,\ ListNode)
+comment2.text=\r\n\ Konstruktor.\r\n\r\n\ @param\ data\ node\ data\r\n\ @param\ next\ reference\ to\ next\ node\r\n\ @param\ prev\ reference\ to\ the\ previous\ node\r\n
+numComments=3

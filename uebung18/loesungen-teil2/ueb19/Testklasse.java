@@ -6,10 +6,11 @@ import java.util.*;
 * @author A. Venet und H. Schall
 * @version 1.0
 */
-public class Testklasse extends DoppeltVerketteteListe
+public class Testklasse 
 {
     //Attribute
     private Scanner input = new Scanner(System.in);
+    private DoppeltVerketteteListe dvl = new DoppeltVerketteteListe();
 
     //Klassenkonstanten
     private static final int ENDE = 0;
@@ -32,7 +33,6 @@ public class Testklasse extends DoppeltVerketteteListe
     */
     public void start() {
         System.out.println("HERZLICH WILLKOMMEN");
-
         int auswahl = -1;
 
         while (auswahl != ENDE) {
@@ -61,18 +61,18 @@ public class Testklasse extends DoppeltVerketteteListe
         int auswahl;
         System.out.print(
 
-        SIZE            + ": Gibt die Größe der Doppelt verkettetetn Liste zurück; \n" +
-        IS_EMPTY        + ": Prüft ob DVL leer ist\n"+
+        SIZE            + ": Gibt die Größe der Doppelt verketteteten Liste zurueck; \n" +
+        IS_EMPTY        + ": Prueft ob DVL leer ist\n"+
         CONTAINS        + ": Prüft ob bestimmtes Object in DVL enthalten ist\n"+
         TO_ARRAY        + ": Wandelt DVL in Array um\n"+
         ADD             + ": Fügt Node am Ende der DVL an\n"+
         REMOVE_O        + ": Entfernt ein bestimmtes Objekt\n"+
         ADD_ALL         + ": Alles ans Ende der Liste anfügen\n"+
-        CLEAR           + ": Löscht alles\n"+
+        CLEAR           + ": Loescht alles\n"+
         GET             + ": Bestimmten Wert ausgeben\n"+
         SET             + ": Auf bestimmten Wert setzen\n"+
-        ADD_INDEX       + ": Node an bestimmter Stelle einfügen\n"+
-        REMOVE_INDEX    + ": Node an bestimmter Stelle löschen\n"+
+        ADD_INDEX       + ": Node an bestimmter Stelle einfuegen\n"+
+        REMOVE_INDEX    + ": Node an bestimmter Stelle loeschen\n"+
         INDEX_OF        + ": Index eines bestimmten Wertes ausgeben\n"+
         ENDE            + ": Programm beenden; \nAuswahl:\t");
 
@@ -84,16 +84,16 @@ public class Testklasse extends DoppeltVerketteteListe
     private void ausfuehrenAuswahl(int auswahl) {
         switch (auswahl) {
             case SIZE:
-                size();
+                System.out.println("Size: " + dvl.size());
                 break;
             case IS_EMPTY:
-                isEmpty();
+                System.out.println("Empty? " + dvl.isEmpty());
                 break;
             case CONTAINS:
-                contains();
+                //System.out.println("Contains?" + dvl.contains());
                 break;
             case TO_ARRAY:
-                toArray();
+                System.out.println(dvl.toArray());
                 break;
             case ADD:
                 add();
@@ -127,6 +127,20 @@ public class Testklasse extends DoppeltVerketteteListe
         }
         System.out.println();
     }
+    
+    /**
+     * einleseInt liest eine Integer ein
+     *
+     * @param msg ist die Eingabeaufforderung
+     * @return eingelesene Integer
+     */
+    private int einlesenInt(String msg) {
+        int zahl;
+        System.out.print(msg);
+        zahl = input.nextInt();
+        return zahl;
+    }
+    
     /**
      * Main-Methode zum Erzeugen des ArtikelDialog-Objekts und zum Anstarten der Testschleife
      */

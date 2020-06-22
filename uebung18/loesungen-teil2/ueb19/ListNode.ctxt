@@ -1,0 +1,28 @@
+#BlueJ class context
+comment0.target=ListNode
+comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Node.\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment1.params=data
+comment1.target=ListNode(java.lang.Object)
+comment1.text=\r\n\ Konstruktor.\r\n\ set\ to\ null\ \=>\ Anfang\r\n\ \r\n\ @param\ data\ node\ data\r\n
+comment2.params=prev\ data\ next
+comment2.target=ListNode(ListNode,\ java.lang.Object,\ ListNode)
+comment2.text=\r\n\ Konstruktor.\r\n\r\n\ @param\ data\ node\ data\r\n\ @param\ next\ reference\ to\ next\ node\r\n\ @param\ prev\ reference\ to\ the\ previous\ node\r\n
+comment3.params=prev
+comment3.target=void\ setPrev(ListNode)
+comment3.text=\r\n\ setPrev\r\n\r\n\ @param\ prev\ der\ Node,\ der\ von\ nun\ an\ der\ Vorgaenger\ ist\r\n
+comment4.params=next
+comment4.target=void\ setNext(ListNode)
+comment4.text=\r\n\ setNext\r\n\r\n\ @param\ next\ der\ Node,\ der\ von\ nun\ an\ der\ Nachfolger\ ist\r\n
+comment5.params=data
+comment5.target=void\ setData(java.lang.Object)
+comment5.text=\r\n\ setData\r\n\r\n\ @param\ Wert\ des\ Nodes,\ der\ von\ nun\ an\ der\ Wert\ ist\r\n
+comment6.params=
+comment6.target=java.lang.Object\ getData()
+comment6.text=\r\n\ getData\ gibt\ den\ Wert,\ der\ in\ diesem\ Knoten\ gespeichert\ ist,\ zurueck\r\n\r\n\ @return\ gespeicherter\ Wert\r\n
+comment7.params=
+comment7.target=ListNode\ getPrev()
+comment7.text=\r\n\ getPrev\ gibt\ den\ Vorgaenger-Node\ zurueck\r\n\r\n\ @return\ Vorgaenger\r\n
+comment8.params=
+comment8.target=ListNode\ getNext()
+comment8.text=\r\n\ getNext\ gibt\ den\ Nachfolger-Node\ zurueck\r\n\r\n\ @return\ Nachfolger\r\n
+numComments=9

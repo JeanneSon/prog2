@@ -13,13 +13,11 @@ import java.util.ArrayList;
 public class DoppeltVerketteteListe<E> implements List<E> {
 
     private ListNode<E> head;
-    private ListNode<E> tail;
 
     private int size;
 
     public DoppeltVerketteteListe() {
         head = new ListNode(null);
-        tail = new ListNode(null);
         size = 0;
     }
 
@@ -56,18 +54,23 @@ public class DoppeltVerketteteListe<E> implements List<E> {
     public <T> T[] toArray(T[] a) {
         if (this.isEmpty())
             if (a.length == 0)
-                return a;   //(E[])new Object[0];
+                return a;
             else {
                 a[0] = null;
                 return a;
             }
         if (a.length == this.size) {
             return makeArray(a);
-        }    
-        E[] result;
-        
-        ListNode<E> currentNode = this.head;
-        if (a.length > this.size) {}
+        }
+        if (a.length < this.size) {
+            T[] result = (T[])new Object[this.size];
+            return makeArray(result);
+        }
+        else {
+            makeArray(a);
+            a[this.size] = null;
+            return a;
+        }
     }
 
     
@@ -75,7 +78,7 @@ public class DoppeltVerketteteListe<E> implements List<E> {
         ListNode<E> currentNode = this.head;
         int index = 0;
         while (currentNode != null) {
-                a[index] = currentNode.getData();
+                a[index] = (T) currentNode.getData();
                 currentNode = currentNode.getNext();
                 index++;
         }
@@ -96,46 +99,125 @@ public class DoppeltVerketteteListe<E> implements List<E> {
             currentNode.setNext(newNode);
         }
         this.size++;
+        return true;
     }
 
     @Override
     public boolean remove(Object o) {
+        ListNode<E> currentNode = this.head;
+        do {
+            if (currentNode.getData().equals(o)) {
+                currentNode.getPrev().setNext(currentNode.getNext());
+                currentNode.getNext().setPrev(currentNode.getPrev());
+                size--;
+                return true;
+            }
+            currentNode = currentNode.getNext();
+        } while (currentNode != null);
         return false;
     }
 
     @Override
-    public boolean addAll(Collection<? extends T> c) {
-        return false;
+    public boolean addAll(Collection<? extends E> c) throws ClassCastException{
+        Iterator iter = c.iterator();
+        ListNode<E> last = getLast();
+        while (iter.hasNext()) {
+            ListNode<E> next = new ListNode<E>((E) iter.next());
+            last.setNext(next);
+            next.setPrev(last);
+            last = next;
+        }
+        size += c.size();
+        return c.isEmpty();
+    }
+    
+    private ListNode<E> getLast() {
+        int acc = 0;
+        int index = size() - 1;
+        ListNode<E> currentNode = this.head;
+        while (acc < index) {
+            currentNode = currentNode.getNext();
+            acc++;
+        }
+        return currentNode;
     }
 
     @Override
     public void clear() {
-
+        this.head = null;
     }
 
     @Override
-    public T get(int index) {
-        return null;
+    public E get(int index) throws IndexOutOfBoundsException{
+        if (index < 0 || index >= size())
+            throw new IndexOutOfBoundsException();
+        int acc = 0;
+        ListNode<E> currentNode = this.head;
+        while (acc < index) {
+            currentNode = currentNode.getNext();
+            acc++;
+        }
+        return currentNode.getData();
     }
 
     @Override
-    public T set(int index, T element) {
-        return null;
+    public E set(int index, E element) throws IndexOutOfBoundsException{
+        if (index < 0 || index >= size())
+            throw new IndexOutOfBoundsException();
+        int acc = 0;
+        ListNode<E> currentNode = this.head;
+        while (acc < index) {
+            currentNode = currentNode.getNext();
+            acc++;
+        }
+        E oldElement = currentNode.getData();
+        currentNode.setData(element);
+        return oldElement;
     }
 
     @Override
-    public void add(int index, T element) {
-
+    public void add(int index, E element) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= size())
+            throw new IndexOutOfBoundsException();
+        int acc = 0;
+        ListNode<E> currentNode = this.head;
+        while (acc < index) {
+            currentNode = currentNode.getNext();
+            acc++;
+        }
+        ListNode<E> newNode = new ListNode<E>(element);
+        newNode.setPrev(currentNode.getPrev());
+        newNode.setNext(currentNode);
+        currentNode.setPrev(newNode);
     }
 
     @Override
-    public T remove(int index) {
-        return false;
+    public E remove(int index)  throws IndexOutOfBoundsException{
+        if (index < 0 || index >= size())
+            throw new IndexOutOfBoundsException();
+        int acc = 0;
+        ListNode<E> currentNode = this.head;
+        while (acc < index) {
+            currentNode = currentNode.getNext();
+            acc++;
+        }
+        currentNode.getPrev().setNext(currentNode.getNext());
+        currentNode.getNext().setPrev(currentNode.getPrev());
+        return currentNode.getData();
     }
 
     @Override
-    public int indexOf(Object o) {
-        return 0;
+    public int indexOf(Object o) throws ClassCastException{
+        E searched = (E) o;
+        int index = 0;
+        ListNode<E> currentNode = this.head;
+        while (currentNode != null) {
+            if (currentNode.getData().equals(searched))
+                return index;
+            index++;
+            currentNode = currentNode.getNext();
+        }
+        return -1;
     }
 
     @Override
@@ -147,12 +229,6 @@ public class DoppeltVerketteteListe<E> implements List<E> {
     public boolean containsAll(Collection<?> arg0) {
         throw new UnsupportedOperationException();
     }
-
-    @Override
-    public boolean isEmpty(){
-        return size == 0;
-    }
-
     
     @Override
     public Iterator<E> iterator() {

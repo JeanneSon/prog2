@@ -54,6 +54,16 @@ class ListNode<E> {
         this.next = next;
     }
     
+    /**
+     * setData
+     *
+     * @param Wert des Nodes, der von nun an der Wert ist
+     */
+    public void setData(E data) {
+        this.data = data;
+    }
+    
+    
     // get-Methoden
     
     /**

@@ -2,8 +2,8 @@
 /**
  * Beschreiben Sie hier die Klasse Node.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author A.Venet u. H. Schall 
+ * @version 1.0
  */
 class ListNode<E> {
     // aktuelle Daten

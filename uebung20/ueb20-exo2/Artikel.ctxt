@@ -21,7 +21,7 @@ comment14.target=void\ bucheAbgang(int)
 comment14.text=\r\n\ \ \ \ bucht\ Artikel-Abgaenge\ vom\ Lagerbestand\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ abgang\ \ Artikel-Abgang\ \ -->\ darf\ nicht\ negativ\ sein\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -->\ muss\ \ &lt\ aktuellem\ Bestand\ sein\r\n
 comment15.params=prozent
 comment15.target=void\ aenderePreis(double)
-comment15.text=\r\n\ \ \ \ aenderePreisg\ aendert\ Artikelpreis\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ prozent\ -\ positive\ Prozentzahl\ \=\=\ Preiserhoehung,\ negative\ \=\ Preisverminderung\r\n
+comment15.text=\r\n\ \ \ \ aenderePreis\ aendert\ Artikelpreis\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ prozent\ -\ positive\ Prozentzahl\ \=\=\ Preiserhoehung,\ negative\ \=\ Preisverminderung\r\n
 comment16.params=
 comment16.target=java.lang.String\ toString()
 comment16.text=\r\n\ \ \ \ erzeugt\ einen\ Artikel-String\r\n\ \ \ \ \r\n

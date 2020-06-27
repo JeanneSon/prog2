@@ -271,7 +271,7 @@ public class Artikel
 
  
   /**
-   *    aenderePreisg aendert Artikelpreis
+   *    aenderePreis aendert Artikelpreis
    *    
    *    @param  prozent - positive Prozentzahl == Preiserhoehung, negative = Preisverminderung
    */

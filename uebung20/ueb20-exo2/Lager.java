@@ -38,13 +38,13 @@ public class Lager
     private static final String  ARTIKEL_SCHON_IN_LAGER =
         "Anzulegender Artikel schon in Lager !!!!";
 
-    private static final String  INDEX_UNGUELTIG =
-        "Der Index ist zu gross oder zu klein !!!!";          
+    private static final String  ARTIKEL_NR_UNGUELTIG =
+        "Im Lager wird (noch) kein Artikel wird unter dieser Artikelnummer gefuehrt. !!!!";          
 
     //------------------Attribute----------------------------------
 
     //private  Artikel[] lager;
-    private Map lager;
+    private Map<Integer, Artikel> lager;
     private  int       letzterBesetzterIndex;
     private  String    lagerOrt;
 
@@ -256,15 +256,9 @@ public class Lager
      */
     public void legeAnArtikel ( Artikel einArtikel )
     {
-        checkArgument( (sucheArtikel( einArtikel.getArtikelNr() ) != -1 ) ,
-            ARTIKEL_SCHON_IN_LAGER
-        );
-
-        checkArgument( ( letzterBesetzterIndex >=  lager.length  - 1 ),
-            LAGER_KOMPLETT_BESETZT 
-        );
-
-        lager[++letzterBesetzterIndex] = einArtikel;
+        Object nummer = (Integer) einArtikel.getArtikelNr();
+        checkArgument( lager.containsKey(nummer) , ARTIKEL_SCHON_IN_LAGER );
+        lager.put( einArtikel.getArtikelNr() , einArtikel );
     }
 
     //------------------Artikel entfernen ----------------------------------
@@ -276,27 +270,10 @@ public class Lager
      */
     public void entferneArtikel ( int loeschArtikelNr )
     {
-        int fundstelle, schieber;
-
-        //suche Artikel 
-        fundstelle = sucheArtikel( loeschArtikelNr );
-
-        checkArgument(  ( fundstelle == -1 ), ARTIKEL_NICHT_IN_LAGER );
-
+        checkArtikelNummerExistiert(loeschArtikelNr);
         //loesche Artikel
-        lager[fundstelle] = null;
-        letzterBesetzterIndex--;
-
-        //schiebe Lager zusammen
-        for ( schieber = fundstelle; schieber <= letzterBesetzterIndex; schieber++ )
-        {
-            lager[schieber] = lager[schieber + 1];
-        }
-
-        if ( schieber + 1 < lager.length )
-        {
-            lager[schieber + 1] = null;
-        }
+        Object nummer = (Integer) loeschArtikelNr;
+        lager.remove(nummer);
     }
 
 
@@ -311,11 +288,11 @@ public class Lager
      */
     public void bucheZugang ( int artikelNummer, int zugang )
     {
-        int artikelIndex = sucheArtikel( artikelNummer );
-
-        checkArgument(  ( artikelIndex == -1 ), ARTIKEL_NICHT_IN_LAGER );
-
-        lager[artikelIndex].bucheZugang( zugang );
+        checkArtikelNummerExistiert(artikelNummer);
+        lager.compute(artikelNummer, (artikelNr, artikel) -> {
+                                                    artikel.bucheAbgang( zugang );
+                                                    return artikel;
+        });
     }
 
     //------------------- abgang buchen  --------------------------------
@@ -328,11 +305,11 @@ public class Lager
      */
     public void bucheAbgang ( int artikelNummer, int abgang )
     {
-        int artikelIndex = sucheArtikel( artikelNummer );
-
-        checkArgument(  ( artikelIndex == -1 ), ARTIKEL_NICHT_IN_LAGER );
-
-        lager[artikelIndex].bucheAbgang( abgang );
+        checkArtikelNummerExistiert(artikelNummer);
+        lager.computeIfPresent(artikelNummer, (artikelNr, artikel) -> {
+                                                    artikel.bucheAbgang( abgang );
+                                                    return artikel;
+        });
     }
 
 
@@ -344,14 +321,12 @@ public class Lager
      */
     public void aenderePreisAllerArtikel ( double prozent )
     {
-        for ( int lauf = 0; lauf <= letzterBesetzterIndex; lauf++ )
-        {
-            lager[lauf].aenderePreis( prozent );
-        }
+        lager.forEach((artikelNr, artikel) -> artikel.aenderePreis(prozent));
     }
 
     //------------------- hilfs-Methoden --------------------------------
 
+    //damit nicht alle Aufrufe von sucheArtikel geaendert werden muessen, wird diese Methode nur ein wenig fuer Ueb20 angepasst
     /**
      *    sucheArtikel - sucht im Lager Array
      *               nach dem Vorkommen eines Artikels anhand 
@@ -363,21 +338,17 @@ public class Lager
      */
     public int sucheArtikel ( int suchArtikelNr )
     {
-        int lauf, gefunden;
-
-        for ( lauf = 0, gefunden = -1; 
-        ( (lauf <= letzterBesetzterIndex) && (gefunden == -1) );
-        lauf++ 
-        )
-        {
-            if ( lager[lauf].getArtikelNr() == suchArtikelNr )
-            {
-                gefunden = lauf;
-            }
-        }
-        return gefunden;
+        Object zuSuchen = (Integer) suchArtikelNr;
+        Artikel gefunden = lager.get(zuSuchen);
+        return gefunden == null ? -1 : suchArtikelNr;
     }
 
+    private void checkArtikelNummerExistiert ( int artikelNr ) throws RuntimeException {
+        Object nummer = (Integer) artikelNr;
+        if ( ! lager.containsKey(nummer) )
+            throw new RuntimeException( ARTIKEL_NICHT_IN_LAGER );
+    }
+    
     /**
      *    getLagerGroesse - liefert die Groesse des Lager Array
      *    Hilfsmethode fuer die Testklasse LagerTest
@@ -387,7 +358,7 @@ public class Lager
      */
     public int getLagerGroesse ()
     {
-        return lager.length;    
+        return lager.size();    
     }
 
     /**
@@ -398,25 +369,26 @@ public class Lager
      */
     public int getArtikelAnzahl ()
     {
-        return letzterBesetzterIndex + 1;    
+        return getLagerGroesse();    
     }
 
     /**
-     *    getArtikel - liefert den Artikel aus dem Lager, der an der Stelle 
-     *    Index gefuert wird
+     *    getArtikel - liefert den Artikel aus dem Lager, der unter dieser
+     *    Artikelnummer gefuert wird
      *    Hilfsmethode fuer die Testklasse LagerTest
      *    @author  Iris Ebner
      *
-     *    @param index - der Index des zurueckzugebenden Artikels
-     *    @return der Artikel, der an der Stelle Index im Lager gefuehrt wird 
+     *    @param artikelNr - die  Artikelnummer des zurueckzugebenden Artikels
+     *    @return der Artikel, der unter dieser Artikelnummer im Lager gefuehrt wird 
      */  
-    public Artikel getArtikel (int index)
+    public Artikel getArtikel (int artikelNr)
     {
-        checkArgument( (index >= getLagerGroesse() || index < 0),
-            INDEX_UNGUELTIG 
-        );
+        Object key = (Integer) artikelNr;
+        Artikel zurueckzugeben = lager.get(key);
+        if (zurueckzugeben == null)
+            throw new RuntimeException( ARTIKEL_NR_UNGUELTIG );
 
-        return lager[index];
+        return zurueckzugeben;
     }
 
     //------------------ ausgebenBestandsListe --------------------------

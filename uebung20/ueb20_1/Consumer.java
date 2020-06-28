@@ -24,8 +24,8 @@ public class Consumer
      */
     public void consume(int i)
     {
-        long beginTime = System.currentTimeMillis();
         int quersumme = 0;
+        long beginTime = System.currentTimeMillis();
         while(i > 0) {
             int digit = i%10;
             quersumme += digit;

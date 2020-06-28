@@ -10,7 +10,7 @@ public class Testklasse
 {
     //Attribute
     private Scanner input = new Scanner(System.in);
-    
+    private Coordinator coordinator;
 
     //Klassenkonstanten
     private static final int ENDE = 0;

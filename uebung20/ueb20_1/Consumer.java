@@ -8,9 +8,8 @@ import java.util.ArrayList;
  */
 public class Consumer
 {
-    
-    //private Map enthaelt Collection; // -> ArrayList // -> TreeMap;
     static TreeMap<Integer, ArrayList<String>> map;
+    
     /**
      * Konstruktor für Objekte der Klasse Consumer
      */
@@ -20,10 +19,8 @@ public class Consumer
     }
 
     /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
      * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
+     * @param  i ein zufallige Zahl zwishcne 0 und 1000
      */
     public void consume(int i)
     {
@@ -44,11 +41,11 @@ public class Consumer
         if (map.containsKey(i)){
             array.add(map.get(i));
             array.add(time);
-            map.put(i, time);
+            map.put(i, array);
         }
         else { 
             array.add(time);
-            map.put(i, time);
+            map.put(i, array);
         }
     }
     
@@ -74,6 +71,9 @@ public class Consumer
     }
     
     private Collection<Integer> getCrossTotalsAscending() {
+        Collections.reverse(map);
+        String[] reversed = listOfProducts.toArray(typesOfInsurance);
+        System.out.println("array after reverse: " + Arrays.toString(reversed) );
     }
     
     private Collection<Long> getTimestampsForResult(int i){

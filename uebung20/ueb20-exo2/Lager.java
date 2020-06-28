@@ -99,13 +99,9 @@ public class Lager
 
         this.lagerOrt = new String(lagerOrt); 
 
-        lager = new LinkedHashMap<Integer, Artikel>();
-        letzterBesetzterIndex = -1;
+        lager = new LinkedHashMap<>();
 
-        for ( int lauf = 0; lauf < dimension; lauf++)
-        {
-            lager[lauf] = null;
-        }
+        // lager.clear();
     }
 
     //------------------ Erweiterungen durch Uebung 18 -----------------
@@ -116,8 +112,9 @@ public class Lager
      * @return das sortierte Lager
      */
     public Artikel[] getSorted(BiPredicate<Artikel, Artikel> p){
-        List<Artikel> artList = Arrays.asList(this.lager);
-        return insertionSort(this.lager,p);
+        Collection<Artikel> artColl = lager.values();
+        Artikel[] toSort = artColl.toArray(new Artikel[0]);
+        return insertionSort(toSort, p);
     }
     
     
@@ -151,11 +148,7 @@ public class Lager
      * @return die herausgefilterten Werte
      */
     public Artikel[] filter(Predicate<Artikel> p) {
-        List<Artikel> artList = new ArrayList<>();
-        for (Artikel a : this.lager)
-            if (p.test(a))
-                artList.add(a);
-        return artList.toArray(Artikel[]::new);
+        return lager.values().stream().filter(a -> p.test(a)).toArray(Artikel[]::new);
     }
     
     /**
@@ -164,8 +157,7 @@ public class Lager
      * @param c die Methode
      */
     public void applyToArticles(Consumer<Artikel> c) {
-        for(int i = 0; i < this.lager.length ; i++)
-            c.accept(lager[i]);
+        lager.forEach((artikelNr, artikel) -> c.accept(artikel));
     }
     
     /**
@@ -175,23 +167,22 @@ public class Lager
      * @param c die Methode
      */
     public void applyToSomeArticles(Predicate<Artikel> p, Consumer<Artikel> c) {
-        for(int i = 0; i < this.lager.length ; i++)
-            if (p.test(lager[i]))
-                c.accept(lager[i]);
-    }
+        lager.forEach((artikelNr, artikel) -> {
+            if (p.test(artikel))
+                c.accept(artikel);
+            });
+        }
     
     /**
-     * getArticles sortiert einen Teil des Lagers
+     * getArticles gibt ein Array, das nur gefilterte Werte enthaelt, sortiert zurueck
      *
      * @param p Suchkriterium, nach dem das Lager gefiltert wird und den zu sortierenden Teil bestimmt
      * @param c Sortierkriterium
      * @return das sortierte Teillager
      */
     public Artikel[] getArticles(Predicate<Artikel> p, Comparator<? super Artikel> c) {
-        List<Artikel> artList = new ArrayList<>();
-        for (Artikel a : this.lager)
-            if (p.test(a))
-                artList.add(a);
+        Artikel[] gefiltert = filter(p);
+        List<Artikel> artList = Arrays.asList(gefiltert);
         artList.sort(c);
         Artikel[] result = new Artikel[artList.size()];
         return artList.toArray(result);
@@ -204,23 +195,14 @@ public class Lager
      * @return das Array (siehe oben)
      */
     public Artikel[] filterAll(Predicate<Artikel> ... criteria) {
-        List<Artikel> artList = Arrays.asList(this.lager);
+        Collection<Artikel> artList = lager.values();
         Stream<Artikel> s = artList.stream();
         for (Predicate<Artikel> p : criteria)
             s.filter(p);
         return s.toArray(Artikel[]::new);
     }
     
-    /*public void applyToSomeArticles1(Predicate<? super Artikel> p, Function<? super Artikel, ? extends Artikel> f) {
-        List<Artikel> artList = Arrays.asList(this.lager);
-        List<Artikel> newArtList = artList.stream()
-                                        .filter(p)
-                                        .map(f)
-                                        .collect(Collectors.toList());
-        this.lager = new Artikel[newArtList.size()];
-        newArtList.toArray(this.lager); 
-    }
-    */
+   
     
     //------------------ set-/get-lagerOrt---------------------------------
     /**

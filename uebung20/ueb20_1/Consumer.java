@@ -1,14 +1,16 @@
+import java.util.*; 
+import java.util.ArrayList;
 /**
  * Beschreiben Sie hier die Klasse Consumer.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author VENET Aurianne & SCHALL Hanna
+ * @version 1.0
  */
 public class Consumer
 {
     
     //private Map enthaelt Collection; // -> ArrayList // -> TreeMap;
-
+    static TreeMap<Integer, ArrayList<String>> map;
     /**
      * Konstruktor für Objekte der Klasse Consumer
      */
@@ -25,7 +27,23 @@ public class Consumer
      */
     public void consume(int i)
     {
-        //Quersumme
+        long time = 0;
+        int quersumme = 0;
+        while(i > 0) {
+            int digit = i%10;
+            quersumme += digit;
+            i /= 10;
+        }
+        ArrayList<String> array[] = new ArrayList();
+        if (map.containsKey(quersumme)){
+            array.add(map.get(quersumme));
+            array.add(time);
+            map.put(quersumme, time);
+        }
+        else { 
+            array.add(time);
+            map.put(quersumme, time);
+        }
         //stecke Quersumme und Time in Map
     }
     
@@ -35,10 +53,25 @@ public class Consumer
         //falls nein -> neuer eintrag mit quersumme als schlüssel und arraylist als wert; arraylist enthält miliseconds
     }
     
-    //getCrossTotalsDescending -> arrayList
+    private int numberOfDifferentResults(){
+        return map.size();
+    }
     
-    ////getCrossTotalsAscending -> ArrayList
+    private int numberOfOccurrences(int i){
+        if (map.containsKey(i)){
+            return length(map.get(i));
+        }
+        else
+            return -1;
+    }
     
-    //getTimestampsForResult 
+    private Collection<Integer> getCrossTotalsDescending(){
+    }
+    
+    private Collection<Integer> getCrossTotalsAscending() {
+    }
+    
+    private Collection<Long> getTimestampsForResult(int i){
+    }
     //gibt collection zurück ArrayList
 }

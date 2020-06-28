@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Consumer
-comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Consumer.\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Consumer.\r\n\ \r\n\ @author\ VENET\ Aurianne\ &\ SCHALL\ Hanna\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=Consumer()
 comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Consumer\r\n

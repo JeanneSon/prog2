@@ -27,30 +27,29 @@ public class Consumer
      */
     public void consume(int i)
     {
-        long time = 0;
+        long beginTime = System.currentTimeMillis();
         int quersumme = 0;
         while(i > 0) {
             int digit = i%10;
             quersumme += digit;
             i /= 10;
         }
-        ArrayList<String> array[] = new ArrayList();
-        if (map.containsKey(quersumme)){
-            array.add(map.get(quersumme));
-            array.add(time);
-            map.put(quersumme, time);
-        }
-        else { 
-            array.add(time);
-            map.put(quersumme, time);
-        }
+        long time = System.currentTimeMillis() - beginTime;
+        neuerEintrag(quersumme, time);
         //stecke Quersumme und Time in Map
     }
     
-    private void neuerEintrag (int i, long miliseconds) {
-        //quersumme schon als schlüssel in treeMap?
-        //falls ja -> miliseconds hinzufügen zur Arraylist von dieser quersumme
-        //falls nein -> neuer eintrag mit quersumme als schlüssel und arraylist als wert; arraylist enthält miliseconds
+    private void neuerEintrag (int i, long time) {
+        ArrayList<String> array[] = new ArrayList();
+        if (map.containsKey(i)){
+            array.add(map.get(i));
+            array.add(time);
+            map.put(i, time);
+        }
+        else { 
+            array.add(time);
+            map.put(i, time);
+        }
     }
     
     private int numberOfDifferentResults(){

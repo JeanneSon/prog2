@@ -25,6 +25,6 @@ public class Coordinator
     
     public static void main(String[] args) {
         String variante = args[0];
-        new Coordinator().start(variante);
+        //new Coordinator.start(variante);
     }
 }

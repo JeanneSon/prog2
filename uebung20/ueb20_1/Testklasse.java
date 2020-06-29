@@ -11,11 +11,12 @@ public class Testklasse
     //Attribute
     private Scanner input = new Scanner(System.in);
     private Coordinator coordinator;
+    
 
     //Klassenkonstanten
     private static final int ENDE = 0;
-    private static final int QUERSUMME = 2;
     private static final int ZUFAELIGE_INTEGER = 1;
+    private static final int QUERSUMME = 2;
     private static final int NUMBER_DIFFERENCE = 3;
     private static final int NUMBER_OCCURENCE = 4;
     private static final int ASCENDING= 5;

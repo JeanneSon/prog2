@@ -15,7 +15,7 @@ public class Consumer
      */
     public Consumer()
     {
-        // Instanzvariable initialisieren
+        map = new TreeMap<Integer, ArrayList<Long>>();
     }
 
     /**
@@ -25,16 +25,17 @@ public class Consumer
     public void consume(int i)
     {
         int quersumme = 0;
-        long beginTime = System.currentTimeMillis();
         while(i > 0) {
             int digit = i%10;
             quersumme += digit;
             i /= 10;
         }
-        long time = System.currentTimeMillis() - beginTime;
+        long time = System.currentTimeMillis();
         neuerEintrag(quersumme, time);
         //stecke Quersumme und Time in Map
     }
+    
+    
     
     private void neuerEintrag (int quersumme, long time) {
         ArrayList<Long> array = new ArrayList();
@@ -50,11 +51,11 @@ public class Consumer
         }
     }
     
-    private int numberOfDifferentResults(){
+    public int numberOfDifferentResults(){
         return map.size();
     }
     
-    private int numberOfOccurrences(int i){
+    public int numberOfOccurrences(int i){
         if (map.containsKey(i)){
             Object qs = (Integer) i;
             return map.get(qs).size();
@@ -63,15 +64,15 @@ public class Consumer
             return -1;
     }
     
-    private Collection<Integer> getCrossTotalsDescending(){
+    public Collection<Integer> getCrossTotalsDescending(){
         return map.descendingKeySet();
     }
     
-    private Collection<Integer> getCrossTotalsAscending() {
+    public Collection<Integer> getCrossTotalsAscending() {
         return map.keySet();
     }
     
-    private Collection<Long> getTimestampsForResult(int i){
+    public Collection<Long> getTimestampsForResult(int i){
         if (map.containsKey(i)){
             Object qs = (Integer) i;
             return map.get(qs);

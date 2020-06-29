@@ -1,3 +1,7 @@
+import java.util.PriorityQueue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.AbstractQueue;
+import java.util.Random;
 /**
  * Beschreiben Sie hier die Klasse Coordinator.
  * 
@@ -7,24 +11,39 @@
 public class Coordinator
 {
     private Producer p;
-    private Consumer c;
+    public Consumer c;
+    private AbstractQueue<Integer> collect;
     
     
-    private void start() {
+    public void start(String variante) throws IllegalArgumentException{ 
+        if (variante.equals("FIFO")) {
+            collect = new ConcurrentLinkedQueue<Integer>();
+        }
+        else if (variante.equals("natuerlich")) {
+            collect = new PriorityQueue<Integer>();
+        }
+        else {
+            throw new IllegalArgumentException("argument not valid; put either \"FIFO\" or \"natuerlich\"");
+        }
+            
         p = new Producer();
         c = new Consumer();
         
-        // collection hier sind die integers drin
-    //falls Variante == FIFO, dann: concurrent queue
-    //falls variante == natürliche sortierung: priority queue
-        
-        //Random ran = new Random(); for(int i = 0; i<10000; i++) { if(ran.nextInt(2) > 0 ) // Erzeugen eines neuen Integers durch den Producer und speichern // in einer Collection else // Entnehmen eines Integeres aus der Collection und Berechnung der // Quersumme durch den Consumer }
-
+        Random ran = new Random();
+        for(int i = 0; i<10000; i++) {
+            if (ran.nextInt(2) > 0 ) {
+                collect.add(p.produce());
+            } else {
+                if (collect.isEmpty())
+                    continue;
+                c.consume(collect.remove());
+            }
+        }
     }
     
     
     public static void main(String[] args) {
         String variante = args[0];
-        //new Coordinator.start(variante);
+        new Coordinator().start(variante);
     }
 }

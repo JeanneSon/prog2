@@ -397,23 +397,20 @@ public class Lager
             lagerOrt, "ArtNr", "Beschreibung", "Preis",
             "Bestand", "Gesamt"
         );
-
-        for ( int lauf = 0; lauf <= letzterBesetzterIndex; lauf++ )
-        {
-            zeilenWert = lager[lauf].getPreis() * lager[lauf].getBestand();
+        
+       
+/*        lager.forEach((artikelNr, artikel) -> {
+            zeilenWert = artikel.getPreis() * artikel.getBestand();
             gesamtWert += zeilenWert;
-
+            
             formatierer.format( "\n %6d   %45s %10.2f %10d %10.2f ",
-                lager[lauf].getArtikelNr(),
-                lager[lauf].getBeschreibung(),
-                lager[lauf].getPreis(),
-                lager[lauf].getBestand(),
+                artikel.getArtikelNr(),
+                artikel.getBeschreibung(),
+                artikel.getPreis(),
+                artikel.getBestand(),
                 zeilenWert
             );
-            // hier waere es evtl sinnvoll in den Klassen Artikel, Cd, Dvd und Buch 
-            // eine Methode getBestandsZeile() zu programmieren, falls man auf
-            // diese Klassen "quellcode-maessig" zugreifen kann.
-        }
+        }); */
 
         formatierer.format( "\n--------------------------------------" +
             "-----------------------------------------" +
@@ -440,17 +437,13 @@ public class Lager
 
         StringBuffer lagerString = new StringBuffer(
                 String.format( "\n\nIm Lager : %20s sind von %5d Lagerplaetzen %5d ",
-                    lagerOrt, lager.length, (letzterBesetzterIndex + 1)
+                    lagerOrt, lager.size(), (letzterBesetzterIndex + 1)
                 )
             );
 
         lagerString.append( " belegt, mit folgenden Artikeln : \n");
-
-        for ( int lauf = 0; lauf <= letzterBesetzterIndex; lauf++ )
-        {
-            lagerString.append( String.format( "\n\t %3d \t-> %s", lauf, lager[lauf]) );
-        }
-
+        lager.forEach((artikelNr, artikel) -> lagerString.append( String.format( "\n\t %3d \t-> %s", artikelNr, artikel) ));
+        
         return lagerString.toString();
     }
 

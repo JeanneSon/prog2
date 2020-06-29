@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Consumer
 {
-    static TreeMap<Integer, ArrayList<String>> map;
+    private TreeMap<Integer, ArrayList<Long>> map;
     
     /**
      * Konstruktor für Objekte der Klasse Consumer
@@ -36,16 +36,17 @@ public class Consumer
         //stecke Quersumme und Time in Map
     }
     
-    private void neuerEintrag (int i, long time) {
-        ArrayList<String> array = new ArrayList();
-        if (map.containsKey(i)){
-            array.add(map.get(i));
+    private void neuerEintrag (int quersumme, long time) {
+        ArrayList<Long> array = new ArrayList();
+        if (map.containsKey(quersumme)){
+            Object qs = (Integer) quersumme;
+            array = map.get(qs);
             array.add(time);
-            map.put(i, array);
+            map.put(quersumme, array);
         }
         else { 
             array.add(time);
-            map.put(i, array);
+            map.put(quersumme, array);
         }
     }
     
@@ -55,34 +56,29 @@ public class Consumer
     
     private int numberOfOccurrences(int i){
         if (map.containsKey(i)){
-            return length(map.get(i));
+            Object qs = (Integer) i;
+            return map.get(qs).size();
         }
         else
             return -1;
     }
     
     private Collection<Integer> getCrossTotalsDescending(){
-        ArrayList<String> array = new ArrayList();
-        for (Map.Entry e : map.entrySet()){
-            String element = e.getKey() + " "+ e.getValue();
-            array.add(element);
-        }
-        return array;
+        return map.descendingKeySet();
     }
     
     private Collection<Integer> getCrossTotalsAscending() {
-        Collections.reverse(map);
-        String[] reversed = listOfProducts.toArray(typesOfInsurance);
-        System.out.println("array after reverse: " + Arrays.toString(reversed) );
+        return map.keySet();
     }
     
     private Collection<Long> getTimestampsForResult(int i){
         if (map.containsKey(i)){
-            return map.get(i);
+            Object qs = (Integer) i;
+            return map.get(qs);
         }
         else
-            // message d'erreur
-            ;
+            System.out.println("Gegebene Quersumme nicht gespeichert");
+            return null;
     }
     //gibt collection zurück ArrayList
 }

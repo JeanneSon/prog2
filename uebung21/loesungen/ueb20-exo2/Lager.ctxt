@@ -1,0 +1,81 @@
+#BlueJ class context
+comment0.target=Lager
+comment0.text=\r\n\ \ \ \ Die\ Klasse\:\ \ Lager.java\r\n\ \ \ \ Realisiert\ eine\ allgemeine\ Lager-Klasse\ fuer\r\n\ \ \ \ Artikel.\r\n\r\n\ @version\ 2.01\ Beta\ 09.01.2020\r\n\ @author\ \ Wolfgang\ Pauly\ extended\ by\ A.\ Venet\ u.\ H.\ Schall\r\n\r\n
+comment1.params=
+comment1.target=Lager()
+comment1.text=\r\n\ \ \ \ Der\ Konstruktor\ zur\ Standard-Initialisierung\ \r\n\ \ \ \ des\ Lagers\r\n\ \ \ \ \ \ \ \ \r\n
+comment10.params=p\ c
+comment10.target=Artikel[]\ getArticles(java.util.function.Predicate,\ java.util.Comparator)
+comment10.text=\r\n\ getArticles\ gibt\ ein\ Array,\ das\ nur\ gefilterte\ Werte\ enthaelt,\ sortiert\ zurueck\r\n\r\n\ @param\ p\ Suchkriterium,\ nach\ dem\ das\ Lager\ gefiltert\ wird\ und\ den\ zu\ sortierenden\ Teil\ bestimmt\r\n\ @param\ c\ Sortierkriterium\r\n\ @return\ das\ sortierte\ Teillager\r\n
+comment11.params=criteria
+comment11.target=Artikel[]\ filterAll(java.util.function.Predicate[])
+comment11.text=\r\n\ filterAll\ gibt\ ein\ Artikel-Array\ zurueck,\ dass\ alle\ Filterkriterien\ erfuellt\r\n\r\n\ @param\ criteria\ die\ Filterkriterien\ als\ variable\ Parameterliste\r\n\ @return\ das\ Array\ (siehe\ oben)\r\n
+comment12.params=
+comment12.target=java.lang.String\ getLagerOrt()
+comment12.text=\r\n\ \ \ \ gibt\ Lager-Attribut\ \:\ lagerOrt\ zurueck\r\n\r\n\ \ \ \ @return\ \ \ \ lagerOrt\r\n
+comment13.params=lagerOrt
+comment13.target=void\ setLagerOrt(java.lang.String)
+comment13.text=\r\n\ \ \ \ setzt\ Lager-Attribut\ \:\ \ lagerOrt\r\n\ \ \ \r\n\ \ \ \ @param\ lagerOrt\ \ \ \ \ neuer\ Lager-Ort\r\n
+comment14.params=einArtikel
+comment14.target=void\ legeAnArtikel(Artikel)
+comment14.text=\r\n\ \ \ \ anlegen\ eines\ neuen\ Artikels\ und\ ins\ Lager\ einordnen\r\n\ \ \ \ \r\n\ \ \ \ @param\ einArtikel\ \ der\ anzulegende\ Artikel\r\n
+comment15.params=loeschArtikelNr
+comment15.target=void\ entferneArtikel(int)
+comment15.text=\r\n\ \ \ \ entfernt\ den\ Artikel\ anhand\ seiner\ Artikel-Nummer\ aus\ dem\ Lager\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ \ loeschArtikelNr\ Nummer\ des\ zu\ loeschenden\ Artikels\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \r\n
+comment16.params=artikelNummer\ zugang
+comment16.target=void\ bucheZugang(int,\ int)
+comment16.text=\r\n\ \ \ \ bucht\ einen\ Zugang\ von\ Artikeln\ zu\ dem\ durch\ die\ Artikel-Nummer\ \r\n\ \ \ \ identifizierten\ Artikel.\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ \ artikelNummer\ Artikel-Nummer,\ des\ zu\ buchenden\ Artikels\r\n\ \ \ \ @param\ zugang\ hinzukommende\ Artikel-Anzahl\r\n
+comment17.params=artikelNummer\ abgang
+comment17.target=void\ bucheAbgang(int,\ int)
+comment17.text=\r\n\ \ \ \ bucht\ einen\ Abgang\ von\ Artikeln\ von\ dem\ durch\ die\ Artikel-Nummer\ \r\n\ \ \ \ identifizierten\ Artikel.\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ \ artikelNummer\ Artikel-Nummer,\ des\ zu\ buchenden\ Artikels\r\n\ \ \ \ @param\ abgang\ weggehende\ Artikel-Anzahl\r\n
+comment18.params=prozent
+comment18.target=void\ aenderePreisAllerArtikel(double)
+comment18.text=\r\n\ \ \ \ aenderePreisAllerArtikel\ -\ erhoeht,\ vermindert\ die\ Preise\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aller\ Lagerartikel\r\n\r\n\ \ \ \ @param\ \ prozent\ -\ positive\ Prozentzahl\ \=\=\ Preiserhoehung,\ negative\ \=\ Preisverminderung\ \r\n
+comment19.params=suchArtikelNr
+comment19.target=int\ sucheArtikel(int)
+comment19.text=\r\n\ \ \ \ sucheArtikel\ -\ sucht\ im\ Lager\ Array\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nach\ dem\ Vorkommen\ eines\ Artikels\ anhand\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ der\ Artikel-Nummer\r\n\r\n\ \ \ \ @param\ suchArtikelNr\ -\ die\ zu\ suchende\ Artikelnummer\r\n\ \ \ \ @return\ Index\ des\ gefundenen\ Artikels\ oder\ -1,\ falls\ der\ Artikel\ nicht\r\n\ \ \ \ \ \ \ \ \ \ \ \ im\ Lager\ enthalten\ ist.\r\n
+comment2.params=dimension
+comment2.target=Lager(int)
+comment2.text=\r\n\ \ \ \ Der\ Konstruktor\ zur\ Initialisierung\ \r\n\ \ \ \ eines\ Lagers\ mit\ einer\ maximalen\ Anzahl\ von\ Artikel-Lagerplaetzen\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ @param\ dimension\ \ \=\=\ Anzahl\ der\ maximal\ im\ Lager\ fuehrbaren\ Artikel\r\n
+comment20.params=artikelNr
+comment20.target=void\ checkArtikelNummerExistiert(int)
+comment21.params=
+comment21.target=int\ getLagerGroesse()
+comment21.text=\r\n\ \ \ \ getLagerGroesse\ -\ liefert\ die\ Groesse\ des\ Lager\ Array\r\n\ \ \ \ Hilfsmethode\ fuer\ die\ Testklasse\ LagerTest\r\n\ \ \ \ @author\ \ Iris\ Ebner\r\n\r\n\ \ \ \ @return\ lager.length\ \=\=\ Anzahl\ der\ maximal\ im\ Lager\ fuehrbaren\ Artikel\r\n
+comment22.params=
+comment22.target=int\ getArtikelAnzahl()
+comment22.text=\r\n\ \ \ \ getArtikelAnzahl\ -\ liefert\ die\ Anzahl\ der\ Artikel\ im\ Lager\ Array\r\n\ \ \ \ \r\n\r\n\ \ \ \ @return\ etzterBesetzterIndex\ \=\=\ Anzahl\ der\ Artikel\ im\ Lager\r\n
+comment23.params=artikelNr
+comment23.target=Artikel\ getArtikel(int)
+comment23.text=\r\n\ \ \ \ getArtikel\ -\ liefert\ den\ Artikel\ aus\ dem\ Lager,\ der\ unter\ dieser\r\n\ \ \ \ Artikelnummer\ gefuert\ wird\r\n\ \ \ \ Hilfsmethode\ fuer\ die\ Testklasse\ LagerTest\r\n\ \ \ \ @author\ \ Iris\ Ebner\r\n\r\n\ \ \ \ @param\ artikelNr\ -\ die\ \ Artikelnummer\ des\ zurueckzugebenden\ Artikels\r\n\ \ \ \ @return\ der\ Artikel,\ der\ unter\ dieser\ Artikelnummer\ im\ Lager\ gefuehrt\ wird\ \r\n
+comment24.params=
+comment24.target=java.lang.String\ ausgebenBestandsListe()
+comment24.text=\r\n\ \ \ \ erzeugt\ einen\ String,\ der\ eine\ Bestandsliste\ repraesentiert\r\n\r\n\ \ \ \ @return\ die\ String-Repraesentation\ der\ Lager-Bestandsliste\r\n
+comment25.params=
+comment25.target=java.lang.String\ toString()
+comment25.text=\r\n\ \ \ \ erzeugt\ einen\ String,\ der\ alle,\ fuer\ den\ Klassenbenutzer\r\n\ \ \ \ wichtigen,\ Lager-Merkmale\ enthaelt\r\n\ \ \ \r\n\ \ \ \ @return\ die\ String-Repraesentation\ des\ Lagers\r\n
+comment26.params=fehler\ meldung
+comment26.target=void\ checkArgument(boolean,\ java.lang.String)
+comment26.text=\r\n\ \ \ \ wirft\ bei\ Fehlersituation\ eine\ IllegalArgumentException\r\n\ \ \ \ \r\n\ \ \ \ \r\n\ \ \ \ @param\ \ fehler\ \ ->\ true\ \ \=\=\ Fehlersituation\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ->\ false\ \=\=\ KEINE\ Fehlersituation\r\n\ \ \ \ @param\ \ meldung\ ->\ Fehlermeldungstext\ zur\ Fehlersituation\r\n
+comment3.params=lagerOrt
+comment3.target=Lager(java.lang.String)
+comment3.text=\r\n\ \ \ \ Der\ Konstruktor\ zur\ Initialisierung\ \r\n\ \ \ \ eines\ Lagers\ mit\ einem\ Lagerort\ und\ Standard-Artikel--Lagerplaetzen\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ @param\ lagerOrt\ \=\=\ Ort\ an\ dem\ das\ Lager\ existiert\r\n
+comment4.params=dimension\ lagerOrt
+comment4.target=Lager(int,\ java.lang.String)
+comment4.text=\r\n\ \ \ \ Der\ Konstruktor\ zur\ Initialisierung\ \r\n\ \ \ \ eines\ Lagers\ mit\ einer\ maximalen\ Anzahl\ von\ Artikel-Lagerplaetzen\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ @param\ dimension\ \ \=\=\ Anzahl\ der\ maximal\ im\ Lager\ fuehrbaren\ Artikel\r\n\ \ \ \ @param\ lagerOrt\ \=\=\ Ort\ an\ dem\ das\ Lager\ existiert\r\n
+comment5.params=p
+comment5.target=Artikel[]\ getSorted(java.util.function.BiPredicate)
+comment5.text=\r\n\ getSorted\ sortiert\ das\ Lager\r\n\r\n\ @param\ p\ Sortierkriterium\r\n\ @return\ das\ sortierte\ Lager\r\n
+comment6.params=tab\ p
+comment6.target=Artikel[]\ insertionSort(Artikel[],\ java.util.function.BiPredicate)
+comment6.text=\r\n\ Sortiert\ ein\ Artikel-Array\ nach\ dem\ InsertionSort-Algorithmus\r\n\r\n\ @param\ tab\ zu\ sortierendes\ Artikel-Array\r\n\ @param\ p\ Sortierkriterium\r\n\ @return\ sortiertes\ Int-Array\r\n
+comment7.params=p
+comment7.target=Artikel[]\ filter(java.util.function.Predicate)
+comment7.text=\r\n\ filter\ filtert\ das\ Lager\r\n\r\n\ @param\ p\ Filterkriterium\r\n\ @return\ die\ herausgefilterten\ Werte\r\n
+comment8.params=c
+comment8.target=void\ applyToArticles(java.util.function.Consumer)
+comment8.text=\r\n\ applyToArticles\ wendet\ eine\ Methode\ auf\ alle\ Artikel\ des\ Lagers\ an\r\n\r\n\ @param\ c\ die\ Methode\r\n
+comment9.params=p\ c
+comment9.target=void\ applyToSomeArticles(java.util.function.Predicate,\ java.util.function.Consumer)
+comment9.text=\r\n\ applyToSomeArticles\ wendet\ eine\ Methode\ auf\ ausgewaehlte\ Artikel\ des\ Lagers\ an\r\n\r\n\ @param\ p\ Auswahlkriterium\r\n\ @param\ c\ die\ Methode\r\n
+numComments=27

@@ -4,6 +4,7 @@ import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
     
 /**
@@ -57,7 +58,7 @@ public class Lager
   }
 
 
-
+
   /**
    *    Der Konstruktor zur Initialisierung 
    *    eines Lagers mit einer maximalen Anzahl von Artikel-Lagerplaetzen
@@ -94,15 +95,14 @@ public class Lager
    checkArgument( (dimension <= 0), DIMENSION_UNGUELTIG );
    checkArgument( ( (lagerOrt == null) || (lagerOrt.trim().length() == 0)),
                   LAGERORT_UNGUELTIG 
-	        );
+            );
 
    this.lagerOrt   = new String(lagerOrt); 
    lager           = new LinkedHashMap<Integer, Artikel>( dimension );  //NEU
    initialCapacity = dimension ;                                        //NEU
   }
 
-
-//------------------ set-/get-lagerOrt---------------------------------
+  //------------------ set-/get-lagerOrt---------------------------------
 
   /**
    *    gibt Lager-Attribut : lagerOrt zurueck
@@ -124,12 +124,12 @@ public class Lager
   {
    checkArgument( ( (lagerOrt == null) || (lagerOrt.trim().length() == 0)), 
                   LAGERORT_UNGUELTIG
-		);
+        );
 
    this.lagerOrt = lagerOrt.trim();
   }
 
-//------------------Artikel anlegen  ---------------------------------
+  //------------------Artikel anlegen  ---------------------------------
 
 
   /**
@@ -141,12 +141,12 @@ public class Lager
   {
     checkArgument( lager.containsKey( einArtikel.getArtikelNr() ) ,
                    ARTIKEL_SCHON_IN_LAGER
-		 );                                                   //NEU
+         );                                                   //NEU
     lager.put( einArtikel.getArtikelNr(), einArtikel );               //NEU
   }
 
 
-//------------------Artikel entfernen ----------------------------------
+  //------------------Artikel entfernen ----------------------------------
 
   /**
    *    entfernt den Artikel anhand seiner Artikel-Nummer aus dem Lager
@@ -161,7 +161,7 @@ public class Lager
 
 
 
-//------------------ zugang buchen  --------------------------------
+  //------------------ zugang buchen  --------------------------------
 
   /**
    *    bucht einen Zugang von Artikeln zu dem durch die Artikel-Nummer 
@@ -179,7 +179,7 @@ public class Lager
   }
 
 
-//------------------- abgang buchen  --------------------------------
+  //------------------- abgang buchen  --------------------------------
 
   /**
    *    bucht einen Abgang von Artikeln von dem durch die Artikel-Nummer 
@@ -195,10 +195,7 @@ public class Lager
 
     lager.get( artikelNummer ).bucheAbgang( abgang );                 //NEU
   }
-
-
-
-
+ 
   /**
    *    preisaenderung - erhoeht, vermindert die Preise
    *                     aller Lagerartikel
@@ -210,9 +207,8 @@ public class Lager
     lager.forEach((nr, a) -> a.aenderePreis( prozent ));  //NEU
   }
  
-//------------------- hilfs-Methoden --------------------------------
-
-
+  //------------------- hilfs-Methoden --------------------------------
+  
   /**
   *    getArtikelAnzahl - liefert die Anzahl Artikel im Lager
   *    
@@ -222,9 +218,8 @@ public class Lager
   {
     return lager.size();
   }
-
-
-//------------------ ausgebenBestandsListe --------------------------
+  
+  //------------------ ausgebenBestandsListe --------------------------
 
   /**
    *    erzeugt einen String, der eine Bestandsliste repraesentiert
@@ -283,10 +278,7 @@ public class Lager
     return bestandsListe.toString();
   }
 
-
-
-
-//------------------ toString  --------------------------------------
+  //------------------ toString  --------------------------------------
 
   /**
    *    erzeugt einen String, der alle, fuer den Klassenbenutzer
@@ -338,8 +330,7 @@ public class Lager
            }
        }
   }
-
-
+  
   /**
    * Hilfsmethode zum Sortieren eines Arrays. Die Methode vertauscht 
    * die beiden Elemente mit den Indizes i und j eines übergebenen Arrays. 
@@ -374,11 +365,9 @@ public class Lager
     return artikelArray[index];
   }
 
-
  //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
  // neue Funktionen ueb18
  //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-
 
   //------------------ getSorted  --------------------------------------
   /**
@@ -405,7 +394,7 @@ public class Lager
    * @param filterKrit - ein Prädikat-Objekt, welches das Filterkriterium implementiert
    * @return eine Liste alle Artikel im Lager, die das Filterkriterium erfüllen. 
    */
-  public List<Artikel> filter(Predicate<Artikel> filterKrit)
+  public List<Artikel> filterOldVersion(Predicate<Artikel> filterKrit)
   {
     Artikel einArtikel;
 
@@ -420,6 +409,17 @@ public class Lager
            }
        }
     return geFiltert;
+  }
+  
+  /**
+   * Filtert die Artikel im Lager nach einem an die Methode übergebenen Filterkriterium. 
+   * 
+   * @param filterKrit - ein Prädikat-Objekt, welches das Filterkriterium implementiert
+   * @return eine Liste alle Artikel im Lager, die das Filterkriterium erfüllen. 
+   */
+  public List<Artikel> filter(Predicate<Artikel> filterKrit){
+    Stream<Artikel> lStream = lager.values().stream().filter(filterKrit);
+    return lStream.collect(Collectors.toList());
   }
   
   
@@ -462,7 +462,7 @@ public class Lager
    * @param f - ein Prädikat-Objekt, welches das Filterkriterium implementiert
    * @param c - ein Consumer der die auf die Artikel anzuwendende Operation implementiert
    */
-  public void applyToSomeArticles(Predicate<Artikel> f, Consumer<Artikel> c)
+  public void applyToSomeArticlesOldVersion(Predicate<Artikel> f, Consumer<Artikel> c)
   {
     Artikel einArtikel;
 
@@ -474,6 +474,17 @@ public class Lager
              c.accept(einArtikel);
            }
        }
+  }
+  
+  /**
+   * wendet eine übergebene Operation auf alle Artikel, welche ein Filterkriterium erfüllen an
+   *
+   * @param f - ein Prädikat-Objekt, welches das Filterkriterium implementiert
+   * @param c - ein Consumer der die auf die Artikel anzuwendende Operation implementiert
+   */
+  public void applyToSomeArticles(Predicate<Artikel> f, Consumer<Artikel> c)
+  {
+    lager.values().stream().filter(f).forEach(c);
   }
 
   //------------------ getArticles  --------------------------------------

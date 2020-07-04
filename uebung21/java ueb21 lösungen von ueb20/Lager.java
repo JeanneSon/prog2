@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
     
 /**
@@ -422,13 +423,13 @@ public class Lager
   }
   
   
-  //------------------ applyToArticles  --------------------------------------
+  //------------------ applyToArticlesOldVersion  --------------------------------------
   /**
    * wendet eine übergebene Operation auf alle Artikel im Lager an 
    * 
    * @param consum - ein Consumer der die auf die Artikel anzuwendende Operation implementiert
    */
-  public void applyToArticles(Consumer<Artikel> consum)
+  public void applyToArticlesOldVersion(Consumer<Artikel> consum)
   {
     Artikel einArtikel;
 
@@ -437,6 +438,19 @@ public class Lager
          einArtikel = entry.getValue();
          consum.accept(einArtikel);
        }
+  }
+
+  // +#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+ NEU  mit   STREAM +#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+
+
+  //------------------ applyToArticles  --------------------------------------
+  /**
+   * wendet eine übergebene Operation auf alle Artikel im Lager an 
+   * 
+   * @param consum - ein Consumer der die auf die Artikel anzuwendende Operation implementiert
+   */
+  public void applyToArticles(Consumer<Artikel> consum)
+  {
+    lager.values().stream().forEach(consum);
   }
 
 
@@ -481,14 +495,14 @@ public class Lager
       return result;
     }
 
-  //------------------ filterAll  -------------------------------------
+  //------------------ filterAllOldVersion  -------------------------------------
   /**
    * Filtert die Artikel im Lager nach den an die Methode übergebenen Filterkriterien. 
    * 
    * @param fKriterien - Prädikat-Objekte, welche die Filterkriterien implementieren
    * @return eine Liste alle Artikel im Lager, die alle Filterkriterien erfüllen. 
    */
-  public Artikel[]  filterAll(Predicate<Artikel>... fKriterien)
+  public Artikel[]  filterAllOldVersion(Predicate<Artikel>... fKriterien)
   {
     List<Artikel> zuFiltern = Arrays.asList(lager.values().toArray(new Artikel[lager.size()]));
     ArrayList<Artikel> geFiltert = new ArrayList<Artikel>();
@@ -511,6 +525,28 @@ public class Lager
           }
        }
       return geFiltert.toArray(new Artikel[geFiltert.size()]);
+  }
+
+  // +#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+ NEU  mit   STREAM +#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+
+
+    //------------------ filterAll  -------------------------------------
+  /**
+   * Filtert die Artikel im Lager nach den an die Methode übergebenen Filterkriterien. 
+   * 
+   * @param fKriterien - Prädikat-Objekte, welche die Filterkriterien implementieren
+   * @return eine Liste alle Artikel im Lager, die alle Filterkriterien erfüllen. 
+   */
+  public Artikel[]  filterAll(Predicate<Artikel>... fKriterien)
+  {
+    List<Artikel> zuFiltern = Arrays.asList(lager.values().toArray(new Artikel[lager.size()]));
+    ArrayList<Artikel> geFiltert = new ArrayList<Artikel>();
+
+    Stream<Artikel> lStream = lager.values().stream();
+    for (int k = 0; k < fKriterien.length; k++)
+       {
+        lStream = lStream.filter(fKriterien[k]);
+       }
+    return lStream.toArray(Artikel[]::new);
   }
 
 

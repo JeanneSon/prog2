@@ -567,7 +567,7 @@ public class LagerDialog
 	     {
 		  firmenLager.legeAnArtikel(new Video(ran.nextInt(9000)+1000, 
 		                                ran.nextInt(100), ran.nextDouble() * 100, "titel"+ran.nextInt(100),
-					        ran.nextInt() * 100, 2000
+					        Math.abs(ran.nextInt()) * 100, 2000
 					       ));
 	     }
 

@@ -465,6 +465,7 @@ public class Lager
   public void applyToSomeArticles(Predicate<Artikel> f, Consumer<Artikel> c)
   {
     Artikel einArtikel;
+    // lager -> stream -> .filter(f) -> .forEach(c);
 
     for (Map.Entry<Integer, Artikel> entry : lager.entrySet()) 
        {
@@ -538,9 +539,6 @@ public class Lager
    */
   public Artikel[]  filterAll(Predicate<Artikel>... fKriterien)
   {
-    List<Artikel> zuFiltern = Arrays.asList(lager.values().toArray(new Artikel[lager.size()]));
-    ArrayList<Artikel> geFiltert = new ArrayList<Artikel>();
-
     Stream<Artikel> lStream = lager.values().stream();
     for (int k = 0; k < fKriterien.length; k++)
        {

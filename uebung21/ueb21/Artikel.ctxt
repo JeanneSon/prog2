@@ -1,0 +1,52 @@
+#BlueJ class context
+comment0.target=Artikel
+comment0.text=\r\n\ \ \ \ Die\ Klasse\:\ \ Artikel.java\r\n\ \ \ \ realisiert\ eine\ allgemeine\ Artikel-Klasse\ \r\n\r\n\ @version\t1.0\ Beta\ 04.01.2019\r\n\ @author\tWolfgang\ Pauly\r\n\r\n
+comment1.params=artikelNr\ bezeichnung\ bestand\ preis
+comment1.target=Artikel(int,\ java.lang.String,\ int,\ double)
+comment1.text=\r\n\ \ \ \ Der\ (Voll-)Konstruktor\ mit\ 3\ Parametern\r\n\ \ \ \ \r\n\ \ \ \ @param\ artikelNr\ \ \ \ die\ Artikelnummer\ des\ neue\ Artikels\ -->\ \ es\ gilt\ \:\ 1000\ &lt\=\ Nummer\ &lt\=\ 9999\r\n\ \ \ \ @param\ bezeichnung\ \ die\ Bezeichnung\ des\ neue\ Artikels\ -->\ darf\ nicht\ LEER\ sein\ \ \ \ \r\n\ \ \ \ @param\ bestand\ \ \ \ \ \ der\ Lagerbestand\ des\ neue\ Artikels\ -->\ muss\ &gt\=\ 0\ sein\ \ \ \r\n\ \ \ \ @param\ preis\ \ \ \ \ \ \ \ der\ Preis\ des\ neuen\ Artikels\ -->\ muss\ &gt\=\ 0\ sein\ \r\n
+comment10.params=
+comment10.target=int\ getBestand()
+comment10.text=\r\n\ \ \ \ gibt\ Artikel-Attribut\ \:\ Artikelbestand\ im\ Lager\ zurueck\r\n\ \ \ \ \r\n\ \ \ \ @return\ \ \ \ Artikel-Bestand\r\n
+comment11.params=zugang
+comment11.target=void\ bucheZugang(int)
+comment11.text=\r\n\ \ \ \ bucht\ Artikel-Zugaenge\ zum\ Lagerbestand\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ zugang\ \ Artikel-Zugang\ -->\ darf\ nicht\ negativ\ sein\ \r\n
+comment12.params=abgang
+comment12.target=void\ bucheAbgang(int)
+comment12.text=\r\n\ \ \ \ bucht\ Artikel-Abgaenge\ vom\ Lagerbestand\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ abgang\ \ Artikel-Abgang\ \ -->\ darf\ nicht\ negativ\ sein\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -->\ muss\ \ &lt\ aktuellem\ Bestand\ sein\r\n
+comment13.params=prozent
+comment13.target=void\ aenderePreis(double)
+comment13.text=\r\n\ \ \ \ aenderePreisg\ aendert\ Artikelpreis\r\n\ \ \ \ \r\n\ \ \ \ @param\ \ prozent\ -\ positive\ Prozentzahl\ \=\=\ Preiserhoehung,\ negative\ \=\ Preisverminderung\r\n
+comment14.params=
+comment14.target=java.lang.String\ toString()
+comment14.text=\r\n\ \ \ \ erzeugt\ einen\ Artikel-String\r\n\ \ \ \ \r\n
+comment15.params=vergleichsArtikel
+comment15.target=boolean\ equals(java.lang.Object)
+comment15.text=\r\n\ Die\ equals-Methode\r\n\ \r\n\ Compares\ this\ object\ to\ the\ specified\ object.\ \r\n\ The\ result\ is\ true\ if\ and\ only\ if\ the\ argument\ is\ not\ null\ and\ is\ an\ Person-object\ \r\n\ that\ contains\ the\ same\ values\ for\ vorname,\ nachname\ as\ this\ object\r\n
+comment16.params=fehler\ meldung
+comment16.target=void\ checkArgument(boolean,\ java.lang.String)
+comment16.text=\r\n\ \ \ \ wirft\ bei\ Fehlersituation\ eine\ IllegalArgumentException\r\n\ \ \ \ \r\n\ \ \ \ \r\n\ \ \ \ @param\ \ fehler\ \ ->\ true\ \ \=\=\ Fehlersituation\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ->\ false\ \=\=\ KEINE\ Fehlersituation\r\n\ \ \ \ @param\ \ meldung\ ->\ Fehlermeldungstext\ zur\ Fehlersituation\r\n
+comment2.params=artikelNr\ bezeichnung
+comment2.target=Artikel(int,\ java.lang.String)
+comment2.text=\r\n\ \ \ \ Der\ (Teil-)Konstruktor\ mit\ 2\ Parametern;\r\n\ \ \ \ der\ Artikelbestand\ wird\ auf\ den\ Standardwert\ 0\ gesetzt.\r\n\ \ \ \ \r\n\ \ \ \ @param\ artikelNr\ \ \ \ die\ Artikelnummer\ des\ neue\ Artikels\ -->\ \ es\ gilt\ \:\ 1000\ &lt\=\ Nummer\ &lt\=\ 9999\r\n\ \ \ \ @param\ bezeichnung\ \ die\ Bezeichnung\ des\ neue\ Artikels\ \ -->\ darf\ nicht\ LEER\ sein\ \ \ \ \ \ \r\n\ \ \r\n
+comment3.params=
+comment3.target=int\ getArtikelNr()
+comment3.text=\r\n\ \ \ \ gibt\ Artikel-Attribut\ \:\ artikelNr\ zurueck\r\n\ \ \ \ \r\n\ \ \ \ @return\ \ \ \ Artikel-Nummer\r\n
+comment4.params=artikelNr
+comment4.target=void\ testeArtikelNr(int)
+comment4.text=\r\n\ \ \ \ Testet\ Artikel-Attribut\ \:\ artikelNr\ auf\ gueltig\r\n\ \ \ \ \r\n\ \ \ \ wirft\ bei\ Ungueltiger\ Artikelnummer\ ein\ RuntimeException\r\n
+comment5.params=
+comment5.target=double\ getPreis()
+comment5.text=\r\n\ \ \ \ gibt\ Artikel-Attribut\ \:\ preis\ zurueck\r\n\ \ \ \ \r\n\ \ \ \ @return\ \ \ \ Artikel-Preis\r\n
+comment6.params=neuerPreis
+comment6.target=void\ setPreis(double)
+comment6.text=\r\n\ \ \ \ setzt\ Artikel-Attribut\ \:\ \ preis\r\n\ \ \ \ \r\n\ \ \ \ @param\ preis\ \ \ \ neuer\ preis\ \ \ -->\ muss\ >\=\ 0.0\ sein\ \!\!\!\r\n
+comment7.params=
+comment7.target=java.lang.String\ getBezeichnung()
+comment7.text=\r\n\ \ \ \ gibt\ Artikel-Attribut\ \:\ bezeichnung\ zurueck\r\n\ \ \ \ \r\n\ \ \ \ @return\ \ \ \ Artikel-Bezeichnung\r\n
+comment8.params=bezeichnung
+comment8.target=void\ setBezeichnung(java.lang.String)
+comment8.text=\r\n\ \ \ \ setzt\ Artikel-Attribut\ \:\ \ bezeichnung\r\n\ \ \ \ \r\n\ \ \ \ @param\ bezeichnung\ \ \ \ neue\ Bezeichnung\ \ \ -->\ darf\ nicht\ LEER\ sein\ \r\n
+comment9.params=
+comment9.target=java.lang.String\ getBeschreibung()
+comment9.text=\r\n\ \ \ \ erzeugt\ einen\ Beschreibungs-String,\ der\ eine\ Kurzbeschreibung\r\n\ \ \ \ des\ Artikels\ beinhaltet\r\n\r\n\ \ \ \ @return\ eine\ Kurzbeschreibung\ des\ Artikels\r\n\ \ \ \ \r\n
+numComments=17

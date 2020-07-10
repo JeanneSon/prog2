@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <limits.h>
+int main (void){
+	printf("char : min = %d ; max = %d.\n", SCHAR_MIN, SCHAR_MAX);
+	printf("short : min = %d ; max = %d.\n", SHRT_MIN, SHRT_MAX);
+	printf("int : min = %d ; max = %d.\n", INT_MIN, INT_MAX);
+	printf("unsigned char : min = 0 ; max = %u.\n", UCHAR_MAX);
+	printf("unsigned short : min = 0 ; max = %u.\n", USHRT_MAX);
+	printf("unsigned int : min = 0 ; max = %u.\n", UINT_MAX);
+	return 0;
+}

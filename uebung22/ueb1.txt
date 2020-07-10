@@ -1,0 +1,17 @@
+#include <stdio.h>
+#define MEHRWERTSTEUER 1.20; 
+#define SKONTO 0.02;
+int main(void){
+	double netto, brutto, rechnung;
+	printf("Bitte geben Sie den Nettopreis ein"); 
+	scanf("%e", &netto);
+	brutto = netto * MEHRWERTSTEUER;
+	rechnung = brutto * SKONTO;
+	
+	//Ausgabe
+	printf("Nettopreis\t Euro %e \n +20% MwSt \t Euro %e", netto, brutto);
+	printf("=========================");
+	printf("Brttopreis\t Euro %e \n -2% Skonto \t Euro %e", brutto, rechnung);
+	printf("=========================");
+	printf("Rechnungsbetrag \t Euro %e", rechnung);
+}

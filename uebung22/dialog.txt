@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+#define MEHRWERTSTEUER 1.20; 
+#define SKONTO 0.02;
+
+int ueb1 (void)
+{
+	double netto, brutto, rechnung;
+	printf("Bitte geben Sie den Nettopreis ein"); 
+	scanf("%e", &netto);
+	brutto = netto * MEHRWERTSTEUER;
+	rechnung = brutto * SKONTO;
+	
+	//Ausgabe
+	printf("Nettopreis\t Euro %e \n +20% MwSt \t Euro %e", netto, brutto);
+	printf("=========================");
+	printf("Brttopreis\t Euro %e \n -2% Skonto \t Euro %e", brutto, rechnung);
+	printf("=========================");
+	printf("Rechnungsbetrag \t Euro %e", rechnung);
+	return 0;
+}
+
+int ueb2 (void)
+{
+	int n, i=0,result=1,prevresult=1;;
+	scanf("%d", &n);
+	while(i<n-1){
+		int temp=result;
+		result = result + prevresult;
+		prevresult = temp;
+		++i;
+		printf"%d", result);
+	}
+	return 0;
+}
+
+int ueb3 (void)
+{
+	printf("char : min = %d ; max = %d.\n", SCHAR_MIN, SCHAR_MAX);
+	printf("short : min = %d ; max = %d.\n", SHRT_MIN, SHRT_MAX);
+	printf("int : min = %d ; max = %d.\n", INT_MIN, INT_MAX);
+	printf("unsigned char : min = 0 ; max = %u.\n", UCHAR_MAX);
+	printf("unsigned short : min = 0 ; max = %u.\n", USHRT_MAX);
+	printf("unsigned int : min = 0 ; max = %u.\n", UINT_MAX);
+	return 0;
+}
+
+int menuAnzeige(void)
+{
+     int auswahl;
+      
+     printf("---Menu---\n\n");
+     printf("1.ueb1\n");
+     printf("2.ueb2\n");
+     printf("3.ueb3\n");
+     printf("\nIhre Auswahl?\n\n");
+     scanf("%d", &auswahl);
+     return auswahl;
+	
+}
+int main(int argc, char *argv[])
+{
+    switch(menuAnzeige())
+    {
+                     case 1:
+                          printf("");
+			  ueb1();
+                          break;
+                     case 2:
+                          printf("");
+			  ueb2();
+                          break;
+                     case 3:
+                          printf("");
+			  ueb3();
+                          break;   
+                     default:
+                             printf("schlechte Wahl!");
+                             break;
+    }
+     
+  system("PAUSE"); 
+  return 0;
+}
